@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="imagetoolbar" content="no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>POLO RALPHLAUREN</title>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/hiun/NanumSquare/master/nanumsquare.css">
+    <link rel="stylesheet" href="common.css">
+    <style>
+        
+        body,html{clear: both; position: relative;}
+        /***** 사이드 메뉴 *****/
+        .collap{position: fixed; top: 0; right: -110%; z-index: 80; background-color: rgb(0, 40, 86,0.9); width: 100vw; height: 100vh; padding-top: 90px; box-sizing: border-box; transition: 0.7s;}
+        .collap.on{right: 0;}
+        .collap li{clear: both; position: relative;}
+        .collap li a{display: block; height: 32px; }
+        .collap li a.dep1{color: #ccc; line-height: 3; padding-left: 3em; height: 42px; font-size: 1.2rem; font-weight: bold;}
+        .collap li a.dep1:after{content: '▼'; position: absolute; left: 70%;}
+        .collap li.on a.dep1:after{content: '▲'; }
+        .collap li ul.dep2{opacity: 1; width: 100%; height: auto; background: transparent; position: static; display: none;}
+        .collap li.on ul.dep2{display: block;}
+        .collap li ul.dep2 li{line-height: 2; }
+        .collap li ul.dep2 li a{color: #333; font-size: 1rem;}
+        
+        /***** 헤더 영역 *****/
+        .hd{clear: both; position: fixed; top: 0; left: 0; z-index: 90; width: 100%; height: 70px; /*background-color: rgba(0,0,0,1);*/ transition: 0.5s; background-color: rgba(0,0,0,0)}
+        .hd.on{background-color: rgba(200,160,0,0.8);}
+        .hd.off{top: -120px;}
+        
+        .logo{display: block; width: 250px; height: auto; float: left; margin-left: 3em; margin-top: 1.7em; }
+        .logo img{display: block; width: 100%;}
+        .gnb{float: left; margin-left: 4em;}
+        .gnb li{float: left; width: 140px; position: relative;}
+        .gnb li a{display: block; text-align: center; padding: 1em; line-height: 2.2; font-size: 1.2em; }
+        .gnb li a.dep1{color: #fff; background-color: transparent;}
+        .gnb li:hover a.dep1{background-color: #002856; color: #f5c400;}
+        
+        .dep2{width: 100%; height: 0; visibility: hidden; opacity: 0; position: absolute;}
+        /*
+        visibility: hidden ; 눈에는 안보이지만 영역은 존재
+        display: none ; 눈에도 보이지 않고 영역(공간)도 존재하지 않음
+        */
+        .gnb li:hover .dep2{visibility: visible; opacity: 1; height: auto;}
+        .dep2 li{clear: both;}
+        .dep2 li a{color: #333; padding: 0.5em; background-color: #fff; font-size: 0.9em;}
+        .dep2 li a:hover{background: #f5c400; color: #002856;}
+        
+        .lang{position: absolute; display: block; top: 0.5em; right: 18%; width: 130px; height: 42px; border: 2px solid #fff; color: #fff; z-index: 99; line-height: 3;}
+        .lang.on{height: 106px;}
+        .this_lang{display: block; width: 130px; color: #fff; line-height: 2.4; padding: 0.5em; cursor: pointer; background-image: url(image/lang_icon.png); background-repeat: no-repeat; background-position: 1em center;}
+        .this_lang:after{content: "▼"; position: absolute; right: 1em;}
+        .this_lang.on:after{content: "▲"}
+        .lang_list{display: block; height: 0; overflow: hidden; transition: 0.6s;}
+        .lang_list.on{height: 64px; }
+        .lang_list li{clear: both; line-height: 32px; text-indent: 0.8rem;}
+        .lang_list a{display: block; color: #fff; width: 130px;}
+        
+        
+        .lst_btn{position: absolute; top: 0.5em; right: 2%; width: 48px; height: 48px; border: 2px solid #fff; cursor: pointer; box-sizing: border-box; z-index: 99;}
+        .lst_btn .line{display: block; height: 2px; background-color: #fff; position: absolute; top: 0.5em; right: 0.5em; transition: 0.4s; z-index: 99; transform: rotate(0deg);}
+        .lst_btn .item1{width: 20px; top: 1.5em;}
+        .lst_btn .item2{width: 30px; top: 0.7em;}
+        .lst_btn:hover .item1{width: 30px;}
+        .lst_btn:hover .item2{width: 20px;}
+        .lst_btn.on .item1{width: 30px; transform: rotate(45deg); top: 23px;}
+        .lst_btn.on .item2{width: 30px; transform: rotate(-45deg); top: 23px;}
+        
+        
+        /***** 섹션1 *****/
+        .vs1{width: 100vw; height: 100vh; position: relative; clear: both;}
+        .vs_lst{width: 400%; height: 100vh;}
+        .vs_lst li{width: 25%; float: left; height: 100vh; background-repeat: no-repeat; background-size: cover; background-position: center center;}
+        .vs_lst li.on{opacity: 1;}
+        .vs_lst li.item1{background-image: url(images/Fall_W_BLP_APAC_V1-09.jpg);}
+        .vs_lst li.item2{background-image: url(images/page1_polosports.jpg)}
+        .vs_lst li.item3{background-image: url(images/main_vs_04.jpg)}
+        .vs_lst li.item3 h3{color: pink; font-size: 6em;}
+        .vs_lst li.item3 p{margin-top: 2em;}
+        .vs_tit{font-size: 7em; color: #fff; margin-left: 150px; transition: 0.5s; opacity: 0;}
+        .vs_tit span{font-size: 0.7em;}
+        .vs_com{font-size: 3em; font-weight: bold; color: #fff; margin-top: 1em; margin-left: 160px; transition: 0.5s; opacity: 0;}
+        .vs_more{display: block; font-size: 1.4em; color: #fff; margin-left: 160px; border: 3px solid #fff; width: 200px; padding: 0.5em 2em; border-radius: 50px; transition: 0.5s; /*opacity: 0;*/ position: relative;}
+        .more_arrow{display: block; width: 39px; height: 5px; background-image: url(image/main_btn_arrow.png); background-repeat: no-repeat; position: absolute; top: 0.8em; right: 30px; animation: arrow_ani 2s ease-in-out infinite;}
+       
+        
+        @keyframes arrow_ani{
+            0%{right: 60px;}
+            50%{right: 30px;}
+            100%{right: 60px;}
+        }
+        
+        .btn_box1{width: 60px; height: 24px; position: absolute; z-index: 25; left: calc(50% - 30px); bottom: 30px;}
+        .btn_box1 li{width: 20px; height: 20px; position: absolute; text-align: center;}
+        .btn_box1 li.item1{left: 0;}
+        .btn_box1 li.item2{left: 20px;}
+        .btn_box1 li.item3{left: 40px;}
+        .btn_box1 li .btn{width: 10px; height: 10px; border: 2px solid #fff; border-radius: 6px; cursor: pointer; box-sizing: border-box; background: transparent;}
+        .btn_box1 li.on .btn{background: #fff;}
+        
+        .play_btn{position: absolute; bottom: 22px; left: calc(50% + 30px ); width: 20px; height: 24px; z-index: 25;}
+        .play_btn li .btn{display: block; width: 12px; height: 12px; background-image: url(image/slick_play.png); background-repeat: no-repeat;margin: 0 auto; border: 0;}
+        
+        .play_btn li.on .btn{background-image: url(image/slick_stop.png);}
+        
+        /***  page2 영역  ***/
+        .vs_lst2{width: 800%; height: 100vh; position: relative;}
+        .vs_lst2 li{width: 12.5%; float: left; height: 100vh; background-repeat: no-repeat; background-position: center center; background-size: cover; opacity: 1;}
+        .vs_lst2 li.item1{background-image: url(images/vs2_earth.jpg);}
+        .vs_lst2 li.item2{background-image: url(images/vs2_rl50.jpg);}
+        .vs_lst2 li.item3{background-image: url(images/vs2_purplelabel2.jpg);}
+        .vs_lst2 li.item4{background-image: url(images/vs2_poloralphlaren.jpg);}
+        .vs_lst2 li.item5{background-image: url(images/vs2_denim.png);}
+        .vs_lst2 li.item6{background-image: url(images/vs2_time.jpg);}
+        .vs_lst2 li.item7{background-image: url(images/vs2_outer.jpg);}
+        .tit_box{color: #fff; }
+        .tit_box a{color: #fff; }
+        .vs_lst2 li.on{opacity: 1;}
+        /* page1 타이틀 */
+        .vs_lst li.on .vs_tit{padding-top: 8rem; opacity: 1;}
+        .vs_lst li.on .vs_com{padding-top: 2.8rem; opacity: 1;}
+        .vs_lst li.on .vs_more{margin-top: 5rem; opacity: 1;}
+        /* page2 타이틀 */
+        .vs_lst2 li.on .vs_tit{padding-top: 15rem; opacity: 1;}
+        .vs_lst2 li.on .vs_com{padding-top: 2.8rem; opacity: 1; width: 700px;}
+        .vs_lst2 li.on .vs_more{margin-top: 3rem; opacity: 1;}
+        .vs_lst2 li.item2 .tit_box{padding-left: calc(50% - 550px); padding-top: 4%;}
+        
+        
+        /* page2 하단버튼 */
+        .lr_btn_box{position: absolute; bottom: 0; left: 0; z-index: 25;}
+        .lr_btn_box li{float: left; width: 60px; height: 60px; border-left: 1px solid #eecc00; border-right: 1px solid #aa9900;}
+        .lr_btn{display: block; width: 60px; height: 60px; background-repeat: no-repeat; background-position: center center; background-color: #ccaa00; cursor: pointer;}/* button태그는 인라인. 링크 없음*/
+        .lr_btn_box li.left .lr_btn{background-image: url(image/arrow_slick_prev.png);}
+        .lr_btn_box li.right .lr_btn{background-image: url(image/arrow_slick_next.png);}
+        
+        .btn_box2{position: absolute; bottom: 0; left: 122px; width: 3000px; height: 59px; border-top: 1px solid #ccaa00;}
+        .btn_box2 li{float: left; }
+        .btn_box2 li button{display: block; width: 300px; height: 59px; color: #ca0; font-size: 16px; font-weight: bold; border-right: 1px solid #aa9900; cursor: pointer;}
+        .btn_box2 li.on button{color: #fff; font-size: 20px; }
+        
+        /* page3 */
+        
+        #page3{width: 100vw; height: 1000px; background-color: #002856; position: relative;}
+        #vd1{display: block; width: 100%; height: auto; margin-top: 125px; height: auto; border-top: 10px solid #ccaa00; border-bottom: 10px solid #ccaa00;}
+        #vd2{display: none; width: 100%; height: auto; margin-top: 125px; height: auto; border-top: 10px solid #ccaa00; border-bottom: 10px solid #ccaa00;}
+        .txtT{position: absolute; top: 0; left: calc(50% - 120px); color: #fff; font-size: 4em; margin-top: 1%;}
+        .txtB{position: absolute; bottom: 0; left: calc(50% - 350px); color: #fff; font-size: 1.4em; margin-bottom: 3%; text-align: center;}
+        .page_wrap{width: 100%; }
+        #page3 .page_wrap.on .vs_tit{padding-top: 6em; opacity: 1;}
+        #page3 .page_wrap.on .vs_com{padding-top: 2em; opacity: 1;}
+        #page3 .page_wrap.on .vs_more{margin-top: 1.2em; opacity: 1;}
+        
+        /* page4 */
+        .thum_lst{width: 100%; height: 100%;}
+        .thum_lst li{width: 33.3333333%; height: 100%; float: left; background-repeat: no-repeat; background-position: center center; background-size: cover; position: relative;}
+        .thum_lst li.item1{background-image: url(images/purplelabel.png)}
+        .thum_lst li.item2{background-image: url(images/earth.png)}
+        .thum_lst li.item3{background-image: url(images/store.png)}
+        .thum_tit{color: #fff;}
+        .thum_com{color: #fff;}
+        .thum_lst li a{display: block; width: 100%; height: 100%; background: rgba(0,0,0,0.5); transition: 0.5s; padding-top: 6rem; box-sizing: border-box;}
+        .thum_lst li a:hover{background: rgba(0,0,0,0);}
+        .thum_lst li .pic_box{clear: both; display: block; width: 170px; height: 170px; background-repeat: no-repeat; background-position: center center; background-color: rgba(255,255,255,0.6);  border-radius: 60%; margin: 0 auto; position: absolute; top: 15%; left: calc(50% - 85px);}
+        .thum_lst li.item1 .pic_box{background-image: url(images/jacket_icon_main.png); }
+        .thum_lst li.item2 .pic_box{background-image: url(images/earth_icon_main.png);}
+        .thum_lst li.item3 .pic_box{background-image: url(images/store_icon_main.png);}
+        .thum_tit{text-align: center; font-size: 4rem; line-height: 3; position: absolute; top: 35%; width: 100%; left: 0;}
+        .thum_com{text-align: center; font-size: 1.5rem; position: absolute; top: 50%; width: 100%; left: 0;}
+        
+        /* 푸터영역 */
+        .ft{clear: both; background-color: #222; padding: 3rem 0;}
+        .fnb{width: 90%; margin: 0 auto;}
+        .fnb li{float: left;}
+        .fnb li a{display: block; color: #fff; padding: 1rem 3rem 0 0;}
+        .fnb li a:hover{text-decoration: underline; color: #f5c400;}
+        .company{clear: both; width: 90%; margin: 0 auto; padding-top: 1rem; word-break: break-all;}
+        .company li{color: #fff; padding-right: 2rem;}
+        .company li.it1{float: left; clear: none; padding-right: 2rem;}
+        .com_lst li{float: left; line-height: 2; font-size: 0.85rem; }
+        .copyright{clear: both; color: #fff; padding-left: 5%; padding-top: 1em;}
+        
+        
+        
+        @media screen and (max-width:767px){
+            /*모바일 사이즈*/
+            .logo{width: 150px; left: 0; margin-left: 3%;}
+            .gnb{display: none;}
+
+            
+            /* page1*/
+            .vs1 .vs_tit{font-size: 5em; margin-left: 10%; font-size: 4em; margin-top: -10%;}
+            .vs1 .item3 .vs_tit{font-size: 5em; margin-left: 10%; font-size: 4em;}
+            .vs1 .vs_com{margin-left: 10%; font-size: 1em; line-height: 2.5em;}
+            .vs1 .vs_more{margin-left: 10%; border: 3px solid #fff; width: 150px; margin-top: -50%;}
+  
+            /*page2 button2 */
+            .btn_box2 li button{width: 120px;font-size: 12px;}
+            .btn_box2 li.on button{font-size: 14px;}
+            .vs2 .vs_lst2 li .vs_tit{margin-left: 7%; margin-top: -15%; font-size: 4em;}
+            .vs2 .vs_lst2 .item2 .vs_tit{margin-left: 7%;margin-top: 10%; font-size: 4em;}
+            .vs2 .vs_lst2 li .vs_com{margin-left: 7%; font-size: 1.4em; width: 300px;}
+            .vs2 .vs_lst2 li .vs_more{margin-left: 7%; width: 150px; margin-top: 15%;}
+
+
+            
+            /*page3*/
+            #page3{height: 750px;}
+            .txtT{top: 20px;}
+            .txtB{width: 350px; left: calc(50% - 175px); top: calc(100% - 100px);font-size: 1em;}
+            #vd1{display: none;}
+            #vd2{display: block;}
+             
+
+            /*page4*/
+            .thum_lst li{width: 100%;height: 33.33333%; float: none;clear: both;}
+            .thum_lst li .pic_box { left:10%; }
+            .thum_tit{width: auto;left: 50%; top: 17%;}
+            .thum_com{width: auto;left: 50%; top: 55%;}
+        .thum_lst li .pic_box{clear: both; display: block; width: 100px; height: 100px; background-repeat: no-repeat; background-position: center center; background-color: rgba(255,255,255,0.6);  border-radius: 60%; margin: 0 auto; position: absolute; top: 30%; }
+        .thum_tit{font-size: 1.5em}
+        .thum_com{width: 150px; font-size: 1em; margin-top: -7%;}
+            
+            
+        }
+           
+        
+        
+        
+        @media screen and (min-width:768px) and (max-width:1280px) {
+            /* 저해상도 데스크탑 및 태블릿*/
+            .gnb{display: none;} 
+            .thum_lst li{width: 33.33333%; height: 100%; float:left; clear:none;}
+            .thum_lst .pic_box{left: calc(50% - 60px);}
+            .thum_tit{left: 0;top: 35%;width: 100%;}
+            .thum_com{left: 0;width: 100%;}
+            /* page1*/
+            .vs1 .tit_box{margin-top: 15%;}
+            .vs1 .vs_tit{font-size: 5em; margin-left: 10%;}
+            .vs1 .vs_com{font-size: 2em; width: 700px; margin-left: 10%;}
+            .vs1 .vs_more{margin-left: 10%;}
+            /*page2 button2 */
+            .btn_box2 li button{width: 300px;}
+            
+            /*page2 button2 */
+            .vs2 .vs_lst2 li .vs_tit{margin-left: 7%; font-size:5em;}
+            .vs2 .vs_lst2 .item2 .tit_box{margin-top: calc(50% - 300px);}
+            .vs2 .vs_lst2 .item2 .vs_tit{ font-size: 7em;}
+            .vs2 .vs_lst2 .item2 .vs_com{margin-top: -3%; font-size: 4em;}
+            .vs2 .vs_lst2 .item2 .vs_more{margin-top: 7%;}
+            .vs2 .vs_lst2 li .vs_com{font-size: 2em; margin-left: 7%; font-size:; width: 600px;}
+            .vs2 .vs_lst2 li .vs_more{margin-left: 7%; width: 200px; margin-top: 15%;}
+            
+            /*page3*/
+            #page3{height: 1250px;}
+            .txtT{top: 20px;}
+            .txtB{width: 600px; left: calc(50% - 300px); top: calc(100% - 100px);font-size: 1.2em;}
+            #vd1{display: none;}
+            #vd2{display: block;}
+            
+            /*page4*/
+            .thum_tit{font-size: 2em;}
+            .thum_com{width: 200px; left: calc(50% - 100px);}
+            
+        }
+        
+        
+            @media screen and (min-width:1281px){
+                /* 고해상도 데스트탑*/
+            .gnb{display: block;} 
+            /*page4*/
+            .thum_lst li{width: 33.33333%;height: 100%; float:left;clear:none;}
+            .thum_lst .pic_box{left: calc(50% - 60px);}
+            .thum_tit{left: 0;top: 35%; width: 100%;}
+            .thum_com{left: 0; width: 100%;}
+            /* page1 */
+            .vs_tit{padding-left: 50px;}
+            .vs_com{padding-left: 50px;}
+            .vs_more{margin-left: 200px;}
+                
+            /* page2 */
+            
+            /*page2 button2 */
+            .btn_box2 li button{width: 300px;}
+            #vd1{display: block;}
+            #vd2{display: none;}
+            }
+        
+        
+        
+        
+    </style>
+   
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script>
+        $(document).ready(function(){ /* 이 문서가 시작되면*/
+           var ck1=true, ck2=true; // true 라는 값을 ck1이라는 변수에 저장하십시오.
+            // 토글버튼(선택) 클릭해서(동작) 펼침메뉴(선택) 열기/닫기(동작) 모션
+            // $("선택자").메소드(function(){})
+               $(".lst_btn").click(function(){
+                   //if(조건문=참){참일시 실행문}else{거짓일때 실행문}
+                     if(ck1){
+                         $(".collap").addClass("on");    // 펼침 메뉴에 on이라는 클래스를 추가해라 (on - right:0)
+                         $(".lst_btn").addClass("on");   // X자 모양
+                     }else{
+                         $(".collap").removeClass("on");
+                         $(".lst_btn").removeClass("on");
+                     }
+                   ck1=!ck1;  // true=false
+               });
+             // 펼침메뉴의 대메뉴 클릭해서 서브메뉴 열기
+            $(".collap li").click(function(){
+                $(".collap li").removeClass("on");  // display: block을 제거해라  --> 보이지 않게 해라
+               // $(this).addClass("on");    // display: block   this는 "내가 클릭한" 
+            });
+            
+            // 언어 선택메뉴 모션
+            // 한국어 박스를 클릭하면 .lang_list(en,jp)가  height: 0 --> height: 64px
+            $("this_lang").click(function(){
+                if(ck2){
+                    $(".lang_list").addClass("on");
+                    $(".lang").addClass("on"); // h:106px 
+                    $(this).addClass("on"); // ▲
+                }else{
+                    $(".lang_list").removeClass("on");
+                    $(".lang").removeClass("on");
+                    $(this).removeClass("on");
+                }
+                ck2=!ck2;
+            });
+            //스크롤시 메인 메뉴 모션    
+       $(window).scroll(function(){
+          var sc_top = parseInt($("body, html").scrollTop());
+            if(sc_top>=500 && sc_top<1200){
+                $(".hd").addClass("on");
+                $(".hd").removeClass("off");
+            } else if(sc_top>=1200) {
+                $(".hd").removeClass("on");
+                $(".hd").addClass("off");                      
+            } else {
+                $(".hd").removeClass("on");
+                $(".hd").removeClass("off");
+            } 
+       }); 
+        //패럴럭스 스크롤링
+        var wh = $(window).height();
+        var wd = $(window).width();
+        $(".sc_data").each(function(index){
+            $(this).attr("data-val", index*wh);
+        });
+        $(".sc_data").on("mousewheel DOMMouseScroll", function(e){
+            var secPos = parseInt($(this).attr("data-val"));
+            if(e.originalEvent.wheelDelta >= 0){
+                $("html, body").stop().animate({scrollTop:secPos - wh});
+                return false;
+            } else if(e.originalEvent.wheelDelta < 0) {
+                $("html, body").stop().animate({scrollTop:secPos + wh});
+                return false;
+            }
+        }); 
+        //page1 첫 번째 슬라이더
+        $(".btn_box1 li").click(function(i){
+            $(this).addClass("on");
+            $(this).siblings().removeClass("on");
+            var idx = $(this).index();
+            $(".vs_lst li").eq(idx).addClass("on");
+            $(".vs_lst li").eq(idx).siblings().removeClass("on");
+            $(".vs_lst").not(":animated").animate({"margin-left": idx*-1*wd});
+        });
+        
+        //page2 두 번째 슬라이더
+        var tar, tar_wd, tar_cnt;
+        tar_cnt = $(".vs_lst2 li").length;
+        tar_wd = parseInt($(".btn_fr2 li").width());
+
+        $(".btn_box2 li").click(function(e){
+            tar = $(this).index();        
+            for(var i=1;i<tar;i++){
+                $(".vs_lst2 li").eq(0).appendTo($(".vs_lst2"));
+                $(".btn_box2 li").eq(0).appendTo($(".btn_box2"));
+            }
+            nextAni();
+        });
+        function nextAni(){
+            $(".vs_lst2").not(":animated").animate({"margin-left":wd*-1}, 300, function(){
+                $(".vs_lst2 li").eq(0).appendTo($(".vs_lst2"));
+                $(".vs_lst2").css("margin-left", "0px");
+                $(".vs_lst2 li").eq(0).addClass("on");
+                $(".vs_lst2 li").eq(0).siblings().removeClass("on");
+                $(".btn_box2 li").eq(0).appendTo($(".btn_box2"));
+                $(".btn_box2 li").removeClass("on");
+                $(".btn_box2 li").eq(0).addClass("on");
+            });
+        }
+        function prevAni(){
+            $(".vs_lst2 li").eq(tar_cnt-1).prependTo($(".vs_lst2"));
+            $(".vs_lst2").css("margin-left", -wd+"px");
+            $(".vs_lst2").not(":animated").animate({"margin-left":"0px"}, 300, function(){
+                $(".vs_lst2 li").eq(0).addClass("on");
+                $(".vs_lst2 li").eq(0).siblings().removeClass("on");
+                $(".btn_box2 li").eq(tar_cnt-1).prependTo($(".btn_box2"));
+                $(".btn_box2 li").removeClass("on");
+                $(".btn_box2 li").eq(0).addClass("on");
+            });
+        }
+        $(".lr_btn_box li.left").click(function(){
+            prevAni();
+        });
+        $(".lr_btn_box li.right").click(function(){
+            nextAni();
+        });
+        });
+    </script>
+    
+</head>
+<body>
+
+    <nav class="collap">
+        <ul class="main_menu">
+            <li>
+                <a href="introduction.html#page1" class="dep1">RL50</a>
+                <ul class="dep2">
+                    <li><a href="introduction.html#page1">RL50</a></li>
+                    <li><a href="introduction.html#page2">RL50 RUNWAY</a></li>
+                    <li>
+                </ul>
+            </li>
+            <li>
+                <a href="research.html#page1" class="dep1">남성</a>
+                <ul class="dep2">
+                    <li><a href="research.html#page1">PURPLE LABEL</a></li>
+                    <li><a href="research.html#page2">POLO RALPH LAUREN</a></li>
+                    <li><a href="research.html#page3">POLO DENIM</a></li>
+                    <li><a href="research.html#page4">INDIGO STADIUM</a></li>
+                    <li><a href="research.html#page5">타임피스 &amp; 쥬얼리</a></li>
+                    <li><a href="research.html#page6">EARTH POLO</a></li>
+                    <li><a href="research.html#page7">OUTERWEAR</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="policy.html#page1" class="dep1">여성</a>
+                <ul class="dep2">
+                    <li><a href="policy.html#page1">RALPH LAUREN COLLECTION</a></li>
+                    <li><a href="policy.html#page2">POLO RALPH LAUREN</a></li>
+                    <li><a href="policy.html#page3">POLO DENIM</a></li>
+                    <li><a href="policy.html#page4">LAUREN</a></li>
+                    <li><a href="policy.html#page5">타임피스 &amp; 쥬얼리</a></li>
+                    <li><a href="policy.html#page6">BELLPORT BAG</a></li>
+                    <li><a href="policy.html#page7">EARTH POLO</a></li>
+                    <li><a href="policy.html#page8">OUTERWEAR</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="overview.html#page1" class="dep1">아동</a>
+                <ul class="dep2">
+                    <li><a href="overview.html#page1">POLO RALPH LAUREN</a></li>
+                    <li><a href="overview.html#page2">RALPH LAUREN BABY</a></li>    
+                    <li><a href="overview.html#page3">OUTERWEAR</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="news.html#page1" class="dep1">WORLD</a>
+                <ul class="dep2">
+                    <li><a href="news.html#page1">브랜드 스토리</a></li>
+                    <li><a href="news.html#page2">플래그십 스토어</a></li>
+                    <li><a href="news.html#page3">레스토랑</a></li>
+                    <li><a href="news.html#page4">RL STYLE</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <header class="hd">
+        <a href="index.html" class="logo"><img src="images/logo_white.png" alt="logo"></a>
+        <nav class="gnb">
+        <ul class="main_menu">
+            <li>
+                <a href="introduction.html#page1" class="dep1">RL50</a>
+                <ul class="dep2">
+                    <li><a href="introduction.html#page1">RL50</a></li>
+                    <li><a href="introduction.html#page2">RL50 RUNWAY</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="research.html#page1" class="dep1">남성</a>
+                <ul class="dep2">
+                    <li><a href="research.html#page1">PURPLE LABEL</a></li>
+                    <li><a href="research.html#page2">POLO RALPH LAUREN</a></li>
+                    <li><a href="research.html#page3">POLO DENIM</a></li>
+                    <li><a href="research.html#page4">INDIGO STADIUM</a></li>
+                    <li><a href="research.html#page5">타임피스 &amp; 쥬얼리</a></li>
+                    <li><a href="research.html#page6">EARTH POLO</a></li>
+                    <li><a href="research.html#page7">OUTERWEAR</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="policy.html#page1" class="dep1">여성</a>
+                <ul class="dep2">
+                    <li><a href="policy.html#page1">RALPH LAUREN COLLECTION</a></li>
+                    <li><a href="policy.html#page2">POLO RALPH LAUREN</a></li>
+                    <li><a href="research.html#page3">POLO DENIM</a></li>
+                    <li><a href="research.html#page4">LAUREN</a></li>
+                    <li><a href="research.html#page5">타임피스 &amp; 쥬얼리</a></li>
+                    <li><a href="research.html#page6">BELLPORT BAG</a></li>
+                    <li><a href="research.html#page7">EARTH POLO</a></li>
+                    <li><a href="research.html#page8">OUTERWEAR</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="overview.html#page1" class="dep1">아동</a>
+                <ul class="dep2">
+                    <li><a href="overview.html#page1">POLO RALPH LAUREN</a></li>
+                    <li><a href="overview.html#page2">RALPH LAUREN BABY</a></li>
+                    <li><a href="overview.html#page3">OUTERWEAR</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="news.html#page1" class="dep1">WORLD</a>
+                <ul class="dep2">
+                    <li><a href="news.html#page1">브랜드 스토리</a></li>
+                    <li><a href="news.html#page2">플래그십 스토어</a></li>
+                    <li><a href="news.html#page3">레스토랑</a></li>
+                    <li><a href="news.html#page4">RL STYLE</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+        <div class="lang">
+            <button class="this_lang">한국어</button>
+            <ul class="lang_list">
+                <li class="item1"><a href="index_en.html">English</a></li>
+                <li class="item2"><a href="index_jp.html">Japan</a></li> 
+            </ul>
+        </div>
+        <div class="lst_btn">
+            <span class="line item1"></span>
+            <span class="line item2"></span>
+        </div>
+    </header>
+    <section class="page sc_daata" id="page1">
+        <!--figure.vs1>ul.vs_list>li.item$*3>div.tit_box>h3.vs_tit+p.vs_com+a.vs_more>span.*2-->
+        <figure class="vs1">
+            <ul class="vs_lst">
+                <li class="item1 on">
+                    <div class="tit_box">
+                        <h3 class="vs_tit">LAUREN<br><span>RALPH LAUREN</span></h3>
+                        <p class="vs_com">FALL 2019<br><span>은은한 카멜 컬러와 생동감 넘치는 페이즐리 무늬가 <br>조화를 이룬 로렌의 가을 컬렉션을 만나보세요.</span></p>
+                        <a href="#" class="vs_more">
+                            <span class="more_txt">more</span>
+                            <span class="more_arrow"></span>
+                        </a>
+                    </div>
+                </li>
+                <li class="item2">
+                    <div class="tit_box">
+                        <h3 class="vs_tit">POLO SPORTS<br><span>RALPH LAUREN</span></h3>
+                        <p class="vs_com">11월 15일 오전 10시부터 일부 오프라인<br>스토어에서 만나볼 수 있습니다.</p>
+                        <a href="" class="vs_more">
+                            <span class="more_txt">more</span>
+                            <span class="more_arrow"></span>
+                        </a>
+                    </div>
+                </li>
+                <li class="item3">
+                    <div class="tit_box">
+                        <h3 class="vs_tit">LOVE IN PINK</h3>
+                        <p class="vs_com">암 퇴치 캠페인에 동참해 주세요<br><span>Pink Pony 컬렉션을 구매하면 <br>각 아이템 판매 가격의 25%가<br> 랄프 로렌 암 퇴치 프로그램에 기부됩니다.</span></p>
+                        <a href="" class="vs_more">
+                            <span class="more_txt">more</span>
+                            <span class="more_arrow"></span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <!--ul.btn_box1>li.btn_fr.item$*3>button.btn-->
+            <ul class="btn_box1">
+                <li class="btn_fr item1 on"><button class="btn"></button></li>
+                <li class="btn_fr item2"><button class="btn"></button></li>
+                <li class="btn_fr item3"><button class="btn"></button></li>
+            </ul>
+            <!--ul.play_btn>li.item4>button-->
+            <ul class="play_btn">
+                <li class="item4"><button class="btn"></button></li>
+            </ul>
+        </figure>
+    </section>
+    <section class="page sc_daata" id="page2">
+        <figure class="vs2">
+            <ul class="vs_lst2">
+                <li class="item1 on">
+                    <div class="tit_box">
+                        <h3 class="vs_tit"><span>랄프로렌의 약속</span></h3>
+                         <p class="vs_com">1억 7천만 개의<br><span>플라스틱 병을 2025년까지 재활용</span></p>
+                        <a href="" class="vs_more">
+                        <span class="more_txt">more</span>
+                        <span class="more_arrow"></span>
+                        </a>
+                    </div>
+                </li>
+                <li class="item2">
+                    <div class="tit_box">
+                        <h3 class="vs_tit">RL50 YEARS</h3>
+                        <p class="vs_com">THE 50TH ANNIVERSARY SHOW</p>
+                        <a href="" class="vs_more">
+                        <span class="more_txt">more</span>
+                        <span class="more_arrow"></span>
+                        </a>
+                    </div>
+                </li>
+                <li class="item3">
+                    <div class="tit_box">
+                        <h3 class="vs_tit">THE HOLIDAY<br>COLLECTION</h3>
+                        <p class="vs_com">매력저인 데이타임 수트, 우아한 이브닝웨어, 이퀘스트리안 스포츠웨어까지 기품 있는 색감과 텍스처를 더했습니다</p>
+                        <a href="" class="vs_more">
+                        <span class="more_txt">more</span>
+                        <span class="more_arrow"></span>
+                        </a>
+                    </div>
+                </li>
+                <li class="item4">
+                    <div class="tit_box">
+                        <h3 class="vs_tit">HOLIDAY</h3>
+                        <p class="vs_com">알프스에서 영감을 받은 랄프로렌의 러기드한 클래식 아이콘들을 만나보세요</p>
+                        <a href="" class="vs_more">
+                        <span class="more_txt">more</span>
+                        <span class="more_arrow"></span>
+                        </a>
+                    </div>
+                </li>
+                <li class="item5">
+                    <div class="tit_box">
+                        <h3 class="vs_tit">WEAR YOUR STORY</h3>
+                        <p class="vs_com">오랫동안 즐겨 입을 수 있는 데님은 당신의 
+                        이야기를 담고 있습니다</p>
+                        <a href="" class="vs_more">
+                        <span class="more_txt">more</span>
+                        <span class="more_arrow"></span>
+                        </a>
+                    </div>
+                </li>
+                <li class="item6">
+                    <div class="tit_box">
+                        <h3 class="vs_tit">랄프 로렌의<br> 럭셔리 타임피스</h3>
+                        <p class="vs_com">흠잡을 데 없는 디자인과 독보적인 예슬성을 자랑하는 랄프로렌의 타임피스는, 스위스 마스터 장인의 수작업으로 탄생했습니다</p>
+                        <a href="" class="vs_more">
+                        <span class="more_txt">more</span>
+                        <span class="more_arrow"></span>
+                        </a>
+                    </div>
+                </li>
+                <li class="item7">
+                    <div class="tit_box">
+                        <h3 class="vs_tit">아우터웨어 샵</h3>
+                        <p class="vs_com">우아한 오버코트부터 실용적인 점퍼, 에센셜한 스타일의 액세서리까지 겨울 필수 아이템들을 만나보세요 </p>
+                        <a href="" class="vs_more">
+                        <span class="more_txt">more</span>
+                        <span class="more_arrow"></span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <!--ul.lr_btn_box>li.*2>button.lr_btn
+            div.btn_box2>ul.btn_fr2>li.lb_btn_fr.item$*7>button.lb_btn-->
+            <ul class="lr_btn_box">
+                <li class="left"><button class="lr_btn"></button></li>
+                <li class="right"><button class="lr_btn"></button></li>
+            </ul>
+            <div class="btn_box2">
+                <ul class="btn_fr2">
+                    <li class="lb_btn_fr item1"><button class="lb_btn">EARTH POLO</button></li>
+                    <li class="lb_btn_fr item2"><button class="lb_btn">RL50</button></li>
+                    <li class="lb_btn_fr item3"><button class="lb_btn">PURPLE LABEL</button></li>
+                    <li class="lb_btn_fr item4"><button class="lb_btn">POLO RALPH LAUREN</button></li>
+                    <li class="lb_btn_fr item5"><button class="lb_btn">POLO DENIM</button></li>
+                    <li class="lb_btn_fr item6"><button class="lb_btn">타임피스 &amp; 쥬얼리</button></li>
+                    <li class="lb_btn_fr item7"><button class="lb_btn">OUTERWEAR</button></li>
+                </ul>
+            </div>
+        </figure>
+    </section>
+    <section class="page sc_data" id="page3">
+           <figure class="vdoBox">
+                <video src="images/hp_1366x500_desktop.mp4" id="vd1" autoplay loop muted></video>
+                <video src="images/hp_640x800_mobile.mp4" id="vd2" autoplay loop muted></video>
+            </figure>
+            <div>
+                <h3 class="txtT">HOLIDAY</h3>
+                <p class="txtB">알프스에서 영감을 받은 랄프 로렌의 러기드한 클래식 아이콘들을 만나보세요.<br>트래디셔널 타탄 패턴이 모든 순간에서 당신을 돋보이게 할 것입니다.</p>
+            </div>
+    </section>
+    <section class="page sc_daata" id="page4">
+        <!--ul.thum_lst>li.item$*3>a>div.pic_box+h3.thum_tit+thum_com-->
+        <ul class="thum_lst">
+            <li class="item1"><a href="">
+                    <div class="pic_box"></div>
+                    <h3 class="thum_tit">PURPLE LABEL</h3>
+                    <p class="thum_com">매력적인 데이타임 수트, 우아한 이브닝웨어,<br> 이퀘스트리안 스포츠웨어까지 기품 있는<br> 색감과 텍스처를 더했습니다.</p>
+                </a></li>
+            <li class="item2"><a href="">
+                    <div class="pic_box"></div>
+                    <h3 class="thum_tit">EARTH POLO</h3>
+                    <p class="thum_com">대자연의 의미를 담은 디자인.</p>
+                </a></li>
+            <li class="item3"><a href="">
+                    <div class="pic_box"></div>
+                    <h3 class="thum_tit">ONLINE STORE</h3>
+                    <p class="thum_com">공식 온라인 스토어를 통해 만나 보세요.</p>
+                </a></li>
+        </ul>
+    </section>
+    <footer class="ft">
+        <nav class="fnb">
+            <ul class="menu">
+                <li class="item1"><a href="">개인정보취급방침</a></li>
+                <li class="item2"><a href="">사용 약관</a></li>
+                <li class="item3"><a href="">About Ralph Lauren</a></li>
+                <li class="item4"><a href="">채용 정보</a></li>
+                <li class="item5"><a href="">고객지원부</a></li>
+            </ul>
+        </nav>
+
+        <p class="copyright">Copyright 2008-2019 Ralph Lauren&copy;</p>
+    </footer>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
