@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <title>한국수자원공사</title>
+    <link rel="stylesheet" href="common.css">
+    <style>
+        #page1{width: 100%; height: 100%; position: relative;}
+        .bg1{position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: -99; filter: brightness(0.8)}
+        .header{width: 100%; height: 90px; background-color: rgba(255, 255, 255,0.9); display: block;}
+        .logo{width: 200px; height: 100%; float: left; margin-left: 5%;}
+        .logo img{display: block; width: 121px; height: 54px; margin: 8% 10%;}
+        .gnb{width: 70%; height: 100%; float: left; z-index: 99;}
+        .gnb ul{width: 100%; height: 100%;}
+        .gnb li{float: left; display: block; width: 16.4444444%; height: 100%; text-align: center; line-height: 90px; }
+        .gnb li .dep1{font-size: 20px; color: #4c4c4c; font-weight: 600;}
+        .gnb li:hover .dep1{color: #002856; }
+        .gnb li .dep1:after{display: block; content: ""; width: 100%; height: 0px; background-color: #002856; margin-top: -3px; opacity: 0; transition: 0.5s;}
+        .gnb li:hover > .dep1:after{content: ""; width: 100%; height: 7px; background-color: #002856; opacity: 1; transition: 0.5s;}
+        .gnb .sub{width: 100%; height: 0; display: none; opacity: 0; transition: 1s;}
+        .gnb .sub li{width: 100%; height: 45px;  transition: 1s;}
+        .gnb .sub li a{display: block; line-height: 45px; color: #4c4c4c; font-weight: 550; font-size: 16px; }
+        .gnb .sub li a:hover{background-color: #002856; color: #fff; transition: 0.3s;}
+        .gnb:hover .sub{display: block; opacity: 1; width: 100%; height: 360px; background: rgba(238, 238, 238,0.9); transition: 1s;}
+        .gnb li:hover > .sub{background-color: #fff; transition: 0.4s;}
+        
+        .menuBox{width: 9%; height: 100%; display: block; float: right;margin-right: 2%;}
+        .search{width: 50%; height: 100%; padding-top: 35px; float: left;}
+        .search_box{display: block; width: 20px; height: 20px; margin: 0 auto; cursor: pointer;}
+        .search img{display: block; width: 20px; height: 20px;}
+        .menu{width: 50%; height: 100%; padding-top: 25px; float: right;}
+        .menu_box{display: block; width: 30px; height: 40px; margin: 0 auto; cursor: pointer;}
+        .menu .menuBarT{display: block; width: 20px; height: 2px; background: #4c4c4c; float: right;}
+        .menu .menuBarM{display: block; width: 15px; height: 2px; background: #4c4c4c; margin: 7px 0; float: right;}
+        .menu .menuBarB{display: block; width: 20px; height: 2px; background: #4c4c4c;float: right;}
+        
+        
+        #wrap1{clear: both; width: 1200px; height: 410px; margin: 0 auto;}
+        .mainTit{color: #fff; font-size: 40px; width: 600px; height: auto; margin-top: 15%; float: left; text-shadow: 0 0 10px #000}
+        .raItem1{display: none;}
+        .vsBox{float: right; width: 560px; height: 350px; margin-top: 5%; overflow: hidden; position: relative;}
+        .vsBox ul{width: 300%; height: 300px;}
+        .vsBox ul li{float: left; width: 560px; height: 350px;}
+        .vsBox ul li a{display: block; width: 560px; height: 350px; margin: 0 auto;}
+        .vsBox ul li a img{display: block; width: 560px; height: 350px;}
+        .vsBtn{position: absolute; width: 220px; height: 30px; bottom: 0; left: calc(50% - 110px);}
+        .vsBtn label{display: block; width: 30px; height: 8px; background-color: #ccc; float: left; margin-left: 10%; cursor: pointer;}
+        
+        
+        
+        #ra01:checked ~ .vsBox .vsBtn .vsBtn01{background-color: #002856; width: 60px; height: 8px; transition: 1s;}
+        #ra02:checked ~ .vsBox .vsBtn .vsBtn02{background-color: #002856; width: 60px; height: 8px; transition: 1s;}
+        #ra03:checked ~ .vsBox .vsBtn .vsBtn03{background-color: #002856; width: 60px; height: 8px; transition: 1s;}
+        
+        #ra01:checked ~ .vsBox ul{margin-left: 0; transition: 1s;}
+        #ra02:checked ~ .vsBox ul{margin-left: -560px; transition: 1s;}
+        #ra03:checked ~ .vsBox ul{margin-left: -1120px; transition: 1s;}
+        
+        
+        #wrap2{width: 1200px; height: auto; margin: 0 auto; overflow: hidden;} 
+        .icoFrame{width: 616px; height: 308px; float: left; margin-top: 5%;}
+        .icoFrame ul{width: 100%; height: 100%;overflow: hidden;}
+        .icoFrame ul li{width: 150px; height: 150px; float: left; position: relative; border: 2px solid transparent; }
+        
+        .icoFrame a{display: block; width: 100%; height: 100%; position: relative;  overflow: hidden; background: #fff; transition: 0.5s;} 
+        .icoFrame a:hover{box-shadow: 0 0 10px #000; transform: translateY(-10px); transition: 0.5s;}
+        .circle{position: absolute;top: -25%;left: -25%;z-index: 0}
+        .ico_img1,.ico_img2,.ico_img3,.ico_img4,.ico_img5,.ico_img6,.ico_img7,.ico_img8{position: absolute; z-index: 1;width: 100%;height: 100%;background-repeat: no-repeat; background-position: center 30px;}
+        .txt{position: absolute; z-index: 2; color: #000;}
+     
+        .icoFrame a .circle{width: 150%; height: 150%; background-color: transparent;border-radius: 50%; opacity: 0; transition: 0.7s;transform-origin: 50% 50%;transform: scale(0.1)}
+        .icoFrame a:hover .circle{background-color: #00a5ff; opacity: 1; transform: scale(1)}
+
+        .ico_img1{background-image: url(images/banner_ico1.png);}
+        .icoFrame a:hover .ico_img1{background-image: url(images/banner_ico1_on.png);}
+        .ico_img2{background-image: url(images/banner_ico2.png);}
+        .icoFrame a:hover .ico_img2{background-image: url(images/banner_ico2_on.png);}
+        .ico_img3{background-image: url(images/banner_ico8.png);}
+        .icoFrame a:hover .ico_img3{background-image: url(images/banner_ico8_on.png);}
+        .ico_img4{background-image: url(images/banner_ico3.png);}
+        .icoFrame a:hover .ico_img4{background-image: url(images/banner_ico3_on.png);}
+        .ico_img5{background-image: url(images/banner_ico10.png);}
+        .icoFrame a:hover .ico_img5{background-image: url(images/banner_ico10_on.png);}
+        .ico_img6{background-image: url(images/banner_ico4.png);}
+        .icoFrame a:hover .ico_img6{background-image: url(images/banner_ico4_on.png);}
+        .ico_img7{background-image: url(images/banner_ico5.png);}
+        .icoFrame a:hover .ico_img7{background-image: url(images/banner_ico5_on.png);}
+        .ico_img8{background-image: url(images/banner_ico7.png);}
+        .icoFrame a:hover .ico_img8{background-image: url(images/banner_ico7_on.png);}
+        .icoFrame .txt{display: block; text-align: center; width: 100%; height: auto; position: absolute; bottom: 20%; font-weight: 600; color: #4c4c4c;}
+        .icoFrame a:hover .txt{color: #fff;}
+        
+
+        .conBox{float: right; margin-top: 5%; width: 500px; height: 285px; padding: 10px 30px; border: 1px solid #fff; background-color: rgba(0, 0, 0,0.1);}
+        .raItem{display: none;}
+        .btnBox{width: 250px; height: 45px; margin-bottom: 15px;}
+        .btnBox label{width: 50%; height: 100%; float: left; line-height: 50px; cursor: pointer; text-indent: 20px; color: #aaa; font-weight: 550; font-size: 20px;}
+        .btnBox label:after{display: block; opacity: 0; content: ""; background-color: #fff; width: 20px; height: 2px; transition: 1s;}
+        .notice{width: 500px; height: 220px; padding-top: 10px;}
+        .notice a:hover{text-decoration: underline;}
+        .emp{width: 500px; height: 220px; padding-top: 10px;}
+        .emp a:hover{text-decoration: underline;}
+        .nTit{display: block; width: 76%; height: 30px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
+        .nTit a{color: #fff; font-size: 15px; line-height: 30px;}
+        .nDate{display: block; width: 20%; height: 30px;text-align: right; color: #fff;font-size: 15px; line-height: 30px; float: right; margin-top: -32px;}
+        
+        #ra1:checked ~ .btnBox .noBtn{color: #fff;}
+        #ra1:checked ~ .btnBox .noBtn:after{width: 125px; height: 2px; transition: 1s; opacity: 1;}
+        #ra2:checked ~ .btnBox .emBtn{color: #fff;}
+        #ra2:checked ~ .btnBox .emBtn:after{width: 125px; height: 2px; transition: 1s; opacity: 1;}
+        #ra1:checked ~ .emp{display: none;}
+        #ra2:checked ~ .notice{display: none;}
+
+        /******* 페이지 2 *******/
+        #page2{clear: both; width: 100%; height: 100%; background-image: url(images/sub_bg0.png); background-repeat: no-repeat; background-position: center center; background-size: cover;}
+        #wrap3{width: 100%; height: 830px;}
+        
+        .leftWrap{width: 28%; height: auto; float: left;}
+        .minIcon{width: 250px; height: 660px; margin: 80px 2%; float: right;}
+        .minIcon ul{width: 100%; height: 100%;}
+        .minIcon ul li{float: left; width: 50%; height: 25%; border: 2px solid transparent; box-sizing: border-box; position: relative; overflow: hidden;}
+        .minIcon ul li a{display: block; width: 100%; height: 100%; background-color: #fff; box-shadow: 0 0 2px #000; transition: 1.5s;}
+        .minIcon ul li a:hover{box-shadow: 0 0 2px #000;}
+        .minIcon .h_bg{position: absolute; top: 0; width: 100%; height: 100%; transition: 1s;  background-color: #fde44a; margin-top: 140%;}
+        .minIcon ul li a:hover .h_bg{width: 100%; height: 100%; opacity: 1; background-color: #fde44a;  z-index: 0; margin-top: 0;}
+        .minIcon ul li a img{position: absolute; top: 30%; left: 40%; display: block; z-index: 1;}
+        .minIcon ul li a p{position: absolute;  top: 60%; left: calc(50% - 50px); font-size: 14px; text-align: center; color: #4c4c4c; font-weight: 550; width: 100px; height: 50px;}
+        .minIcon ul li a:hover p{color: #4c4c4c; z-index: 1;}
+        
+        
+        
+
+        .midWrap{width: 38%; height: auto; float: left;}
+        
+        .conBox2{ width: 560px; height: 300px; background-color: #fff; position: relative; overflow: hidden; margin: 80px auto 0;}
+        .vs_banner{position: absolute; top: 0; left: 0; width: 400%; height: 100%;}
+        .vs_banner ul{width: 100%; height: 100%;}
+        .vs_banner ul li{float: left; width: 25%; height: 100%;}
+        .vs_banner img{width: 100%; height: 100%;}
+        
+        
+        .raItem3{display: none;}
+        .btnBox2{width: 200px; height: 30px; position: absolute; bottom: 0; left: calc(50% - 100px); z-index: 1;}
+        .btnBox2 label{display: block; float: left; width: 15px; height: 15px; background-color: #ccc; margin-left: 25px; cursor: pointer;}
+        
+        #ra5:checked ~ .btnBox2 .baBtn1{background-color: #002856;}
+        #ra6:checked ~ .btnBox2 .baBtn2{background-color: #002856;}
+        #ra7:checked ~ .btnBox2 .baBtn3{background-color: #002856;}
+        #ra8:checked ~ .btnBox2 .baBtn4{background-color: #002856;}
+        
+        #ra5:checked ~ .vs_banner ul{margin-left: 0; transition: 1s;}
+        #ra6:checked ~ .vs_banner ul{margin-left: -560px; transition: 1s;}
+        #ra7:checked ~ .vs_banner ul{margin-left: -1120px; transition: 1s;}
+        #ra8:checked ~ .vs_banner ul{margin-left: -1680px; transition: 1s;}
+        
+        
+        
+        .conBox3{width: 500px; height: 285px; padding: 10px 30px; background-color: #fff; margin: 50px auto 0;}
+        .new{width: 500px; height: 220px; padding-top: 10px;}
+        .raItem2{display: none;}
+        .video{width: 500px; height: 220px; padding-top: 10px; padding-left: 50px;}
+        .btnBox3{width: 250px; height: 45px; margin-bottom: 15px;}
+        .btnBox3 label{width: 50%; height: 100%; margin-top: 10px; float: left; line-height: 50px; text-indent: 10px; color: #aaa; font-weight: 550; font-size: 20px; cursor: pointer;}
+        .btnBox3 label:after{display: block; content: ""; background-color: #000; width: 20px; height: 2px; margin-top: -4px; transition: 1s; opacity: 0;}
+        .new a:hover{text-decoration: underline;}
+        .nTit2{display: block; width: 76%; height: 30px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
+        .nTit2 a{color: #000; font-size: 15px; line-height: 30px;}
+        .nDate2{display: block; width: 20%; height: 30px;text-align: right; color: #000; font-size: 15px; line-height: 30px; float: right; margin-top: -32px;}
+        
+        
+        #ra3:checked ~ .btnBox3 .newBtn{color: #000;}
+        #ra3:checked ~ .btnBox3 .newBtn:after{width: 125px; height: 2px; transition: 1s; opacity: 1;}
+        #ra4:checked ~ .btnBox3 .vidBtn{color: #000;}
+        #ra4:checked ~ .btnBox3 .vidBtn:after{width: 125px; height: 2px; transition: 1s; opacity: 1;}
+        #ra3:checked ~ .video{display: none;}
+        #ra4:checked ~ .new{display: none;}
+        
+        
+        
+        .rightWrap{width: 33.333333333%; height: auto; float: right;}
+        .rwBox{width: 100%; height: 650px; margin-top: 80px; float: left;}
+        .rwBox ul{width: 100%; height: 650px;}
+        .rwBox li{display: block; width: 70%; height: 25%; transition: 0.3s; border: 2px solid transparent; box-sizing: border-box;}
+        .rwBox li:hover{background: transparent; transition: 0.3s;}
+        .rwBox li a{display: block; width: 100%; height: 100%;}
+        .rwBox a h2{position: absolute; top: 10px; font-size: 28px; text-indent: 50px; line-height: 90px; color: #fff; font-weight: 500; z-index: 1; text-shadow: 0 0 4px #000}
+        .rwBox a h2 span{color: #fff;}
+        .rwBox .titBox1{position: relative; overflow: hidden;}
+        .rwBox .titBox2{position: relative; overflow: hidden;}
+        .rwBox .titBox3{position: relative; overflow: hidden;}
+        .rwBox .titBox4{position: relative; overflow: hidden;}
+        .titBox1 .linebox{position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: transparent;}
+        .titBox1 .linebox span{display: block; position: absolute; background: #fde44a; transition: 0.7s; z-index: 999;}
+        .titBox2 .linebox{position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: transparent;}
+        .titBox2 .linebox span{display: block; position: absolute; background: #fde44a; transition: 0.7s; z-index: 999;}
+        .titBox3 .linebox{position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: transparent;}
+        .titBox3 .linebox span{display: block; position: absolute; background: #fde44a; transition: 0.7s; z-index: 999;}
+        .titBox4 .linebox{position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: transparent;}
+        .titBox4 .linebox span{display: block; position: absolute; background: #fde44a; transition: 0.7s; z-index: 999;}
+        .titBox1 .linebox .line1{top: 0; left: 0; width: 0; height: 6px;}
+        .titBox1 .linebox .line2{top: 0; right: 0; width: 6px; height: 0;}
+        .titBox1 .linebox .line3{bottom: 0; right: 0; width: 0; height: 6px;}
+        .titBox1 .linebox .line4{bottom: 0; left: 0; width: 6px; height: 0;}
+        .rwBox .titBox1:hover .linebox .line1{width: 100%;}
+        .rwBox .titBox1:hover .linebox .line2{height: 100%;}
+        .rwBox .titBox1:hover .linebox .line3{width: 100%;}
+        .rwBox .titBox1:hover .linebox .line4{height: 100%;}
+        
+        .titBox2 .linebox .line1{top: 0; left: 0; width: 0; height: 6px;}
+        .titBox2 .linebox .line2{top: 0; right: 0; width: 6px; height: 0;}
+        .titBox2 .linebox .line3{bottom: 0; right: 0; width: 0; height: 6px;}
+        .titBox2 .linebox .line4{bottom: 0; left: 0; width: 6px; height: 0;}
+        .rwBox .titBox2:hover .linebox .line1{width: 100%;}
+        .rwBox .titBox2:hover .linebox .line2{height: 100%;}
+        .rwBox .titBox2:hover .linebox .line3{width: 100%;}
+        .rwBox .titBox2:hover .linebox .line4{height: 100%;}
+        
+        .titBox3 .linebox .line1{top: 0; left: 0; width: 0; height: 6px;}
+        .titBox3 .linebox .line2{top: 0; right: 0; width: 6px; height: 0;}
+        .titBox3 .linebox .line3{bottom: 0; right: 0; width: 0; height: 6px;}
+        .titBox3 .linebox .line4{bottom: 0; left: 0; width: 6px; height: 0;}
+        .rwBox .titBox3:hover .linebox .line1{width: 100%;}
+        .rwBox .titBox3:hover .linebox .line2{height: 100%;}
+        .rwBox .titBox3:hover .linebox .line3{width: 100%;}
+        .rwBox .titBox3:hover .linebox .line4{height: 100%;}
+        
+        .titBox4 .linebox .line1{top: 0; left: 0; width: 0; height: 6px;}
+        .titBox4 .linebox .line2{top: 0; right: 0; width: 6px; height: 0;}
+        .titBox4 .linebox .line3{bottom: 0; right: 0; width: 0; height: 6px;}
+        .titBox4 .linebox .line4{bottom: 0; left: 0; width: 6px; height: 0;}
+        .rwBox .titBox4:hover .linebox .line1{width: 100%;}
+        .rwBox .titBox4:hover .linebox .line2{height: 100%;}
+        .rwBox .titBox4:hover .linebox .line3{width: 100%;}
+        .rwBox .titBox4:hover .linebox .line4{height: 100%;}
+        
+        .rwBox .titBox1 img{display: block; width: 100%; height: 100%; position: absolute; top: 0; filter: brightness(0.8); transition: 1s;} 
+        .rwBox .titBox2{position: relative;}
+        .rwBox .titBox2 img{display: block; width: 100%; height: 100%; position: absolute; top: 0; filter: brightness(0.8); transition: 1s;} 
+        .rwBox .titBox3{position: relative;}
+        .rwBox .titBox3 img{display: block; width: 100%; height: 100%; position: absolute; top: 0; filter: brightness(0.8); transition: 1s;} 
+        .rwBox .titBox4{position: relative;}
+        .rwBox .titBox4 img{display: block; width: 100%; height: 100%; position: absolute; top: 0; filter: brightness(0.8); transition: 1s;} 
+        .rwBox .txtBox{position: absolute; top: 100px; font-size: 18px; text-indent: 50px; color: #fff; font-weight: 50; z-index: 1; text-shadow: 0 0 4px #000}
+        
+        .rwBox .titBox1:hover img{display: block; transform: scale(1.2); transition: 1s;}
+        .rwBox .titBox2:hover img{display: block; transform: scale(1.2); transition: 1s;}
+        .rwBox .titBox3:hover img{display: block; transform: scale(1.2); transition: 1s;}
+        .rwBox .titBox4:hover img{display: block; transform: scale(1.2); transition: 1s;}
+        
+        
+        /***** 푸터 *****/
+        #footer{width: 100%; height: 140px; background-color: rgba(116, 116, 116,0.8); position: absolute;}
+        .ft_top{width: 100%; height: 50px; border-bottom: 1px solid #ddd;}
+        .ft_top ul{width: 700px; height: 100%; margin-left: 150px;}
+        .ftTxt1{width: 180px; height: 100%;}
+        .ftTxt2{width: 140px; height: 100%;}
+        .ftTxt3{width: 140px; height: 100%;}
+        .ftTxt4{width: 110px; height: 100%;}
+        .ft_top ul li{float: left;}
+        .ft_top li a{font-size: 14px; color: #ddd; line-height: 50px;}
+        .ft_top li a:hover{text-decoration: underline; color: #fdd700;}
+        .ft_bot{width: 100%; height: 90px;}
+        .ft_botTxt{margin-left: 150px; float: left;}
+        .ft_botTxt p{font-size: 12px; color: #ddd; line-height: 20px;}
+        .ft_botTxt span{font-size: 12px; color: #ddd; line-height: 20px;}
+        .ft_botImg{width: 40%; height: auto; float: right;}
+        .ft_botImg ul{width: 100%; height: auto; }
+        .ft_botImg ul li{float: left; margin-left: 20px;}
+        
+
+        
+        /********** 모바일 **********/
+        
+        @media screen and (max-width: 767px){
+            #page1{clear: both; width: 100%; height: auto; position: relative;}
+            .header{width: 100%; height: 60px; background-color: rgba(255, 255, 255,0.9); display: inherit;}
+            .logo{width: 200px; height: 100%;}
+            .logo img{display: block; width: 70px; height: auto; margin: 7% 5%;}
+            .gnb{display: none;}
+            
+            .menuBox{width: 100px; height: 100%; display: inherit; margin-left: 0; float: right; margin-right: 5%;}
+        .search{display: block; width: 50%; height: 100%; padding-top: 20%;  float: left;}
+        .menu{display: block; width: 50%; height: 100%; padding-top: 10%; float: right;}
+        .menu_box{display: block; width: 30px; height: 40px; margin: 0 auto; cursor: pointer;}
+
+            #wrap1{clear: both; width: 100%; height: auto;}
+            .mainTit{display: block; color: #fff; font-size: 25px; width: 100%; height: 100px; text-align: center; margin: 40px 0 20px 0; float: none; text-shadow: 0 0 10px #000}
+            .vsBox{float: none; width: 100%; height: auto; margin-top: 0; position: relative; }
+            .vsBox ul{width: 300%; height: auto;}
+            .vsBox ul li{float: left; width: 33.333333333%; height: auto;}
+            .vsBox ul li a{display: block; width: 100%; height: 100%; margin: 0 auto;}
+            .vsBox ul li a img{display: block; width: 100%; height: 70%;}
+            .vsBtn{position: absolute; width: 220px; height: 30px; bottom: 0; left: calc(50% - 110px);}
+            .vsBtn label{display: block; width: 30px; height: 8px; background-color: #ccc; float: left; margin-left: 10%; cursor: pointer;}
+
+            #ra01:checked ~ .vsBox ul{margin-left: 0; transition: 1s;}
+            #ra02:checked ~ .vsBox ul{margin-left: -100%; transition: 1s;}
+            #ra03:checked ~ .vsBox ul{margin-left: -200%; transition: 1s;}
+            
+        #wrap2{clear: both; width: 100%; height: auto;}      
+        .icoFrame{width: 100%; height: 100%; margin-top: 10%;}
+        .icoFrame ul li{width: 50%; box-sizing: border-box;} 
+
+        .conBox{margin-top: 0; width: 100%; height: 285px; padding: 0; box-sizing: border-box; margin-top: 10%;}
+        .btnBox{width: 100%; margin: 0 auto;}
+        .btnBox label{width: 50%; text-align: center; text-indent: 0; font-size: 17px;}
+        .notice{width: 100%; margin-top: 3%}
+        .btnBox label:after{margin: 0 auto;}
+        .emp{width: 100%; margin-top: 3%}
+        .nTit{display: block; width: 70%; height: 30px; text-indent: 5%;}
+        .nTit a{color: #fff; font-size: 12px; line-height: 30px;}
+        .nDate{display: block; width: 30%; height: 30px; text-align: center;font-size: 12px; }
+
+        #ra1:checked ~ .btnBox .noBtn:after{width: 70%; margin: 0 auto;}
+        #ra2:checked ~ .btnBox .emBtn:after{width: 70%; margin: 0 auto;}
+
+            
+            
+        #page2{clear: both; width: 100%; height: auto;}
+        #wrap3{width: 100%; height: auto; display: inline-block}
+
+        .leftWrap{clear: both; width: 100%; height: auto; margin-top: 10%;}
+        .minIcon{width: 100%; height: 500px; margin: 0;}
+        .minIcon ul{width: 100%; height: 100%; margin: 0 auto;}
+        .minIcon ul li{float: left; width: 50%; height: 25%; }
+        .minIcon ul li a img{position: absolute; top: 20%; left: 43%;}
+        .minIcon ul li a p{position: absolute;  top: 55%;}
+        .minIcon .h_bg{display: none;}   
+            
+            
+        .midWrap{clear: both; width: 100%; height: auto; margin-top: 10%;}
+        
+        .conBox2{margin-top: 10%; margin-right: 0px; width: 100%; height: 200px; margin-top: 0;}
+        .vs_banner{width: 400%; height: 100%;}
+        .vs_banner ul{width: 100%; height: 100%;}
+        .vs_banner ul li{float: left; width: 25%; height: 100%;}
+        .vs_banner img{width: 100%; height: 100%;}
+        
+        .raItem3{display: none;}
+        .btnBox2{width: 200px; height: 30px; position: absolute; bottom: 0; left: calc(50% - 100px); z-index: 1;}
+        .btnBox2 label{display: block; float: left; width: 15px; height: 15px; background-color: #ccc; margin-left: 25px; cursor: pointer;}
+        
+        #ra5:checked ~ .btnBox2 .baBtn1{background-color: #002856;}
+        #ra6:checked ~ .btnBox2 .baBtn2{background-color: #002856;}
+        #ra7:checked ~ .btnBox2 .baBtn3{background-color: #002856;}
+        #ra8:checked ~ .btnBox2 .baBtn4{background-color: #002856;}
+        
+        #ra5:checked ~ .vs_banner ul{margin-left: 0; transition: 1s;}
+        #ra6:checked ~ .vs_banner ul{margin-left: -25%; transition: 1s;}
+        #ra7:checked ~ .vs_banner ul{margin-left: -50%; transition: 1s;}
+        #ra8:checked ~ .vs_banner ul{margin-left: -75%; transition: 1s;}    
+            
+            
+        
+        .conBox3{clear: both; width: 100%; height: 285px; padding: 0;  background-color: #fff; margin-top: 10%;}
+        .new{width: 100%; height: 220px; padding-top: 15px;}
+        .video{width: 100%; height: 220px; padding-top: 15px; padding-left: 0;}
+        .btnBox3{width: 100%; height: 45px; margin-bottom: 15px;}
+        .btnBox3 label{width: 50%; height: 100%; margin-top: 10px; float: left; line-height: 50px; text-indent: 0; font-size: 17px; text-align: center; }
+        .btnBox3 label:after{margin: 0 auto;}
+        .nTit2{display: block; width: 70%; height: 30px; margin-left: 3%;}
+        .nTit2 a{color: #000; font-size: 12px; line-height: 30px;}
+        .nDate2{display: block; width: 20%; height: 30px; text-align: center; font-size: 12px; margin-right: 3%;}
+        
+        #ra3:checked ~ .btnBox3 .newBtn:after{width: 70%; margin: 0 auto;}
+        #ra4:checked ~ .btnBox3 .vidBtn:after{width: 70%; margin: 0 auto;}
+
+            
+        .rightWrap{clear: both; width: 100%; height: auto; margin-top: 10%;}
+        .rwBox{width: 100%; height: 100%; margin: 0;}
+        .rwBox ul{width: 100%; height: 650px; margin-top: 0;}
+        .rwBox li{display: block; width: 100%; height: 25%; margin: 0; border: 0;}
+
+            
+
+        #footer{clear: both; width: 100%; height: auto; background-color: rgba(116, 116, 116,0.8); border: 1p solid #ddd;}
+        .ft_top{width: 100%; height: 100px; border-bottom: 1px solid #ddd;}
+        .ft_top ul{width: 100%; height: 100%; margin-left: 0; text-align: center; }
+        .ft_top ul li{width: 50%; height: 50%;}
+        .ftTxt1{width: 50%; height: 100%; box-sizing: border-box; border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;}
+        .ftTxt2{width: 50%; height: 100%; box-sizing: border-box; border-bottom: 1px solid #ddd}
+        .ftTxt3{width: 50%; height: 100%; box-sizing: border-box; border-right: 1px solid #ddd}
+        .ftTxt4{width: 50%; height: 100%; box-sizing: border-box;}
+        .ft_top li a{font-size: 12px; color: #ddd; line-height: 50px;}
+        .ft_bot{width: 100%; height: 170px; padding: 0;}
+        .ft_botTxt{width: 100%; height: auto; margin-left: 0px; text-align: center; margin: 0 auto; margin-top: 10%;}
+        .ft_botTxt p{font-size: 12px;}
+        .ft_botTxt span{font-size: 12px;}
+        .ft_botImg{display: none;}
+
+            
+            
+        }
+        
+        
+        /******* 태블릿 pc  *******/
+        
+        @media screen and (min-width: 768px) and (max-width:1100px){            
+            
+        #page1{height: auto;}
+        .header{width: 100%; height: 70px; background-color: rgba(255, 255, 255,0.9); display: block;}
+        .logo img{width: 100px; height: auto; margin: 5% 0;}
+            
+            
+        .gnb{display: none;}
+        .menuBox{width: 100px; height: 100%; display: inherit; margin-left: 0; margin-right: 5%; float: right;}
+        .search{display: block; width: 50%; height: 100%; padding-top: 25%; float: left;}
+        .menu{display: block; width: 50%; height: 100%; padding-top: 15px;float: right;}
+
+            
+            #wrap1{clear: both; width: 100%; height: auto;}
+        .mainTit{color: #fff; font-size: 40px; width: 600px; height: auto; margin: 15% auto; float: none; text-align: center;}
+        .vsBox{float: none; width: 100%; height: auto; margin-top: 0;}
+        .vsBox ul{width: 300%; height: auto;}
+        .vsBox ul li{float: left; width: 33.333333333%; height: auto;}
+        .vsBox ul li a{display: block; width: 100%; height: auto; margin: 0 auto;}
+        .vsBox ul li a img{display: block; width: 100%; height: auto;}
+        .vsBtn{position: absolute; width: 50%; left: calc(50% - 25%);}
+        .vsBtn label{display: block; width: 50px;}
+            
+            
+            #ra01:checked ~ .vsBox .vsBtn .vsBtn01{width: 120px;}
+        #ra02:checked ~ .vsBox .vsBtn .vsBtn02{width: 120px;}
+        #ra03:checked ~ .vsBox .vsBtn .vsBtn03{width: 120px;}
+        
+        #ra01:checked ~ .vsBox ul{margin-left: 0; transition: 1s;}
+        #ra02:checked ~ .vsBox ul{margin-left: -100%; transition: 1s;}
+        #ra03:checked ~ .vsBox ul{margin-left: -200%; transition: 1s;}
+            
+            
+        #wrap2{clear: both; width: 100%; height: auto; margin: 0;} 
+        .icoFrame{width: 100%; height: auto; margin-top: 5%;}
+        .icoFrame ul li{width: 25%; height: 180px; box-sizing: border-box;}
+            
+            
+        .conBox{width: 100%; height: 330px; padding: 0; box-sizing: border-box;}
+        .btnBox{width: 300px; height: 50px; margin-bottom: 15px; padding-left: 7%; margin-top: 2%;}
+        .notice{width: 100%; height: 230px;}
+        .emp{width: 100%; height: 230px;}
+        .nTit{width: 80%; text-indent: 7%;}
+        .nDate{text-align: center;}
+        
+        #ra1:checked ~ .btnBox .noBtn:after{width: 120px;}
+        #ra2:checked ~ .btnBox .emBtn:after{width: 120px;}
+            
+            
+        #page2{width: 100%; height: auto;}
+        #wrap3{width: 100%; height: auto;}
+        
+        .leftWrap{width: 100%; height: auto; padding-top: 5%;}
+        .minIcon{width: 100%; height: 310px; margin: 0;}
+        .minIcon ul{width: 100%; height: 100%;}
+        .minIcon ul li{float: left; width: 25%; height: 50%; border: 2px solid transparent; box-sizing: border-box; position: relative; overflow: hidden;}
+        .minIcon ul li a{box-shadow: 0 0 2px #000;}
+        .minIcon ul li a img{position: absolute; top: 30%; left: 43%; display: block; z-index: 1;}
+
+            
+        .midWrap{width: 100%; height: 830px;}
+        
+        .conBox2{float: none; margin-right: 0; margin: 10% auto;}
+        .vs_banner{position: absolute; top: 0; left: 0; width: 400%; height: 100%;}
+
+        #ra5:checked ~ .vs_banner ul{margin-left: 0;}
+        #ra6:checked ~ .vs_banner ul{margin-left: -25%;}
+        #ra7:checked ~ .vs_banner ul{margin-left: -50%;}
+        #ra8:checked ~ .vs_banner ul{margin-left: -75%;}    
+            
+        .conBox3{float: none; margin-top: 0; margin-right: 0; margin: 15% auto;}
+        .new{width: 100%; height: 220px; margin-top: 5%;}
+        .video{width: 100%; height: 220px; margin-top: 5%;}
+        .btnBox3{width: 300px; height: 45px; margin-left: 3%;}
+        .btnBox3 label{float: left; text-indent: 0; text-align: center;}
+        
+        
+        #ra3:checked ~ .btnBox3 .newBtn:after{width: 140px; margin: 0 auto;}
+        #ra4:checked ~ .btnBox3 .vidBtn:after{width: 140px; margin: 0 auto;}
+    
+            
+        .rightWrap{clear: both; width: 100%; height: auto; float: none; padding-top: 1%;}
+        .rwBox{width: 100%; height: 400px; float: none;}
+        .rwBox ul{width: 100%; height: 350px; margin-top: 0;}
+        .rwBox li{display: block; float: left; width: 50%; height: 50%; margin: 0; border: 0;}
+         
+        #footer{width: 100%; height: 200px;}
+        .ft_top{width: 100%; height: 50px; border-bottom: 1px solid #ddd;}
+        .ft_top ul{width: 100%; height: 100%; margin-left: 0;}
+        .ft_top ul li{float: left; width: 25%; text-align: center;}
+        .ft_bot{width: 100%; height: auto;margin-top: 3%}
+        .ft_botTxt{margin-left: 0; float: inherit; width: 100%; height: auto;}
+        .ft_botTxt p{display: block; text-align: center;}
+        .ft_botTxt span{display: block; text-align: center; }
+        .ft_botImg{display: none;}
+
+            
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </style>
+</head>
+<body>
+    <section id="page1">
+        <img class="bg1" src="images/main_bg01.png" alt="">
+        <div class="header">
+            <div class="logo">
+                <a href="">
+                    <img src="images/logo.png" alt="">
+                </a>
+            </div>
+            <div class="gnb">
+                <ul>
+                    <li>
+                        <a href="#" class="dep1">열린경영</a>
+                        <ul class="sub">
+                            <li><a href="#">경영공시</a></li>
+                            <li><a href="#">지속가능경영</a></li>
+                            <li><a href="#">윤리경영</a></li>
+                            <li><a href="#">사회적가치실현</a></li>
+                            <li><a href="#">일자리</a></li>
+                            <li><a href="#">국민 참여예산</a></li>
+                            <li><a href="#">사회공헌</a></li>
+                            <li><a href="#">물 이야기</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dep1">정보공개</a>
+                        <ul class="sub">
+                            <li><a href="#">제도안내</a></li>
+                            <li><a href="#">정보공개 청구</a></li>
+                            <li><a href="#">불복구제절차 및 방법</a></li>
+                            <li><a href="#">정보목록</a></li>
+                            <li><a href="#">사전정보공표</a></li>
+                            <li><a href="#">공공데이터개방</a></li>
+                            <li><a href="#">사업실명제</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dep1">고객센터</a>
+                        <ul class="sub">
+                            <li><a href="#">고객헌장</a></li>
+                            <li><a href="#">고객광장</a></li>
+                            <li><a href="#">고객지원</a></li>
+                            <li><a href="#">맑은물공급 요금</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dep1">새소식</a>
+                        <ul class="sub">
+                            <li><a href="#">게시판</a></li>
+                            <li><a href="#">채용정보</a></li>
+                            <li><a href="#">뉴스룸</a></li>
+                            <li><a href="#">홍보광장</a></li>
+                            <li><a href="#">배너존</a></li>
+                            <li><a href="#">물사랑공모전</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dep1">대국민 서비스</a>
+                        <ul class="sub">
+                            <li><a href="#">물안심 서비스</a></li>
+                            <li><a href="#">물나눔 서비스</a></li>
+                            <li><a href="#">물융합 서비스</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dep1">기관소개</a>
+                        <ul class="sub">
+                            <li><a href="#">일반현황</a></li>
+                            <li><a href="#">CEO</a></li>
+                            <li><a href="#">조직 및 연락처</a></li>
+                            <li><a href="#">CI</a></li>
+                            <li><a href="#">선수단</a></li>
+                            <li><a href="#">찾아오시는길</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="menuBox">
+               <div class="search">
+                   <button class="search_box"><img src="images/toggle.png" alt=""></button>
+               </div>
+                <div class="menu">
+                    <button class="menu_box">
+                        <span class="menuBarT"></span>
+                        <span class="menuBarM"></span>
+                        <span class="menuBarB"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+       <div id="wrap1">
+           <h2 class="mainTit">국민 행복을 담아<br> 물의 가치를 새롭게 하겠습니다.</h2>
+           
+           <input type="radio" name="raItem1" id="ra01" class="raItem1" checked>
+           <input type="radio" name="raItem1" id="ra02" class="raItem1">
+           <input type="radio" name="raItem1" id="ra03" class="raItem1">
+           <div class="vsBox">
+               <div class="vsBtn">
+                   <label for="ra01" class="vsBtn01"></label>
+                   <label for="ra02" class="vsBtn02"></label>
+                   <label for="ra03" class="vsBtn03"></label>
+               </div>
+               <ul>
+                   <li class="vs01"><a href=""><img src="images/vsimg03.png" alt=""></a></li>
+                   <li class="vs02"><a href=""><img src="images/vsimg02.png" alt=""></a></li>
+                   <li class="vs03"><a href=""><img src="images/vsimg01.png" alt=""></a></li>
+               </ul>
+           </div>
+       </div>
+        <div id="wrap2">
+            <div class="icoFrame">
+                <ul>
+                    <li>
+                    <a href="" class="ico01">
+                        <span class="circle"></span>
+                        <span class="ico_img1"></span>
+                        <span class="txt">물관리일원화</span>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="" class="ico02">
+                        <span class="circle"></span>
+                        <span class="ico_img2"></span>
+                        <span class="txt">사회적가치 실현</span>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="" class="ico03">
+                        <span class="circle"></span>
+                        <span class="ico_img3"></span>
+                        <span class="txt">안전·환경</span>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="" class="ico04">
+                        <span class="circle"></span>
+                        <span class="ico_img4"></span>
+                        <span class="txt">일자리창출</span>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="" class="ico05">
+                        <span class="circle"></span>
+                        <span class="ico_img5"></span>
+                        <span class="txt">공정경제문화</span>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="" class="ico06">
+                        <span class="circle"></span>
+                        <span class="ico_img6"></span>
+                        <span class="txt">채용정보</span>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="" class="ico07">
+                        <span class="circle"></span>
+                        <span class="ico_img7"></span>
+                        <span class="txt">중소벤처기업 지원</span>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="" class="ico08">
+                        <span class="circle"></span>
+                        <span class="ico_img8"></span>
+                        <span class="txt">조직도·직원검색</span>
+                    </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="conBox">
+              <input type="radio" name="raItem" id="ra1" class="raItem" checked>
+              <input type="radio" name="raItem" id="ra2" class="raItem">
+              <div class="btnBox">
+                  <label for="ra1" class="noBtn">공지사항</label>
+                  <label for="ra2" class="emBtn">채용공고</label>
+              </div>
+               <table class="notice">
+                   <tbody>
+                       <tr>
+                           <td class="nTit"><a href="">함양군 지방상수도 현대화 산업 긴급복구 협력업체 추가 지정공고</a></td>
+                           <td class="nDate">2019-11-15</td>
+                       </tr>
+                       <tr>
+                           <td class="nTit"><a href="">2019년 김천부항댐 물문화관매점 임대 입찰공고</a></td>
+                           <td class="nDate">2019-11-14</td>
+                       </tr>
+                       <tr>
+                           <td class="nTit"><a href="">제주 상수도 유수율 제고사업 긴급복구 협력업체 지정 공고</a></td>
+                           <td class="nDate">2019-11-14</td>
+                       </tr>
+                       <tr>
+                           <td class="nTit"><a href="">제주 상수도 유수율 제고사업 긴급복구 협력업체 지정 공고</a></td>
+                           <td class="nDate">2019-11-14</td>
+                       </tr>
+                       <tr>
+                           <td class="nTit"><a href="">K-water 국민평가단 모집 (신청기간 : 11.13 ~ 11. 20)</a></td>
+                           <td class="nDate">2019-11-14</td>
+                       </tr>
+                   </tbody>
+               </table>
+                <table class="emp">
+                    <tbody>
+                       <tr>
+                           <td class="nTit"><a href="">[통영수도센터] 고객관리사(수도검침원) 모집 공고(~11.13. 까지)</a></td>
+                           <td class="nDate">2019-11-08</td>
+                       </tr>
+                       <tr>
+                           <td class="nTit"><a href="">[거제권지사] 특수직(지방상수도 고객관리) 채용 공고</a></td>
+                           <td class="nDate">2019-11-07</td>
+                       </tr>
+                       <tr>
+                           <td class="nTit"><a href="">[경남부산본부] 합천·창원현대화 특수직(기술관리) 채용 공고</a></td>
+                           <td class="nDate">2019-10-31</td>
+                       </tr>
+                       <tr>
+                           <td class="nTit"><a href="">[간접고용](세종) (민간 개인사업자 위탁) 워터코디 모집 공고</a></td>
+                           <td class="nDate">2019-10-30</td>
+                       </tr>
+                       <tr>
+                           <td class="nTit"><a href="">[밀양권지사] 육아휴직 대체 단기계약근로자 채용</a></td>
+                           <td class="nDate">2019-10-25</td>
+                       </tr>
+                   </tbody>
+                </table>
+           </div>
+        </div>
+        </section>
+    <section id="page2">
+       <div id="wrap3">
+        <div class="leftWrap">
+                <div class="minIcon">
+                    <ul>
+                        <li class="minBox1"><a href=""><span class="h_bg"></span><img src="images/link_ico_bn01.png" alt=""><p>고객광장</p></a></li>
+                        <li class="minBox2"><a href=""><span class="h_bg"></span><img src="images/link_ico_bn02.png" alt=""><p>맑은물공급<br>요금안내</p></a></li>
+                        <li class="minBox3"><a href=""><span class="h_bg"></span><img src="images/link_ico_bn03.png" alt=""><p>견학안내/<br>시설개방정보</p></a></li>
+                        <li class="minBox4"><a href=""><span class="h_bg"></span><img src="images/link_ico_bn04.png" alt=""><p>국민소통 포털</p></a></li>
+                        <li class="minBox5"><a href=""><span class="h_bg"></span><img src="images/link_ico_bn05.png" alt=""><p>입찰안내</p></a></li>
+                        <li class="minBox6"><a href=""><span class="h_bg"></span><img src="images/link_ico_bn06.png" alt=""><p>물정보포털<br>My Water</p></a></li>
+                        <li class="minBox7"><a href=""><span class="h_bg"></span><img src="images/link_ico_bn07.png" alt=""><p>분양정보</p></a></li>
+                        <li class="minBox8"><a href=""><span class="h_bg"></span><img src="images/link_ico_bn08.png" alt=""><p>실시간<br>수문현황</p></a></li>
+                    </ul>
+                </div>
+        </div>
+        
+        <div class="midWrap">
+             <div class="conBox2">
+              <input type="radio" name="raItem3" id="ra5" class="raItem3" checked>
+              <input type="radio" name="raItem3" id="ra6" class="raItem3">
+              <input type="radio" name="raItem3" id="ra7" class="raItem3">
+              <input type="radio" name="raItem3" id="ra8" class="raItem3">
+              <div class="btnBox2">
+                  <label for="ra5" class="baBtn1"></label>
+                  <label for="ra6" class="baBtn2"></label>
+                  <label for="ra7" class="baBtn3"></label>
+                  <label for="ra8" class="baBtn4"></label>
+              </div>
+              <div class="vs_banner">
+                  <ul>
+                      <li class="bn_vs01"><a href=""><img src="images/vsimg06.png" alt=""></a></li>
+                      <li class="bn_vs02"><a href=""><img src="images/vsimg05.png" alt=""></a></li>
+                      <li class="bn_vs03"><a href=""><img src="images/vsimg04.png" alt=""></a></li>
+                      <li class="bn_vs04"><a href=""><img src="images/vsimg07.png" alt=""></a></li>
+                  </ul>
+              </div>
+             </div>
+           
+            <div class="conBox3">
+               <input type="radio" name="raItem2" id="ra3" class="raItem2" checked>
+               <input type="radio" name="raItem2" id="ra4" class="raItem2">
+                <div class="btnBox3">
+                    <label for="ra3" class="newBtn">보도자료</label>
+                    <label for="ra4" class="vidBtn">동영상뉴스</label>
+                </div>
+                <table class="new">
+                    <tbody>
+                        <tr>
+                            <td class="nTit2"><a href="">한국 수자원공사, '스마트 물관리' 국민포럼 개최</a></td>
+                            <td class="nDate2">2019-11-19</td>
+                        </tr>
+                        <tr>
+                            <td class="nTit2"><a href="">한국수자원공사, 국가품질대상 대통령 표창 수상!</a></td>
+                            <td class="nDate2">2019-11-13</td>
+                        </tr>
+                        <tr>
+                            <td class="nTit2"><a href="">한국수자원공사, 노사공동 사랑의 김장나누기 봉사</a></td>
+                            <td class="nDate2">2019-11-11</td>
+                        </tr>
+                        <tr>
+                            <td class="nTit2"><a href="">제2차 아시아국제물주간 이해당사자 총회 개최</a></td>
+                            <td class="nDate2">2019-11-11</td>
+                        </tr>
+                        <tr>
+                            <td class="nTit2"><a href="">한국수자원공사, 물 관련 기술 사내벤처 데모데이</a></td>
+                            <td class="nDate2">2019-11-06</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="video">
+                    <iframe width="400" height="200" src="https://www.youtube.com/embed/tAqCX1VO8q8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        
+        <div class="rightWrap">
+            <div class="rwBox">
+                <ul>
+                    <li class="titBox1">
+                        <a href="">
+                            <div class="linebox">
+                                <span class="line1"></span>
+                                <span class="line2"></span>
+                                <span class="line3"></span>
+                                <span class="line4"></span>
+                            </div>
+                            <h2><span>대국민</span> 서비스</h2>
+                            <h3 class="txtBox">K-water, Today and Tomorrow</h3>
+                            <img src="images/mini_bg1.jpg" alt="">
+                        </a>
+                    </li>
+                    <li class="titBox2">
+                        <a href="">
+                            <div class="linebox">
+                                <span class="line1"></span>
+                                <span class="line2"></span>
+                                <span class="line3"></span>
+                                <span class="line4"></span>
+                            </div>
+                            <h2><span>물안심</span> 서비스</h2>
+                            <h3 class="txtBox">안전하고 깨끗한 유역관리</h3>
+                            <img src="images/mini_bg3.jpg" alt="">
+                        </a>
+                    </li>
+                    <li class="titBox3">
+                        <a href="">
+                           <div class="linebox">
+                                <span class="line1"></span>
+                                <span class="line2"></span>
+                                <span class="line3"></span>
+                                <span class="line4"></span>
+                            </div>
+                            <h2><span>물나눔</span> 서비스</h2>
+                            <h3 class="txtBox">부족함 없이 나누는 맑은 물공급</h3>
+                            <img src="images/mini_bg2.jpg" alt="">
+                        </a>
+                    </li>
+                    <li class="titBox4">
+                        <a href="">
+                            <div class="linebox">
+                                <span class="line1"></span>
+                                <span class="line2"></span>
+                                <span class="line3"></span>
+                                <span class="line4"></span>
+                            </div>
+                            <h2><span>물융합</span> 서비스</h2>
+                            <h3 class="txtBox">물·에너지·도시 융합 서비스 확대</h3>
+                            <img src="images/mini_bg4.jpg" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+       </div>
+       <div id="footer">
+           <div class="ft_top">
+               <ul>
+                   <li class="ftTxt1"><a href="">개인정보처리방침</a></li>
+                   <li class="ftTxt2"><a href="">부조리신고</a></li>
+                   <li class="ftTxt3"><a href="">직원광장</a></li>
+                   <li class="ftTxt4"><a href="">찾아오시는길</a></li>
+               </ul>
+           </div>
+           <div class="ft_bot">
+           <div class="ft_botTxt">
+                <p>우편번호 34350 대전광역시 대덕구 신탄진로 200</p>
+                <p>대표전화 042-629-3114</p>
+                <p>고객센터 1577-0600</p>
+               <span>COPYRIGHT &copy; K-water ALL RIGHTS RESERVED.</span>
+           </div>
+           <div class="ft_botImg">
+               <ul>
+                   <li><a href=""><img src="images/ico_footer02.png" alt=""></a></li>
+                   <li><img src="images/ico_footer01.png" alt=""></li>
+                   <li><img src="images/ico_footer03.png" alt=""></li>
+                   <li><img src="images/ico_footer04.png" alt=""></li>
+                   <li><img src="images/ico_footer05.png" alt=""></li>
+                   <li><img src="images/ico_footer06.png" alt=""></li>
+                   <li><img src="images/ico_footer07.png" alt=""></li>
+               </ul>
+           </div>
+           </div>
+       </div>
+    </section>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
