@@ -7,7 +7,7 @@
     
     <style>
         *{margin: 0; padding: 0; box-sizing: border-box; }
-        body,html{width: 100%; height: 100%; font-family: 'Noto Sans TC', sans-serif;}
+        body,html{width: 100%; height: 100%; font-family: 'Noto Sans TC', sans-serif; overflow-x: hidden;}
         ul{list-style: none;}
         a{text-decoration: none;}
         label,button,img{border: 0; outline: 0; background: none;}
@@ -16,7 +16,7 @@
        <style>    
         #header{width: 100%; height: 120px; background-color: #99ca3b; position: relative; z-index: 99;}
         .wrap1{width: 1300px; height: 50px; margin: 0 auto;}
-        .wrap1 ul{width: 500px; height: 100%; float: left; margin-left: 50%;}
+        .wrap1 ul{width: 500px; height: 100%; float: left;}
         .wrap1 ul li{float: left; width: 25%; height: 100%; text-align: right; }
         .wrap1 li a{border-left: 1px solid #fff; line-height: 50px; padding-left: 30px; color: #fff;}
         .wrap1 li:first-child a{border-left: 0;}
@@ -199,10 +199,7 @@
         .mini_btn li a{display: block; width: 15px; height: 15px; background: #aaa; border-radius: 50%;  cursor: pointer;}
         .mini_btn li a.select{background-color: #6d819c;}
 
-        
-        
-        
-        
+
         
         #rightCon{width: 50%; height: auto; float: right;}
         .topMini {width: 100%; height: 166.6666666666667px; transition: 0.7s;}
@@ -303,6 +300,7 @@
         .ft_bot{width: 1000px; height: 100px; margin: 0 auto; line-height: 20px; padding-top: 15px; color: #fff;}
         .ft_bot p{font-size: 14px; text-indent: 30px; line-height: 25px;}
         .ft_bot span{font-size: 14px; margin-left: 30px;}
+           
         
         
         /****** 모바일 ******/
@@ -310,7 +308,7 @@
         @media screen and (max-width: 767px){
             
         #header{width: 100%; height: 60px; background-color: #fff; position: relative; z-index: 99;}
-        .wrap1{display: none;}
+        .wrap1{display: none}
 
         .wrap2{width: 100%; height: 100%;}
         .wrap2Box{width: 100%; height: 100%;}
@@ -429,8 +427,127 @@
         .ft_bot{width: 100%; height: 150px; margin: 0 auto; line-height: 20px; padding-top: 30px; color: #fff; }
         .ft_bot p{font-size: 14px; text-indent: 0px; line-height: 25px; text-align: center;}
         .ft_bot span{display: block; font-size: 14px; margin-left: 0px; text-align: center; margin-top: 20px;}
+            
         }
         
+           
+           
+           /********  태블릿 pc  *******/
+        @media screen and (min-width: 768px) and (max-width:1100px){
+               
+        #header{width: 100%; height: 60px; background-color: #fff; position: relative; z-index: 99;}
+        .wrap1{display: none }
+
+        .wrap2{width: 100%; height: 100%;}
+        .wrap2Box{width: 100%; height: 100%;}
+        .wrap2Box .logo{width: 200px; height: 100%; float: left;}
+        .logo img{width: 170px; height: auto; padding-top: 0px; padding-left: 0; margin: 8px 20px;}
+
+            
+        .menuBox_m{display: block; width: 120px; height: 100%; float: right;}
+        .search_m{width: 50%; height: 100%; padding-top: 20px; float: left; background: #99ca3b;}
+        .search_box_m{display: block; width: 20px; height: 20px; margin: 0 auto; cursor: pointer;}
+        .search_m img{display: block; width: 20px; height: 20px;}
+        .menu_m{width: 50%; height: 100%; float: right; position: relative; z-index: 20; background: #03a6ff;}
+        .menu_m.on{background: none;}
+        .menu_box_m{display: block; width: 90%; height: 30px; margin: 0 auto; cursor: pointer; margin-top: 20px;}
+        .menu_m .menuBarT_m{display: block; width: 20px; height: 2px; background: #fff; margin: 0 auto; transition: 0.7s;}
+        .menu_m .menuBarM_m{display: block; width: 20px; height: 2px; background: #fff; margin: 7px auto; transition: 0.7s; opacity: 1;}
+        .menu_m .menuBarB_m{display: block; width: 20px; height: 2px; background: #fff; margin: 0 auto; transition: 0.7s;}
+
+            
+        .menu_box_m .menuBarT_m.on{clear: both; display: block; width: 25px; transform: rotate(-45deg) translateY(5px) translateX(-7px); }
+        .menu_box_m .menuBarM_m.on{clear: both; display: block; width: 0px; opacity: 0; }
+        .menu_box_m .menuBarB_m.on{clear: both; display: block; width: 25px; transform: rotate(45deg) translateY(-6px) translateX(-7px); }
+             
+        .main_gnb{display: none;}       
+            
+        #visual{width: 100%; height: 350px; margin: 0 auto;overflow: hidden; position: relative;}
+        .vs_img{width: 100%; height: 100%; position: absolute; top: 0; left: calc(50% - 70%);}
+        .vs_img a img{width: 140%; height: 100%; box-shadow: 0 0 4px #000;}
+
+        
+        .arrow_btn{display: none;}
+        
+        .vs_btn{width: 250px; height: 20px; position: absolute; bottom: 5%; left: calc(50% - 125px); z-index: 10;}
+        .vs_btn ul{width: 100%; height: 100%;}
+        .vs_btn ul li{width: 20px; height: 20px; margin-left: 50px; float: left;}
+        .vs_btn li a{display: block; width: 20px; height: 20px; border-radius: 50%; background: #fff;}
+        .vs_btn li a.select{background: #99ca3b;}       
+               
+         
+        #contents{width: 100%; height: auto;}
+        
+        .topCon{width: 100%; height: 400px;}
+        .topCon li p{font-size: 20px; padding: 30px;}
+        .topCon img.normal{bottom: 30px; right: 30px; width: 60px; height: 60px; transition: 0.7s;}
+        .topCon img.on{bottom: 30px; right: 30px; width: 60px; height: 60px;}
+        
+
+        .useBox{height: 230px;}
+        .useBox li p{font-size: 12px; font-weight: bold; padding: 11px; }
+        .useBox li .circle{bottom: 15px; right: 15px;}
+
+               
+        .pbBox{width: 100%; height: 230px;}
+        .pnBox{width: 40%; height: 100%; float: left; background: #d8e9ef;}
+        .pnInBox{width: 96%; height: 220px; margin: 5px auto; }
+        .pnBox h2{font-size: 16px;}
+        .pnBox .cenTime{font-size: 15px;}
+        .pnBox .number{font-size: 19px;;}
+        .pnBox .pnMore{display: block; width: 90%; margin: 0 auto; text-align: center; margin-top: 7px; color: #333; font-weight: bold; border: 2px solid #1ec0ff; line-height: 25px; transition: 0.5s; font-size: 12px;}
+        .pnBox img{display: block; width: 40px; height: 40px; margin: 15px auto;}
+        
+        .miniban{width: 60%; ; position: relative; border: 5px solid #cce2ff;}
+        
+         
+               
+         #rightCon{width: 50%; height: auto; float: right;}
+        .topMini {width: 100%; height: 150px;}
+        .topMini li p{font-size: 16px; font-weight: bold; padding-top: 10px;}
+       
+        #rightCon .tableBox{width: 100%; height: 480px; background: #d8e9ef; padding-top: 10px;}
+        .tableBox .conBox{width: 95%; height: 225px; background: #fff; margin: 0 auto 10px;}
+        .btnBox{width: 100%; height: 50px; border-bottom: 2px solid #d8e9ef;}
+        .btnBox label{display: block; float: left; width: 50%; height: 100%; line-height: 50px; text-align: center;  margin-left: 0px; font-weight: bold; font-size: 16px;}
+        .notice{display: block; width: 100%; height: 175px; padding-top: 7px;}
+        .hp{display: block; width: 100%; height: 175px; padding-top: 7px;}
+        .nTit{display: block; width: 280px; height: 30px;}
+        .nTit a{width: 100%; font-size: 13px; line-height: 30px; margin-left: 2%;}
+        .nDate{display: block; width: 80px; font-size: 13px; float: right; line-height: 30px; text-align: center; height: 30px;}     
+               
+        .tableBox .conBox2{width: 95%; height: 225px; background: #fff; margin: 0 auto;}
+        .raItem2{display: none;} 
+        .job{display: block; width: 100%; height: 175px; padding-top: 7px;}
+        .tender{display: block; width: 100%; height: 175px; padding-top: 7px;}
+
+        .centerBox{width: 100%; height: 230px; border-top:0; background: #eee;}
+        .centerBox h2{display: none;}
+        .centerBox ul{width: 100%; height: 115px; }
+        .centerBox li p{position: absolute; color: #333; font-size: 12px; font-weight: bold; padding: 15px;}
+        .centerBox li .circle{ bottom: 15px; right: 15px;}
+        
+               
+        #footer{clear: both; width: 100%; height: 230px;background: #6d819c; }
+        .ft_wrap{width: 100%; height: 100px; border-bottom: 1px solid #fff}
+        .ft_top{width: 100%; height: 100%; margin: 0;}
+        .ft_top ul{width: 100%; height: 100%;}
+        .ft_top ul li{float: left; margin-left: 0px; width: 33.3333%; height: 50%; text-align: center; border-left: 1px solid #fff; border-bottom: 1px solid #fff}
+        .ft_top ul li:nth-child(1){border-left: 0;}       
+        .ft_top ul li:nth-child(4){border-left: 0;}       
+        .ft_top ul li{border-bottom: 1px solid #fff}       
+        .ft_top ul li:first-child{margin-left: 0px;}
+        .ft_top li a{font-size: 14px; line-height: 50px; color: #fff;}
+               
+        .ft_bot{width: 100%; height: 100px; margin: 0 auto; line-height: 20px; padding-top: 15px; color: #fff;}
+        .ft_bot p{text-align: center; font-size: 15px; text-indent: 0px; line-height: 30px;}
+        .ft_bot span{display: block; font-size: 15px; margin-left: 0px; text-align: center; line-height: 40px;}
+               
+           
+           }
+           
+           
+           
         
         
         
@@ -980,8 +1097,7 @@
                                     <td class="nDate">2019-10-21</td>
                                 </tr>
                                 <tr>
-                                    <td class="nTit"><a href="">환의일반(성인) 외 54종 구매 단가계약
-</a></td>
+                                    <td class="nTit"><a href="">환의일반(성인) 외 54종 구매 단가계약</a></td>
                                     <td class="nDate">2019-09-26</td>
                                 </tr>
                                 <tr>
