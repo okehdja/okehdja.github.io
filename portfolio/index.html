@@ -376,7 +376,7 @@
         
         
         
-        @media screen and (max-width: 1100px){
+        @media screen and (min-width: 768px) and (max-width: 1100px){
             
             
             /****** Page1 ******/
@@ -391,9 +391,9 @@
         .cardFrame{width: 100%; height: 100%; margin: 0 auto; position: relative; top: 0;}
         .businessCard{position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-shadow: 3px 1px 10px 0px #ccc; margin-left: 0%; transition: 3s; transform-origin: center 0%;}
         .front{opacity: 1; display: block; transform: rotateY(0deg); transition: 3s; transform-origin: center 0%; z-index: 1;}
-        .front .img .imgBox{width: 95%; height: 98%; border: 1px solid #fff; margin: 2.5% auto; }
+        .front .img .imgBox{width: 95%; height: 97%; border: 1px solid #fff; margin: 2% auto; }
         .front .name{position: absolute; top: 5%; left: 5%; font-size: 3.5em; color: #fff;}
-        .front .click{position: absolute; left: 4%; bottom: 1%; color: #fff; font-size: 1.5em;}
+        .front .click{position: absolute; left: 4%; bottom: 2%; color: #fff; font-size: 1.5em;}
         .front .txt{display: none;}
         .front .txt img{display: none;}
         .front .img{
@@ -409,7 +409,7 @@
         
             
         .back{transform: rotateY(180deg); transition: 3s; transform-origin: center 0%; z-index: 0; box-sizing: border-box; background: #fff;}
-        .back .backLine{width: 95%; height: 98%; border: 1px solid #ccc; margin: 2% auto;}
+        .back .backLine{width: 95%; height: 96%; border: 1px solid #ccc; margin: 2% auto;}
         .back .left{width: 100%; height: 50%; float: left;}
         .left .ltBox{width: 100%; height: 50%; background: #fff; position: relative;}
         .ltBox img{position: absolute; top: calc(50% - 75px);  left: calc(50% - 75px); width: 150px; height: 150px; border-radius: 50%;}
@@ -462,20 +462,20 @@
         
         .chart-content p{color: #0061a3; font-size: 1vw; font-weight: bold;}
         .chart-content .text{position: relative; left: 5%; line-height: 1; color: #0061a3;}
-        .chart-content .percent-number{font-size: 2vw; font-weight: bold;}
+        .chart-content .percent-number{font-size: 0.8em; font-weight: bold;}
         .chart-content .percent-symbol{font-size: 1vw; color: #0061a3;}
             
             
             
                 /****** Page3 ******/
-        #page3{clear: both; width: 100%; height: 300%;}
+        #page3{clear: both; width: 100%; height: 150%;}
         #page3 .title{width: 100%; height: 50px; padding-top: 0;}
         #page3 h1{font-size: 2.5em; width: 120px; height: 50px; position: relative; left: 10%; margin-top: 100px;}
         #page3 h1:after{display: block; position: absolute; top: 50%; left: -5%; content: ""; width: 130px; height: 20px; background: #acecff; z-index: -1; transform: rotate(-7deg);}
         
         .workFrame{width: 100%; height: 100%;}
         .workFrame ul{width: 100%; height: 100%; margin: 0 auto;}
-        .workFrame ul li{width: 100%; height: 400px; float: left; margin-top: 15%;}
+        .workFrame ul li{width: 50%; height: 400px; float: left; margin-top: 15%;}
         .workFrame ul li:nth-of-type(3){height: 800px;}
         .workFrame .text h3{padding: 6%; text-indent: 5%; color: #444;}
         .workFrame .text .more{position: absolute; bottom: 5%; right: 10%; font-weight: bold; color: #444; width: 85px; height: 20px; z-index: 0;}
