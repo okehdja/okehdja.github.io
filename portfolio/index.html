@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Portfolio</title>
+    <style>
+        body,html{width: 100%; height: 100%; background-color: floralwhite;}
+        *{margin: 0; padding: 0;}
+        ul{list-style: none;}
+        a{text-decoration: none;}
+        button,label{outline: none; border: 0; background: transparent;}
+        
+        .page{position: relative; clear: both; width: 100%; height: 100%;}
+        /****** Page1 ******/
+        #page1{width: 100%; height: 100%;}
+        .idcardFrame{width: 100%; height: 100%; margin: 0 auto;}
+        .idCard{width: 400px; height: auto; margin: 0 auto; transform-origin: center 0%; animation: ani1 10s ease-in-out infinite;}
+        .idCard img{width: 100%; height: 100%; margin-top: -7%;}
+        .menu{position: fixed; top: 0; right: 0; width: 150px; height: 410px; z-index: 9999; top: calc(50% - 205px); right: 3%;}
+        .menu .btn{width: 150px; height: 100px; font-size: 2rem; cursor: pointer; text-shadow: 1px 1px 1px #666;}
+        .menu .btn.on{color: #0061a3;}
+        
+        
+        /****** Page2 ******/
+        #page2{clear: both; width: 100%; height: 100%;}
+        .cardFrame{width: 1700px; height: 1000px; margin: 0 auto; position: relative; top: 50px;}
+        .businessCard{position: absolute; top: 0; left: 0; width: 1700px; height: 900px; box-shadow: 3px 1px 10px 0px #ccc; margin-left: 0.5%; transition: 3s; transform-origin: center 0%;}
+        .front{opacity: 1; display: block; transform: rotateY(0deg); transition: 3s; transform-origin: center 0%; z-index: 1;}
+        .front .img .imgBox{width: 95%; height: 93%; border: 1px solid #fff; margin: 2.5% auto; }
+        .front .name{position: absolute; top: 5%; left: 5%; font-size: 5em; color: #fff;}
+        .front .click{position: absolute; left: 4%; bottom: 5%; color: #fff; font-size: 2em;}
+        .front .txt{float: left; width: 30%; height: 100%; background: #fff; position: relative;}
+        .front .txt img{position: absolute; top: 4%; left: 84%; width: 40px; height: 40px;}
+        
+        .front .img{
+            position: relative; float: left; clear: both; width: 70%; height: 100%; background: linear-gradient(45deg, #feccb1 0%, #e8b75a 10%, #EDDD07 20%, #C7E006 30%, #7EE25F 40%, #49D1B5 50%, #49a2d1 60%, #C354FF 70%, #E256FF 80%, #FF6090 90%, #FF6063 100%);
+            background-size: 600%; background-position: 0% 100%; animation: gradient 13s linear infinite;
+        }
+        /*45deg, #6fc7b5 0%, #13bdce 20%, #0094d9 40%, #5a3694 60%, #ee4d74 80%, #f58c58 100%);
+            background-size: 600%; background-position: 0% 100%; animation: gradient 15s ease-in-out infinite*/
+        
+        
+        .front .txt .tit{position: absolute; top: 20%; left: calc(50% - 175px); font-size: 3.5em; width: 350px; text-align: center; color: #0061a3; font-weight: bold;}
+        .front .txt p{position: absolute; font-size: 2.5em; font-weight: bold; color: #666;}
+        .front .txt .sub1{top: 40%; left: calc(50% - 65px);}
+        .front .txt .sub2{top: 55%; left: calc(50% - 95px);}
+        .front .txt .sub3{top: 70%; left: calc(50% - 40px);}
+        
+        
+        .back{transform: rotateY(180deg); transition: 3s; transform-origin: center 0%; z-index: 0; box-sizing: border-box; background: #fff;}
+        .back .backLine{width: 96%; height: 92%; border: 1px solid #ccc; margin: 2% auto;}
+        .back .left{width: 40%; height: 100%; float: left;}
+        .left .ltBox{width: 100%; height: 50%; background: #fff; position: relative;}
+        .ltBox img{position: absolute; top: calc(50% - 150px);  left: calc(50% - 150px); width: 300px; height: 300px; border-radius: 50%;}
+/*
+        .ltBox .pro2:hover {display: none;}
+*/
+        .left .lbBox{width: 100%; height: 50%; background: #fff;}
+        .left .lbBox h2{padding: 5%; color: #0061a3; font-size: 3em; text-indent: 10%;}
+        .left .lbBox table{width: 70%; height: 250px;  margin: 0 auto;}
+        .lbBox .tTit{width: 40%; color: #0061a3; font-weight: bold; font-size: 1.1vw;}
+        .lbBox .tTit:before{content: "■ "}
+        .lbBox .tTxt{width: 60%; color: #444; font-weight: bold; font-size: 1.1vw;}
+        
+        
+        .back .right{width: 60%; height: 100%; float: left;}
+        .right .rtBox{width: 100%; height: 50%; background: #fff;}
+        .right .rtBox h2{padding: 5%; color: #0061a3; font-size: 2.5vw;}
+        .right .rtBox table{width: 75%; height: 200px;  margin: 0 auto;}
+        .rtBox .tTit{width: 40%; color: #0061a3; font-weight: bold; font-size: 1.1vw;}
+        .rtBox .tTxt{width: 60%; color: #444; font-weight: bold; font-size: 1.1vw;}
+        
+        .right .rbBox{width: 100%; height: 50%; background: #fff;}
+        .rbBox h2{padding: 5%; color: #0061a3; font-size: 2.5vw;}
+        
+        
+        
+        /***** Circle graph *****/
+        #scene-content{width: 100%; height: 250px;}
+        .charts{width: 100%; height: 250px; margin: 0 auto;position: relative;overflow: hidden;}
+        
+        .chart{width: 220px; height: 100%;float: left; position: relative; margin-left: 2%;}
+        .circle-mask-outer,.circle-mask-inner{width: 120px;height: 180px;position: absolute;overflow: hidden;}
+        .circle-mask-outer.left{left: 15%;/*background:  #cfc;*/}
+        .circle-mask-outer.right{right: -15%;/*background:  #fcc;*/}
+        .circle-mask-outer.left .circle-mask-inner{left: 100%; transform-origin: 0 50%;}
+        .circle-mask-outer.right .circle-mask-inner{right: 100%; transform-origin: 100% 50%;} 
+        .circle-body{border-radius: 50%; position: absolute; width: 180px; height: 180px;}
+        
+        .circle-mask-outer.left .circle-body{right: 25%;}
+        .circle-mask-outer.right .circle-body{left: 25%;}
+        #ps .circle-body{background: #0061a3;}
+        #ai .circle-body{background: #0061a3;}
+        #html .circle-body{background: #0061a3;}
+        #js .circle-body{background: #0061a3;}
+        
+        .chart-content{width: 160px; height: 110px; background: #fff; border-radius: 50%; position: absolute; left: calc(50% - 70px) ; top: calc(50% - 115px); padding-top: 50px; text-align: center;}
+        
+        {padding-top: 0;}
+        
+        .chart-content p{color: #0061a3; font-size: 1vw; font-weight: bold;}
+        .chart-content .text{position: relative; left: 5%; line-height: 1; color: #0061a3;}
+        .chart-content .percent-number{font-size: 2vw; font-weight: bold;}
+        .chart-content .percent-symbol{font-size: 1vw; color: #0061a3;}
+        
+        
+        /****** Page3 ******/
+        #page3{width: 100%; height: 100%;}
+        #page3 .title{width: 100%; height: 50px; padding-top: 100px;}
+        #page3 h1{font-size: 3.5em; width: 200px; height: 100px; position: relative; left: 10%;}
+        #page3 h1:after{display: block; position: absolute; top: 35%; left: -5%; content: ""; width: 200px; height: 40px; background: #acecff; z-index: -1; transform: rotate(-7deg);}
+        
+        .workFrame{width: 100%; height: 80%;}
+        .workFrame ul{width: 1500px; height: 100%; margin: 0 auto;}
+        .workFrame ul li{width: 25%; height: 100%; float: left;}
+        .workFrame .text h3{padding: 6%; text-indent: 5%; color: #444;}
+        .workFrame .text .more{position: absolute; bottom: 5%; right: 10%; font-weight: bold; color: #444; width: 85px; height: 20px; z-index: 0;}
+        .workFrame .text .more2{position: absolute; bottom: 5%; left: 15%;  font-weight: bold; color: #444; width: 85px; height: 20px; z-index: 0;}
+        
+        .workBox1{width: 300px; height: 380px; background: #fff; margin-top: 90%; position: relative; box-shadow: 3px 1px 10px 0px #ccc; transform: rotateZ(-1deg);}
+        .workBox1 .img{width: 100%; height: 50%; overflow: hidden;}
+        .workBox1 .img img{width: 100%; height: 100%; transition: 1s;}
+        .workBox1 .text{width: 100%; height: 50%; background: #fff;}
+        .workBox1:before{display: block; content: ""; width: 25px; height: 45px; background: #8CD790; ;position: absolute; top: -6%; left: -3%; transform: rotate(45deg); opacity: 0.8; z-index: 1;}
+        .workBox1:after{display: block; content: ""; width: 25px; height: 45px; background: #8CD790; ;position: absolute; bottom: -5%; right: -3%; transform: rotate(45deg); opacity: 0.8; z-index: 1;}
+        .workBox1:hover.workBox1 .img img{transform: scale(1.1); transition: 1s;}
+        .workBox1 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #9abdff; z-index: -1; transition: 1s;}
+        .workBox1:hover.workBox1 .text .more:before{width: 95px; transition: 1s;}
+
+        
+        .workBox2{width: 300px; height: 380px; background: #fff; margin-top: 20%; position: relative; box-shadow: 3px 1px 10px 0px #ccc; transform: rotateZ(1deg);}
+        .workBox2 .img{width: 100%; height: auto; overflow: hidden;}
+        .workBox2 .img img{width: 100%; height: auto; transition: 1s;}
+        .workBox2 .txt{width: 100%; height: 50%; background: #fff;}
+        .workBox2:before{display: block; content: ""; width: 35px; height: 50px; background: #FDD692; ;position: absolute; top: -9%; left: 45%; transform: rotate(-5deg); opacity: 0.8; z-index: 1;}
+        .workBox2:hover.workBox2 .img img{transform: scale(1.1); transition: 1s;}
+        .workBox2 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #ffd963; z-index: -1; transition: 1s;}
+        .workBox2:hover.workBox2 .text .more:before{width: 95px; transition: 1s;}
+        
+        
+        .workBox3{width: 300px; height: 380px; background: #fff; margin-top: -10%; position: relative; box-shadow: 3px 1px 10px 0px #ccc;transform: rotateZ(-1deg);}
+        .workBox3 .img{width: 100%; height: auto; overflow: hidden}
+        .workBox3 .img img{width: 100%; height: auto; transition: 1s;}
+        .workBox3 .txt{width: 100%; height: 50%; background: #fff;}
+        .workBox3:before{display: block; content: ""; width: 25px; height: 45px; background: #e85a71; ;position: absolute; top: -6%; left: 5%; transform: rotate(10deg); opacity: 0.8; z-index: 1;}
+        .workBox3:after{display: block; content: ""; width: 25px; height: 45px; background: #e85a71; ;position: absolute; top: -5%; right: 2%; transform: rotate(3deg); opacity: 0.8; z-index: 1;}
+        .workBox3:hover.workBox3 .img img{transform: scale(1.1); transition: 1s;}
+        .workBox3 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #9abdff; z-index: -1; transition: 1s;}
+        .workBox3:hover.workBox3 .text .more:before{width: 87px; transition: 1s;}
+        .workBox3 .text .more2:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #ffb4b4; z-index: -1; transition: 1s;}
+        .workBox3:hover.workBox3 .text .more:before{width: 87px; transition: 1s;}
+        .workBox3:hover.workBox3 .text .more2:before{width: 95px; transition: 1s;}
+        
+        .workBox4{width: 300px; height: 380px; background: #fff; margin-top: 10%; position: relative; box-shadow: 3px 1px 10px 0px #ccc;transform: rotateZ(1deg);}
+        .workBox4 .img{width: 100%; height: auto; overflow: hidden;}
+        .workBox4 .img img{width: 100%; height: auto; transition: 1s;}
+        .workBox4 .txt{width: 100%; height: 50%; background: #fff;}
+        .workBox4:before{display: block; content: ""; width: 25px; height: 45px; background: #8EC0E4; ;position: absolute; top: -6%; right: -3%; transform: rotate(-45deg); opacity: 0.8; z-index: 1;}
+        .workBox4:after{display: block; content: ""; width: 20px; height: 80px; background: #8EC0E4; ;position: absolute; bottom: -7%; left: 0%; transform: rotate(-45deg); opacity: 0.8; z-index: 1;}
+        .workBox4:hover.workBox4 .img img{transform: scale(1.1); transition: 1s;}
+        .workBox4 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #9abdff; z-index: -1; transition: 1s;}
+        .workBox4:hover.workBox4 .text .more:before{width: 95px; transition: 1s;}
+        
+        .workBox5{width: 300px; height: 380px; background: #fff; margin-top: 40%; position: relative; box-shadow: 3px 1px 10px 0px #ccc;transform: rotateZ(1deg);}
+        .workBox5 .img{width: 100%; height: auto; overflow: hidden;}
+        .workBox5 .img img{width: 100%; height: auto; transition: 1s;}
+        .workBox5 .txt{width: 100%; height: 50%; background: #fff;}
+        .workBox5:before{display: block; content: ""; width: 20px; height: 50px; background: #F7AA97; ;position: absolute; top: -6%; left: -2%; transform: rotate(40deg); opacity: 0.8; z-index: 1;}
+        .workBox5:after{display: block; content: ""; width: 15px; height: 40px; background: #F7AA97; ;position: absolute; bottom: -5%; right: -1%; transform: rotate(45deg); opacity: 0.8; z-index: 1;}
+        .workBox5:hover.workBox5 .img img{transform: scale(1.1); transition: 1s;}
+        .workBox5 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #bdff9a; z-index: -1; transition: 1s;}
+        .workBox5:hover.workBox5 .text .more:before{width: 95px; transition: 1s;}
+        
+        /***** Page4 *****/
+        #page4{width: 100%; height: 100%;}
+        #page4 h1{margin: 0 auto; text-align: center; width: 700px; height: 200px; font-size: 6rem; padding-top: 250px; text-shadow: 1px 1px 5px #000; color: #fff;}
+        #page4 h1:after{display: block; content: ""; width: 450px; height: 3px; background: #fff; margin: 0 auto; box-shadow: 1px 1px 3px #000;}
+        #page4 h2{font-size: 2rem; width: 460px; margin: 0 auto; text-align: justify; text-shadow: 1px 1px 2px #000; color: #fff;}
+        
+        @keyframes ani1{
+            0%{transform: rotate(0deg);}
+            25%{transform: rotate(10deg);}
+            75%{transform: rotate(-10deg);}
+            100%{transform: rotate(0deg); }
+        }
+        
+        @keyframes gradient {
+
+            50% {
+                background-position: 100% 0%;
+            }
+        }
+        
+        @keyframes display{
+            0%{transform: translateY(0)}
+            100%{transform: translateY(auto)}
+        }
+
+        
+        
+        .businessCard.front.off{transform-origin: center 0%; transform: rotateY(180deg); transition: 3s; z-index: 0;}
+        .businessCard.back.on{transform-origin: center 0%; transform: rotateY(0deg); transition: 3s; z-index: 1;}
+        
+        
+        
+        
+        /**** 모바일 ****/
+        @media screen and (max-width: 767px){
+            
+            /****** Page1 ******/
+        #page1{width: 100%; height: 100%;}
+        .idcardFrame{width: 100%; height: 100%; margin: 0 auto;}
+        .idCard{width: 270px; height: auto; margin: 0 auto; transform-origin: center 0%; animation: ani1 10s ease-in-out infinite;}
+        .idCard img{width: 100%; height: 100%; margin-top: -7%;}
+        .menu{display: none;}
+        
+         /****** Page2 ******/
+        #page2{clear: both; width: 100%; height: 100%;}
+        .cardFrame{width: 100%; height: 100%; margin: 0 auto; position: relative; top: 0;}
+        .businessCard{position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-shadow: 3px 1px 10px 0px #ccc; margin-left: 0%; transition: 3s; transform-origin: center 0%;}
+        .front{opacity: 1; display: block; transform: rotateY(0deg); transition: 3s; transform-origin: center 0%; z-index: 1;}
+        .front .img .imgBox{width: 95%; height: 98%; border: 1px solid #fff; margin: 2.5% auto; }
+        .front .name{position: absolute; top: 5%; left: 5%; font-size: 3.5em; color: #fff;}
+        .front .click{position: absolute; left: 4%; bottom: 1%; color: #fff; font-size: 1.5em;}
+        .front .txt{display: none;}
+        .front .txt img{display: none;}
+        .front .img{
+            position: relative; float: left; clear: both; width: 100%; height: 100%; background: linear-gradient(45deg, #feccb1 0%, #e8b75a 10%, #EDDD07 20%, #C7E006 30%, #7EE25F 40%, #49D1B5 50%, #49a2d1 60%, #C354FF 70%, #E256FF 80%, #FF6090 90%, #FF6063 100%);
+            background-size: 600%; background-position: 0% 100%; animation: gradient 13s linear infinite;
+        }
+        /*45deg, #6fc7b5 0%, #13bdce 20%, #0094d9 40%, #5a3694 60%, #ee4d74 80%, #f58c58 100%);
+            background-size: 600%; background-position: 0% 100%; animation: gradient 15s ease-in-out infinite*/
+        
+        
+        .front .txt .tit{position: absolute; top: 20%; left: calc(50% - 175px); font-size: 3.5em; width: 350px; text-align: center; color: #0061a3; font-weight: bold;}
+        .front .txt p{position: absolute; font-size: 2.5em; font-weight: bold; color: #666;}
+        
+            
+        .back{transform: rotateY(180deg); transition: 3s; transform-origin: center 0%; z-index: 0; box-sizing: border-box; background: #fff;}
+        .back .backLine{width: 95%; height: 98%; border: 1px solid #ccc; margin: 2% auto;}
+        .back .left{width: 100%; height: 50%; float: left;}
+        .left .ltBox{width: 100%; height: 50%; background: #fff; position: relative;}
+        .ltBox img{position: absolute; top: calc(50% - 75px);  left: calc(50% - 75px); width: 150px; height: 150px; border-radius: 50%;}
+/*
+        .ltBox .pro2:hover {display: none;}
+*/
+        .left .lbBox{width: 100%; height: 50%; background: #fff;}
+        .left .lbBox h2{padding: 2%; color: #0061a3; font-size: 1.2em; text-indent: 0%; text-align: center; line-height: 2em;}
+        .left .lbBox table{width: 50%; height: 70%; text-align: justify; margin: 0 auto;}
+        .lbBox .tTit{width: 50%; color: #0061a3; font-weight: bold; font-size: 1.1vw;}
+        .lbBox .tTit:before{content: "■ "}
+        .lbBox .tTxt{width: 50%; color: #444; font-weight: bold; font-size: 1.1vw;}
+        
+        
+        .back .right{width: 100%; height: 50%; float: left;}
+        .right .rtBox{width: 100%; height: 50%; background: #fff;}
+        .right .rtBox h2{ padding: 0; padding-top: 5%;; color: #0061a3; font-size: 1.2em; text-indent: 0; text-align: center;}
+        .right .rtBox table{width: 75%; height: 130px;  margin: 0 auto; margin-top: 3%;}
+        .rtBox .tTit{width: 40%; color: #0061a3; font-weight: bold; font-size: 1.1vw;}
+        .rtBox .tTxt{width: 60%; color: #444; font-weight: bold; font-size: 1.1vw;}
+        
+        .right .rbBox{width: 100%; height: 50%;}
+        .rbBox h2{padding: 0%; padding-top: 5%;  color: #0061a3; font-size: 1.2em; text-align: center;}
+        
+        
+        
+        /***** Circle graph *****/
+        #scene-content{width: 100%; height: 130px; margin-top: 30px;}
+        .charts{width: 100%; height: 160px; margin: 0 auto; position: relative; overflow: hidden;}
+        
+        .chart{width: 23%; height: 100%; float: left; position: relative; margin-left: 2%;}
+        .chart:nth-of-type(1){margin-left: 0;}
+        .circle-mask-outer,.circle-mask-inner{width: 53px; height: 80px;position: absolute; overflow: hidden;}
+        .circle-mask-outer.left{left: -50%;/* background:  #cfc;*/}
+        .circle-mask-outer.right{right: -50%;/* background:  #fcc;*/}
+        .circle-mask-outer.left .circle-mask-inner{left: 100%; transform-origin: 0 50%;}
+        .circle-mask-outer.right .circle-mask-inner{right: 100%; transform-origin: 100% 50%;} 
+        .circle-body{border-radius: 50%; position: absolute; width: 80px; height: 80px;}
+        
+        .circle-mask-outer.left .circle-body{right: 25%;}
+        .circle-mask-outer.right .circle-body{left: 25%;}
+        #ps .circle-body{background: #0061a3;}
+        #ai .circle-body{background: #0061a3;}
+        #html .circle-body{background: #0061a3;}
+        #js .circle-body{background: #0061a3;}
+        
+        .chart-content{width: 60px; height: 45px; background: #fff; border-radius: 50%; position: absolute; left: calc(50% - 30px) ; top: 10px;; padding-top: 15px; text-align: center;}
+        
+        {padding-top: 0;}
+        
+        .chart-content p{color: #0061a3; font-size: 1vw; font-weight: bold;}
+        .chart-content .text{position: relative; left: 5%; line-height: 1; color: #0061a3;}
+        .chart-content .percent-number{font-size: 2vw; font-weight: bold;}
+        .chart-content .percent-symbol{font-size: 1vw; color: #0061a3;}
+            
+            
+            
+                /****** Page3 ******/
+        #page3{clear: both; width: 100%; height: 300%;}
+        #page3 .title{width: 100%; height: 50px; padding-top: 0;}
+        #page3 h1{font-size: 2.5em; width: 120px; height: 50px; position: relative; left: 10%; margin-top: 100px;}
+        #page3 h1:after{display: block; position: absolute; top: 50%; left: -5%; content: ""; width: 130px; height: 20px; background: #acecff; z-index: -1; transform: rotate(-7deg);}
+        
+        .workFrame{width: 100%; height: 100%;}
+        .workFrame ul{width: 100%; height: 100%; margin: 0 auto;}
+        .workFrame ul li{width: 100%; height: 400px; float: left; margin-top: 15%;}
+        .workFrame ul li:nth-of-type(3){height: 800px;}
+        .workFrame .text h3{padding: 6%; text-indent: 5%; color: #444;}
+        .workFrame .text .more{position: absolute; bottom: 5%; right: 10%; font-weight: bold; color: #444; width: 85px; height: 20px; z-index: 0;}
+        .workFrame .text .more2{position: absolute; bottom: 5%; left: 15%;  font-weight: bold; color: #444; width: 85px; height: 20px; z-index: 0;}
+        
+        .workBox1{width: 300px; height: 380px; background: #fff; margin-top: 0%; position: relative; box-shadow: 3px 1px 10px 0px #ccc; transform: rotateZ(-1deg); margin: 10% auto;}
+        .workBox1 .img{width: 100%; height: 50%; overflow: hidden;}
+        .workBox1 .img img{width: 100%; height: 100%; transition: 1s;}
+        .workBox1 .text{width: 100%; height: 50%; background: #fff;}
+        .workBox1:before{display: block; content: ""; width: 25px; height: 45px; background: #8CD790; ;position: absolute; top: -6%; left: -3%; transform: rotate(45deg); opacity: 0.8; z-index: 1;}
+        .workBox1:after{display: block; content: ""; width: 25px; height: 45px; background: #8CD790; ;position: absolute; bottom: -5%; right: -3%; transform: rotate(45deg); opacity: 0.8; z-index: 1;}
+        .workBox1:hover.workBox1 .img img{transform: scale(1.1); transition: 1s;}
+        .workBox1 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #9abdff; z-index: -1; transition: 1s;}
+        .workBox1:hover.workBox1 .text .more:before{width: 95px; transition: 1s;}    
+         
+            
+        .workBox2{width: 300px; height: 380px; background: #fff; margin-top: 0%; position: relative; box-shadow: 3px 1px 10px 0px #ccc; transform: rotateZ(1deg); margin: 0 auto;}
+        .workBox2 .img{width: 100%; height: auto; overflow: hidden;}
+        .workBox2 .img img{width: 100%; height: auto; transition: 1s;}
+        .workBox2 .txt{width: 100%; height: 50%; background: #fff;}
+        .workBox2:before{display: block; content: ""; width: 35px; height: 50px; background: #FDD692; ;position: absolute; top: -9%; left: 45%; transform: rotate(-5deg); opacity: 0.8; z-index: 1;}
+        .workBox2:hover.workBox2 .img img{transform: scale(1.1); transition: 1s;}
+        .workBox2 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #ffd963; z-index: -1; transition: 1s;}
+        .workBox2:hover.workBox2 .text .more:before{width: 95px; transition: 1s;}
+        
+        
+        .workBox3{width: 300px; height: 380px; background: #fff; margin-top: 0%; position: relative; box-shadow: 3px 1px 10px 0px #ccc;transform: rotateZ(-1deg); margin: 0 auto;}
+        .workBox3 .img{width: 100%; height: auto; overflow: hidden}
+        .workBox3 .img img{width: 100%; height: auto; transition: 1s;}
+        .workBox3 .txt{width: 100%; height: 50%; background: #fff;}
+        .workBox3:before{display: block; content: ""; width: 25px; height: 45px; background: #e85a71; ;position: absolute; top: -6%; left: 5%; transform: rotate(10deg); opacity: 0.8; z-index: 1;}
+        .workBox3:after{display: block; content: ""; width: 25px; height: 45px; background: #e85a71; ;position: absolute; top: -5%; right: 2%; transform: rotate(3deg); opacity: 0.8; z-index: 1;}
+        .workBox3:hover.workBox3 .img img{transform: scale(1.1); transition: 1s;}
+        .workBox3 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #9abdff; z-index: -1; transition: 1s;}
+        .workBox3:hover.workBox3 .text .more:before{width: 87px; transition: 1s;}
+        .workBox3 .text .more2:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #ffb4b4; z-index: -1; transition: 1s;}
+        .workBox3:hover.workBox3 .text .more:before{width: 87px; transition: 1s;}
+        .workBox3:hover.workBox3 .text .more2:before{width: 95px; transition: 1s;}
+        
+        .workBox4{width: 300px; height: 380px; background: #fff; margin-top: 0%; position: relative; box-shadow: 3px 1px 10px 0px #ccc;transform: rotateZ(1deg); margin: 0 auto;}
+        .workBox4 .img{width: 100%; height: auto; overflow: hidden;}
+        .workBox4 .img img{width: 100%; height: auto; transition: 1s;}
+        .workBox4 .txt{width: 100%; height: 50%; background: #fff;}
+        .workBox4:before{display: block; content: ""; width: 25px; height: 45px; background: #8EC0E4; ;position: absolute; top: -6%; right: -3%; transform: rotate(-45deg); opacity: 0.8; z-index: 1;}
+        .workBox4:after{display: block; content: ""; width: 20px; height: 80px; background: #8EC0E4; ;position: absolute; bottom: -7%; left: 0%; transform: rotate(-45deg); opacity: 0.8; z-index: 1;}
+        .workBox4:hover.workBox4 .img img{transform: scale(1.1); transition: 1s;}
+        .workBox4 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #9abdff; z-index: -1; transition: 1s;}
+        .workBox4:hover.workBox4 .text .more:before{width: 95px; transition: 1s;}
+        
+        .workBox5{width: 300px; height: 380px; background: #fff; margin-top: 0%; position: relative; box-shadow: 3px 1px 10px 0px #ccc;transform: rotateZ(1deg); margin: 0 auto;}
+        .workBox5 .img{width: 100%; height: auto; overflow: hidden;}
+        .workBox5 .img img{width: 100%; height: auto; transition: 1s;}
+        .workBox5 .txt{width: 100%; height: 50%; background: #fff;}
+        .workBox5:before{display: block; content: ""; width: 20px; height: 50px; background: #F7AA97; ;position: absolute; top: -6%; left: -2%; transform: rotate(40deg); opacity: 0.8; z-index: 1;}
+        .workBox5:after{display: block; content: ""; width: 15px; height: 40px; background: #F7AA97; ;position: absolute; bottom: -5%; right: -1%; transform: rotate(45deg); opacity: 0.8; z-index: 1;}
+        .workBox5:hover.workBox5 .img img{transform: scale(1.1); transition: 1s;}
+        .workBox5 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #bdff9a; z-index: -1; transition: 1s;}
+        .workBox5:hover.workBox5 .text .more:before{width: 95px; transition: 1s;}    
+            
+            
+        /***** Page4 *****/
+        #page4{width: 100%; height: 100%;}
+        #page4 h1{margin: 0 auto; text-align: center; width: 300px; height: 200px; font-size: 3rem; padding-top: 250px; text-shadow: 1px 1px 5px #000; color: #fff;}
+        #page4 h1:after{display: block; content: ""; width: 300px; height: 3px; background: #fff; margin: 0 auto; box-shadow: 1px 1px 3px #000;}
+        #page4 h2{font-size: 1.2rem; width: 280px; margin: 0 auto; text-align: justify; text-shadow: 1px 1px 2px #000; color: #fff;}    
+            
+            
+        } 
+        
+        
+        
+        @media screen and (max-width: 1100px){
+            
+            
+            /****** Page1 ******/
+        #page1{width: 100%; height: 100%;}
+        .idcardFrame{width: 100%; height: 100%; margin: 0 auto;}
+        .idCard{width: 270px; height: auto; margin: 0 auto; transform-origin: center 0%; animation: ani1 10s ease-in-out infinite;}
+        .idCard img{width: 100%; height: 100%; margin-top: -7%;}
+        .menu{display: none;}
+        
+         /****** Page2 ******/
+        #page2{clear: both; width: 100%; height: 100%;}
+        .cardFrame{width: 100%; height: 100%; margin: 0 auto; position: relative; top: 0;}
+        .businessCard{position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-shadow: 3px 1px 10px 0px #ccc; margin-left: 0%; transition: 3s; transform-origin: center 0%;}
+        .front{opacity: 1; display: block; transform: rotateY(0deg); transition: 3s; transform-origin: center 0%; z-index: 1;}
+        .front .img .imgBox{width: 95%; height: 98%; border: 1px solid #fff; margin: 2.5% auto; }
+        .front .name{position: absolute; top: 5%; left: 5%; font-size: 3.5em; color: #fff;}
+        .front .click{position: absolute; left: 4%; bottom: 1%; color: #fff; font-size: 1.5em;}
+        .front .txt{display: none;}
+        .front .txt img{display: none;}
+        .front .img{
+            position: relative; float: left; clear: both; width: 100%; height: 100%; background: linear-gradient(45deg, #feccb1 0%, #e8b75a 10%, #EDDD07 20%, #C7E006 30%, #7EE25F 40%, #49D1B5 50%, #49a2d1 60%, #C354FF 70%, #E256FF 80%, #FF6090 90%, #FF6063 100%);
+            background-size: 600%; background-position: 0% 100%; animation: gradient 13s linear infinite;
+        }
+        /*45deg, #6fc7b5 0%, #13bdce 20%, #0094d9 40%, #5a3694 60%, #ee4d74 80%, #f58c58 100%);
+            background-size: 600%; background-position: 0% 100%; animation: gradient 15s ease-in-out infinite*/
+        
+        
+        .front .txt .tit{position: absolute; top: 20%; left: calc(50% - 175px); font-size: 3.5em; width: 350px; text-align: center; color: #0061a3; font-weight: bold;}
+        .front .txt p{position: absolute; font-size: 2.5em; font-weight: bold; color: #666;}
+        
+            
+        .back{transform: rotateY(180deg); transition: 3s; transform-origin: center 0%; z-index: 0; box-sizing: border-box; background: #fff;}
+        .back .backLine{width: 95%; height: 98%; border: 1px solid #ccc; margin: 2% auto;}
+        .back .left{width: 100%; height: 50%; float: left;}
+        .left .ltBox{width: 100%; height: 50%; background: #fff; position: relative;}
+        .ltBox img{position: absolute; top: calc(50% - 75px);  left: calc(50% - 75px); width: 150px; height: 150px; border-radius: 50%;}
+/*
+        .ltBox .pro2:hover {display: none;}
+*/
+        .left .lbBox{width: 100%; height: 50%; background: #fff;}
+        .left .lbBox h2{padding: 2%; color: #0061a3; font-size: 1.2em; text-indent: 0%; text-align: center; line-height: 2em;}
+        .left .lbBox table{width: 50%; height: 70%; text-align: justify; margin: 0 auto;}
+        .lbBox .tTit{width: 50%; color: #0061a3; font-weight: bold; font-size: 1.1vw;}
+        .lbBox .tTit:before{content: "■ "}
+        .lbBox .tTxt{width: 50%; color: #444; font-weight: bold; font-size: 1.1vw;}
+        
+        
+        .back .right{width: 100%; height: 50%; float: left;}
+        .right .rtBox{width: 100%; height: 50%; background: #fff;}
+        .right .rtBox h2{ padding: 0; padding-top: 5%;; color: #0061a3; font-size: 1.2em; text-indent: 0; text-align: center;}
+        .right .rtBox table{width: 75%; height: 130px;  margin: 0 auto; margin-top: 3%;}
+        .rtBox .tTit{width: 40%; color: #0061a3; font-weight: bold; font-size: 1.1vw;}
+        .rtBox .tTxt{width: 60%; color: #444; font-weight: bold; font-size: 1.1vw;}
+        
+        .right .rbBox{width: 100%; height: 50%;}
+        .rbBox h2{padding: 0%; padding-top: 5%;  color: #0061a3; font-size: 1.2em; text-align: center;}
+        
+        
+        
+        /***** Circle graph *****/
+        #scene-content{width: 100%; height: 130px; margin-top: 30px;}
+        .charts{width: 100%; height: 160px; margin: 0 auto; position: relative; overflow: hidden;}
+        
+        .chart{width: 23%; height: 100%; float: left; position: relative; margin-left: 2%;}
+        .chart:nth-of-type(1){margin-left: 0;}
+        .circle-mask-outer,.circle-mask-inner{width: 53px; height: 80px;position: absolute; overflow: hidden;}
+        .circle-mask-outer.left{left: -50%;/* background:  #cfc;*/}
+        .circle-mask-outer.right{right: -50%;/* background:  #fcc;*/}
+        .circle-mask-outer.left .circle-mask-inner{left: 100%; transform-origin: 0 50%;}
+        .circle-mask-outer.right .circle-mask-inner{right: 100%; transform-origin: 100% 50%;} 
+        .circle-body{border-radius: 50%; position: absolute; width: 80px; height: 80px;}
+        
+        .circle-mask-outer.left .circle-body{right: 25%;}
+        .circle-mask-outer.right .circle-body{left: 25%;}
+        #ps .circle-body{background: #0061a3;}
+        #ai .circle-body{background: #0061a3;}
+        #html .circle-body{background: #0061a3;}
+        #js .circle-body{background: #0061a3;}
+        
+        .chart-content{width: 60px; height: 45px; background: #fff; border-radius: 50%; position: absolute; left: calc(50% - 30px) ; top: 10px;; padding-top: 15px; text-align: center;}
+        
+        {padding-top: 0;}
+        
+        .chart-content p{color: #0061a3; font-size: 1vw; font-weight: bold;}
+        .chart-content .text{position: relative; left: 5%; line-height: 1; color: #0061a3;}
+        .chart-content .percent-number{font-size: 2vw; font-weight: bold;}
+        .chart-content .percent-symbol{font-size: 1vw; color: #0061a3;}
+            
+            
+            
+                /****** Page3 ******/
+        #page3{clear: both; width: 100%; height: 300%;}
+        #page3 .title{width: 100%; height: 50px; padding-top: 0;}
+        #page3 h1{font-size: 2.5em; width: 120px; height: 50px; position: relative; left: 10%; margin-top: 100px;}
+        #page3 h1:after{display: block; position: absolute; top: 50%; left: -5%; content: ""; width: 130px; height: 20px; background: #acecff; z-index: -1; transform: rotate(-7deg);}
+        
+        .workFrame{width: 100%; height: 100%;}
+        .workFrame ul{width: 100%; height: 100%; margin: 0 auto;}
+        .workFrame ul li{width: 100%; height: 400px; float: left; margin-top: 15%;}
+        .workFrame ul li:nth-of-type(3){height: 800px;}
+        .workFrame .text h3{padding: 6%; text-indent: 5%; color: #444;}
+        .workFrame .text .more{position: absolute; bottom: 5%; right: 10%; font-weight: bold; color: #444; width: 85px; height: 20px; z-index: 0;}
+        .workFrame .text .more2{position: absolute; bottom: 5%; left: 15%;  font-weight: bold; color: #444; width: 85px; height: 20px; z-index: 0;}
+        
+        .workBox1{width: 300px; height: 380px; background: #fff; margin-top: 0%; position: relative; box-shadow: 3px 1px 10px 0px #ccc; transform: rotateZ(-1deg); margin: 10% auto;}
+        .workBox1 .img{width: 100%; height: 50%; overflow: hidden;}
+        .workBox1 .img img{width: 100%; height: 100%; transition: 1s;}
+        .workBox1 .text{width: 100%; height: 50%; background: #fff;}
+        .workBox1:before{display: block; content: ""; width: 25px; height: 45px; background: #8CD790; ;position: absolute; top: -6%; left: -3%; transform: rotate(45deg); opacity: 0.8; z-index: 1;}
+        .workBox1:after{display: block; content: ""; width: 25px; height: 45px; background: #8CD790; ;position: absolute; bottom: -5%; right: -3%; transform: rotate(45deg); opacity: 0.8; z-index: 1;}
+        .workBox1:hover.workBox1 .img img{transform: scale(1.1); transition: 1s;}
+        .workBox1 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #9abdff; z-index: -1; transition: 1s;}
+        .workBox1:hover.workBox1 .text .more:before{width: 95px; transition: 1s;}    
+         
+            
+        .workBox2{width: 300px; height: 380px; background: #fff; margin-top: 0%; position: relative; box-shadow: 3px 1px 10px 0px #ccc; transform: rotateZ(1deg); margin: 0 auto;}
+        .workBox2 .img{width: 100%; height: auto; overflow: hidden;}
+        .workBox2 .img img{width: 100%; height: auto; transition: 1s;}
+        .workBox2 .txt{width: 100%; height: 50%; background: #fff;}
+        .workBox2:before{display: block; content: ""; width: 35px; height: 50px; background: #FDD692; ;position: absolute; top: -9%; left: 45%; transform: rotate(-5deg); opacity: 0.8; z-index: 1;}
+        .workBox2:hover.workBox2 .img img{transform: scale(1.1); transition: 1s;}
+        .workBox2 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #ffd963; z-index: -1; transition: 1s;}
+        .workBox2:hover.workBox2 .text .more:before{width: 95px; transition: 1s;}
+        
+        
+        .workBox3{width: 300px; height: 380px; background: #fff; margin-top: 0%; position: relative; box-shadow: 3px 1px 10px 0px #ccc;transform: rotateZ(-1deg); margin: 0 auto;}
+        .workBox3 .img{width: 100%; height: auto; overflow: hidden}
+        .workBox3 .img img{width: 100%; height: auto; transition: 1s;}
+        .workBox3 .txt{width: 100%; height: 50%; background: #fff;}
+        .workBox3:before{display: block; content: ""; width: 25px; height: 45px; background: #e85a71; ;position: absolute; top: -6%; left: 5%; transform: rotate(10deg); opacity: 0.8; z-index: 1;}
+        .workBox3:after{display: block; content: ""; width: 25px; height: 45px; background: #e85a71; ;position: absolute; top: -5%; right: 2%; transform: rotate(3deg); opacity: 0.8; z-index: 1;}
+        .workBox3:hover.workBox3 .img img{transform: scale(1.1); transition: 1s;}
+        .workBox3 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #9abdff; z-index: -1; transition: 1s;}
+        .workBox3:hover.workBox3 .text .more:before{width: 87px; transition: 1s;}
+        .workBox3 .text .more2:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #ffb4b4; z-index: -1; transition: 1s;}
+        .workBox3:hover.workBox3 .text .more:before{width: 87px; transition: 1s;}
+        .workBox3:hover.workBox3 .text .more2:before{width: 95px; transition: 1s;}
+        
+        .workBox4{width: 300px; height: 380px; background: #fff; margin-top: 0%; position: relative; box-shadow: 3px 1px 10px 0px #ccc;transform: rotateZ(1deg); margin: 0 auto;}
+        .workBox4 .img{width: 100%; height: auto; overflow: hidden;}
+        .workBox4 .img img{width: 100%; height: auto; transition: 1s;}
+        .workBox4 .txt{width: 100%; height: 50%; background: #fff;}
+        .workBox4:before{display: block; content: ""; width: 25px; height: 45px; background: #8EC0E4; ;position: absolute; top: -6%; right: -3%; transform: rotate(-45deg); opacity: 0.8; z-index: 1;}
+        .workBox4:after{display: block; content: ""; width: 20px; height: 80px; background: #8EC0E4; ;position: absolute; bottom: -7%; left: 0%; transform: rotate(-45deg); opacity: 0.8; z-index: 1;}
+        .workBox4:hover.workBox4 .img img{transform: scale(1.1); transition: 1s;}
+        .workBox4 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #9abdff; z-index: -1; transition: 1s;}
+        .workBox4:hover.workBox4 .text .more:before{width: 95px; transition: 1s;}
+        
+        .workBox5{width: 300px; height: 380px; background: #fff; margin-top: 0%; position: relative; box-shadow: 3px 1px 10px 0px #ccc;transform: rotateZ(1deg); margin: 0 auto;}
+        .workBox5 .img{width: 100%; height: auto; overflow: hidden;}
+        .workBox5 .img img{width: 100%; height: auto; transition: 1s;}
+        .workBox5 .txt{width: 100%; height: 50%; background: #fff;}
+        .workBox5:before{display: block; content: ""; width: 20px; height: 50px; background: #F7AA97; ;position: absolute; top: -6%; left: -2%; transform: rotate(40deg); opacity: 0.8; z-index: 1;}
+        .workBox5:after{display: block; content: ""; width: 15px; height: 40px; background: #F7AA97; ;position: absolute; bottom: -5%; right: -1%; transform: rotate(45deg); opacity: 0.8; z-index: 1;}
+        .workBox5:hover.workBox5 .img img{transform: scale(1.1); transition: 1s;}
+        .workBox5 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #bdff9a; z-index: -1; transition: 1s;}
+        .workBox5:hover.workBox5 .text .more:before{width: 95px; transition: 1s;}    
+            
+            
+        /***** Page4 *****/
+        #page4{width: 100%; height: 100%;}
+        #page4 h1{margin: 0 auto; text-align: center; width: 300px; height: 200px; font-size: 3rem; padding-top: 250px; text-shadow: 1px 1px 5px #000; color: #fff;}
+        #page4 h1:after{display: block; content: ""; width: 300px; height: 3px; background: #fff; margin: 0 auto; box-shadow: 1px 1px 3px #000;}
+        #page4 h2{font-size: 1.2rem; width: 280px; margin: 0 auto; text-align: justify; text-shadow: 1px 1px 2px #000; color: #fff;} 
+            
+            
+            
+        }
+        
+        
+        
+        
+        
+        
+        
+    </style>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $(document).ready(function(){
+           $(".businessCard").click(function(){
+             $(".businessCard.front").toggleClass("off");  
+             $(".businessCard.back").toggleClass("on");  
+           });
+        });
+    </script>
+    
+    <script>
+     $(document).ready(function(){
+        activateScene();/* 함수실행 */ 
+        function activateScene(){//함수 정의 
+            var $content = $('#scene-content'),
+                 $charts = $content.find('.chart');
+         
+            //원형 차트 당 처리    
+            $charts.each(function(){
+                var $chart = $(this),
+                    //마스크 를 저장하고 각도 0도로 지정
+                    $circleLeft= $chart.find('.left .circle-mask-inner').css({transform:'rotate(0)'}),
+                    $circleRight= $chart.find('.right .circle-mask-inner').css({transform:'rotate(0)'}),
+                    //백분율  취득
+                     $percentNumber=$chart.find('.percent-number'),
+                    percentdata=$percentNumber.text();
+          
+                 //백분율 표시를 일단 0      
+                   $percentNumber.text(0);
+                
+                //각도 애니메이션
+                 $({percent:0}).delay(1000).animate({percent:percentdata},{//시간정의,프로그래스 정의
+                     duration:4000,
+                     progress:function(){
+                      var now =this.percent,//내 %가지고 와서 now에저장
+                        deg = now*360/100,//90*360/100
+                        degRight=Math.min(Math.max(deg,0),180),
+                         degLeft=Math.min(Math.max(deg - 180,0),180);
+                         $circleRight.css({transform:'rotate(' + degRight + 'deg)'});
+                         $circleLeft.css({transform:'rotate(' + degLeft + 'deg)'});
+                         $percentNumber.text(Math.floor(now));
+                         
+                     } 
+                 }); 
+            });
+        }
+     });
+       
+        
+    </script>
+    
+    <script>
+     $(document).ready(function(){
+         var sc_pg = parseInt($(window).height());
+			$(window).on('mousewheel', function(e){
+				if(e.originalEvent.wheelDelta < 0) {
+					$('html, body').not(":animated").animate({
+                        scrollTop : '+='+sc_pg+'px'},2000);
+				} else {
+					$('html, body').not(":animated").animate({
+                        scrollTop : '-='+sc_pg+'px'},2000);
+				}
+				return false;
+			});
+     });
+    </script>
+    
+    
+    <script>
+      /*$(document).ready(function(){
+         $(window).scroll(function(){
+           var sct=$(window).scrollTop(); 
+        if(sct>=700){//500px이상 스크롤 실행시
+            $(".menu").css("position", "fixed");
+            $(".menu").not(":animated").slideDown(800);
+           }else if(sct>=100){//100px 미만 스크롤시 
+             $(".menu").css("display", "none");
+        }else{//초기페이지
+            $(".menu").css("position", "absolute");
+            $(".menu").not(":animated").slideDown(800);
+        }     
+         }); 
+      });   */
+    </script>
+    
+    <script>
+      $(document).ready(function(){
+          $(".menu .btn").eq(0).addClass("on");
+          var sc_pg=parseInt($(window).height())
+          $(window).scroll(function(){
+              var sct=$(window).scrollTop();
+              var btnPos=parseInt(sct/sc_pg);//0,100%,200%  ...
+              $(".menu .btn").removeClass("on");
+              $(".menu .btn").eq(btnPos).addClass("on");
+          });
+          $(".menu .btn").click(function(){
+              var cPage=$(this).attr("data-val");//0~7
+              $("html,body").not(":animated").animate({
+                   scrollTop:cPage*sc_pg+"px"//0*(1080) 0px 1*(1080)2페이지      2*(1080)3번째
+              },2000);
+          });
+      });
+    </script>
+    
+    
+    
+</head>
+<body>
+    <section id="page1" class="page">
+      <div class="idcardFrame">
+       <div class="idCard"><img src="images/id_card.png" alt=""></div>
+        <div class="menu">
+           <button class="btn" data-val="0">Intro</button>
+           <button class="btn" data-val="1">About me</button>
+           <button class="btn" data-val="2">Works</button>
+           <button class="btn" data-val="3">Contact</button>
+        </div>
+        </div>
+    </section>
+    <section id="page2" class="page">
+       <div class="cardFrame">
+        <div class="businessCard front">
+            <div class="img">
+               <div class="imgBox">
+                <h2 class="name">변화에<br>도전하는<br>웹 퍼블리셔</h2>
+                <p class="click">Click</p>
+                </div>
+            </div>
+            <div class="txt">
+                <img src="images/close_blue.png" alt="">
+                <h2 class="tit">About me</h2>
+                <p class="sub1">Profile</p>
+                <p class="sub2">Education</p>
+                <p class="sub3">Skill</p>
+            </div>
+        </div>
+        <div class="businessCard back">
+           <div class="backLine">
+            <div class="left">
+                <div class="ltBox">
+                    <img src="" alt="" class="pro1">
+                    <img src="images/profileimg_il.png" alt="" class="pro2">
+                </div>
+                <div class="lbBox">
+                    <h2>Profile</h2>
+                    <table>
+                        <tr>
+                            <td class="tTit">Name</td>
+                            <td class="tTxt">곽동진</td>
+                        </tr>
+                        <tr>
+                            <td class="tTit">B-DAY</td>
+                            <td class="tTxt">92.09.13</td>
+                        </tr>
+                        <tr>
+                            <td class="tTit">PHONE</td>
+                            <td class="tTxt">010-4479-3988</td>
+                        </tr>
+                        <tr>
+                            <td class="tTit">E-MAIL</td>
+                            <td class="tTxt">okehdja@naver.com</td>
+                        </tr>
+                        <tr>
+                            <td class="tTit">HOBBY</td>
+                            <td class="tTxt">영화감상,음악감상,<br>운동,PC게임</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="right">
+                <div class="rtBox">
+                    <h2>Education</h2>
+                    <table>
+                        <tr>
+                            <td class="tTit">2011. 03 ~ 2015. 02</td>
+                            <td class="tTxt">대전과학기술대학교 도시환경조경학과 전공</td>
+                        </tr>
+                        <tr>
+                            <td class="tTit">2015. 02 ~ 2017. 09</td>
+                            <td class="tTxt">청주대학교 도시환경조경학과 중퇴</td>
+                        </tr>
+                        <tr>
+                            <td class="tTit">2019. 07 ~ 2020. 01</td>
+                            <td class="tTxt">스마트기기 서비스를위한 디지털 UX/UI디자인 (반응형 웹 구현) 전문가 과정 수료</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="rbBox">
+                    <h2>Skill</h2>
+                    <div id="scene-content">
+                        <div class="charts clearfix">
+                            <div class="chart" id="ps">
+                                <div class="circle-mask-outer left">
+                                    <div class="circle-mask-inner">
+                                        <div class="circle-body"></div>
+                                    </div>
+                                </div>
+                                <div class="circle-mask-outer right">
+                                    <div class="circle-mask-inner">
+                                        <div class="circle-body"></div>
+                                    </div>
+                                </div>
+                                <div class="chart-content">
+                                <p>illustrator</p>                                    
+                               <div class="text"><span class="percent-number">50</span><span class="percent-symbol">%</span></div>
+                                </div>
+                            </div>
+                            <!--ps-->
+
+                            <div class="chart" id="ai">
+                                <div class="circle-mask-outer left">
+                                    <div class="circle-mask-inner">
+                                        <div class="circle-body"></div>
+                                    </div>
+                                </div>
+                                <div class="circle-mask-outer right">
+                                    <div class="circle-mask-inner">
+                                        <div class="circle-body"></div>
+                                    </div>
+                                </div>
+                                <div class="chart-content">
+                                    <p>Photoshop</p>
+                                    <div class="text"><span class="percent-number">50</span><span class="percent-symbol">%</span></div>
+                                </div>
+                            </div>
+                            <!--ai-->
+
+                            <div class="chart" id="html">
+                                <div class="circle-mask-outer left">
+                                    <div class="circle-mask-inner">
+                                        <div class="circle-body"></div>
+                                    </div>
+                                </div>
+                                <div class="circle-mask-outer right">
+                                    <div class="circle-mask-inner">
+                                        <div class="circle-body"></div>
+                                    </div>
+                                </div>
+                                <div class="chart-content">
+                                    <p>HTML5 & CSS3</p>
+                                    <div class="text"><span class="percent-number">70</span><span class="percent-symbol">%</span></div>
+                                </div>
+                            </div>
+                            <!--html-->
+
+                            <div class="chart" id="js">
+                                <div class="circle-mask-outer left">
+                                    <div class="circle-mask-inner">
+                                        <div class="circle-body"></div>
+                                    </div>
+                                </div>
+                                <div class="circle-mask-outer right">
+                                    <div class="circle-mask-inner">
+                                        <div class="circle-body"></div>
+                                    </div>
+                                </div>
+                                <div class="chart-content">
+                                    <p>JQuery</p>
+                                    <div class="text"><span class="percent-number">50</span><span class="percent-symbol">%</span></div>
+                                </div>
+                            </div>
+                            <!--js-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+    </section>
+    <section id="page3" class="page">
+       <div class="title">
+           <h1>Works</h1>
+       </div>
+       <div class="workFrame">
+           <ul>
+               <li>
+                   <div class="workBox1">
+                       <div class="img">
+                           <img src="images/k-water-mockup.png" alt="">
+                       </div>
+                       <div class="text">
+                           <h3>수자원공사</h3>
+                           <p></p>
+                           <a href="" class="more">Main Page</a>
+                       </div>
+                   </div>
+               </li>
+               <li><div class="workBox2">
+                       <div class="img">
+                           <img src="images/Polo-mockup.png" alt="">
+                       </div>
+                       <div class="text">
+                           <h3>POLO</h3>
+                           <p></p>
+                           <a href="" class="more">Main Page</a>
+                       </div>
+                   </div></li>
+               <li><div class="workBox3">
+                       <div class="img">
+                           <img src="images/KF_mockup.png" alt="">
+                       </div>
+                       <div class="text">
+                           <h3>KF패션디자인학교</h3>
+                           <p></p>
+                           <a href="" class="more">Sub Page</a>
+                           <a href="" class="more2">Main Page</a>
+                       </div>
+                   </div>
+                   <div class="workBox4">
+                       <div class="img">
+                           <img src="images/posco_mockup.png" alt="">
+                       </div>
+                       <div class="text">
+                           <h3>포스코 건설</h3>
+                           <p></p>
+                           <a href="" class="more">Main Page</a>
+                       </div>
+                   </div></li>
+               <li>
+                   <div class="workBox5">
+                       <div class="img">
+                           <img src="images/cb-hospital-mockup.png" alt="">
+                       </div>
+                       <div class="text">
+                           <h3>충북대학교병원</h3>
+                           <p></p>
+                           <a href="" class="more">Main Page</a>
+                       </div>
+                   </div>
+               </li>
+           </ul>
+       </div>
+    </section>
+    <section id="page4" class="page">
+        <h1>CONTACT</h1>
+        <h2>PHONE : 010 - 4479 - 3988</h2>
+        <h2>E-MAIL : okehdja@naver.com</h2>
+    </section>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
