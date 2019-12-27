@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Posco</title>
+</head>
+    <style>
+        *{margin: 0; padding: 0;}
+        body,html{width: 100%; height: 100%; overflow-x: hidden;}
+        ul,li{list-style: none;}
+        a{text-decoration: none;}
+        button,label{outline: 0; background-color: none;}
+        
+        #page{width: 100%; height: auto; background-image: url(images/bg.png); background-repeat: no-repeat; background-position: center center; background-size: auto;}
+        
+        #hd{width: 100%; height: 100px;}
+        .hd_wp1{width: 100%; height: 30px; background: #00578a;}
+        .hd_wp1Box{width: 1200px; height: 100%; margin: 0 auto;}
+        .fmlist{width: 550px; height: 100%; float: right;}
+        .fmlist ul{width: 100%; height: 100%; background: #00578a;padding-left: 30px;}
+        .fmlist ul li{width: auto; height: 100%; float: left; padding: 0 20px;}
+        .fmlist ul li:last-of-type{}
+        .fmlist ul li a{color: #fff; font-size: 12px; line-height: 30px;}
+        .fmlist ul li a:hover{text-decoration: underline;}
+        
+        .hd_wp2{width: 100%; height: 70px; background: #fff; border-bottom: 1px solid #ccc;}
+        .hd_wp2Box{width: 1200px; height: 100%; margin: 0 auto; border-bottom: 1px solid #ccc;}
+        .logo{width: 90px; height: auto; float: left; margin-top: 13.5px;}
+        .logo img{width: 100%; height: 100%;}
+        .gnb{width: 1070px; height: 100%; float: right;}
+        .gnb ul{width: 100%; height: 100%;}
+        .gnb ul li{width: 150px; height: 100%; float: left; text-align: center;}
+        .gnb li .dep1{font-size: 18px; line-height: 70px; color: #000; font-weight: bold;}
+        .gnb .sub{width: 100%; height: 0; display: none; opacity: 0; transition: 1s; z-index: 9999; position: relative;}
+        .gnb .sub li{width: 100%; height: 45px;  transition: 1s;}
+        .gnb .sub li a{display: block; line-height: 45px; color: #4c4c4c; font-weight: 550; font-size: 14px; }
+        .gnb .sub li a:hover{background-color: #00578a; color: #fff; transition: 0.3s;}
+        .gnb:hover .sub{display: block; opacity: 1; width: 100%; height: 360px; background: rgba(238, 238, 238,0.9); transition: 1s; }
+        .gnb li:hover > .sub{background-color: #fff; transition: 0.4s; border-bottom: 4px solid #00578a; box-sizing: border-box;}
+        
+        .toggle{display: none; width: 70px; height: 40px; float: right;}
+        
+        .gnb_m{position: fixed; top: 0; right: -100%; width: 100%; height: 100%; background-color: #00578a; z-index: 99; transition: 0.7s;}
+        .gnb_m.on{right: 0%;}
+        .slideMenu{width: 100%; height: auto;}
+        .slideMenu{width: 100%; height: auto; margin-top: 25%;}
+        .slideMenu li{width: 100%; height: 60px; position: relative;}
+        .slideMenu li > .dep1_m{display: block; color: #fff; font-size: 18px; line-height: 50px; text-indent: 15%; font-weight: 500; transition: 0.5s; }
+        .slideMenu li > .dep1_m:after{content: "▼"; position: absolute; right: 10%; transition: 0.5s;}
+        .slideMenu li .sub_m{display: block; width: 100%; height: 0; margin: 0 auto; overflow: hidden; margin-top: 15px; padding-top: 20px;}
+        .slideMenu li .sub_m a{display: block; color: #fff; font-weight: 500; padding-left: 15%; line-height: 40px;}
+        .slideMenu li .sub_m li{width: 100%; height: 50px;}
+        .slideMenu li .sub_m a:before{content: "－ "}
+         
+        .slideMenu li.on{height: auto; transition: 0.5s;}
+        .slideMenu li.on .dep1_m:after{transform: rotate(180deg); transform-origin: 65% 52%;}
+        .slideMenu .item1.on .sub_m{height: 410px; background: #004167; transition: 0.5s; transition: 0.5s;}
+        .slideMenu .item2.on .sub_m{height: 210px; background: #004167; transition: 0.5s;}
+        .slideMenu .item3.on .sub_m{height: 310px; background: #004167; transition: 0.5s;}
+        .slideMenu .item4.on .sub_m{height: 210px; background: #004167; transition: 0.5s;}
+        .slideMenu .item5.on .sub_m{height: 160px; background: #004167; transition: 0.5s;}
+        .slideMenu .item6.on .sub_m{height: 60px; background: #004167; transition: 0.5s;}
+        .slideMenu .item7.on .sub_m{height: 110px; background: #004167; transition: 0.5s;}
+        
+        .menu_box{position: relative; display: block; width: 100%; height: 100%; margin: 0 auto; cursor: pointer; padding-top: 20px; background: #00578a; z-index: 9999;}
+        .menu_box .menuBarT{display: block; width: 20px; height: 2px; background: #fff; margin: 0 auto; transition: 0.7s;}
+        .menu_box .menuBarM{display: block; width: 20px; height: 2px; background: #fff; margin: 7px auto; transition: 0.7s; opacity: 1;}
+        .menu_box .menuBarB{display: block; width: 20px; height: 2px; background: #fff; margin: 0 auto; transition: 0.7s;}
+        
+        
+        .menu_box .menuBarT.on{clear: both; display: block; width: 25px; transform: rotate(-45deg) translateY(5px) translateX(-7px); }
+        .menu_box .menuBarM.on{clear: both; display: block; width: 0px; opacity: 0; }
+        .menu_box .menuBarB.on{clear: both; display: block; width: 25px; transform: rotate(45deg) translateY(-6px) translateX(-7px); }
+        
+        
+        
+        
+        
+        .visual{width: 300%; height: 800px; overflow: hidden;}
+        .visual ul{width: 100%; height: 100%;}
+        .visual ul li{float: left; width: 33.3333%; height: 100%;}
+        .visual li a{width: 100%; height: 100%;}
+        .visual li a img{clear: both; width: 100%; height: 100%; filter: brightness(0.95); position: relative;}
+        .vs01{position: relative;}
+        .vs01 > a > p{position: absolute; top: 150px; left: 10%; width: 600px; font-size: 30px; font-weight: bold; color: #fff; text-shadow: 3px 3px 3px #000;}
+        .vs02{position: relative;}
+        .vs02 > a > p{position: absolute; top: 150px; right: 10%; width: 650px; font-size: 30px; font-weight: bold; color: #fff; text-shadow: 3px 3px 3px #000;}
+        .vs03{position: relative;}
+        .vs03 > a > p{position: absolute; top: 150px; left: 20%; width: 650px; font-size: 30px; font-weight: bold; color: #fff; text-shadow: 3px 3px 3px #000;}
+        
+        
+        .con1{width: 100%; height: 950px; }
+        .con1Box{width: 1200px; height: 400px; margin: 0 auto; padding-top: 300px;}
+        .con1 h2{font-size: 36px; color: #00578a; margin-left: 5%;}
+        .con1 .quick{width: 100%; height: 233px;}
+        .con1 .quick ul{width: 100%; height: 100%; margin-top: 70px}
+        .con1 .quick ul li{float: left; width: 223px; height: 223px; border: 1px solid #ccc; box-sizing: border-box; position: relative; margin-left: 20px; transition: 0.5s;}
+        .con1 .quick ul li:hover{box-shadow: 0px 0px 5px 0px #000; transform: translateY(-10px); transition: 0.5s;}
+        .con1 .quick ul li a{display: block; width: 100%; height: 100%;}
+        .con1 .quick ul li:nth-child(1){margin-left: 2px;}
+        
+        .con1 .quick ul li:nth-child(1) img{position: absolute; width: 72px; height: 60px; top: 50px; left: calc(50% - 36px);}
+        .con1 .quick ul li:nth-child(2) img{position: absolute; width: 46px; height: 60px; top: 50px; left: calc(50% - 23px);}
+        .con1 .quick ul li:nth-child(3) img{position: absolute; width: 38px; height: 60px; top: 50px; left: calc(50% - 18px);}
+        .con1 .quick ul li:nth-child(4) img{position: absolute; width: 53px; height: 60px; top: 50px; left: calc(50% - 26.5px);}
+        .con1 .quick ul li:nth-child(5) img{position: absolute; width: 43px; height: 60px; top: 50px; left: calc(50% - 21.5px);}
+        
+        .con1 .quick ul li p{padding-top: 140px; text-align: center; color: #00578a; font-weight: bold; font-size: 18px;}
+        
+        
+        .con2{width: 1200px; height: 1000px; margin: 0 auto;}
+        .con2 h2{width: 400px; height: auto; color: #fff; font-size: 34px;}
+        .con2 span{width: 400px; height: auto; color: #fff; font-size: 46px; font-weight: bold; padding-left: 70px;}
+        .con2 .bsn{width: 800px; height: 800px; float: right;}
+        .con2 .bsn ul{width: 100%; height: 100%; display: grid; grid-template-areas: 'box1 box2 box3' 'box4 box5 box6'; overflow: hidden;}
+        .con2 .bsn ul li{position: relative; width: auto; height: auto; box-sizing: border-box; overflow: hidden; transition: 1s;}
+        .con2 .bsn ul li:hover img{transform: scale(1.1); transition: 1s; filter: brightness(0.5);}
+        .con2 .bsn ul li:hover span{display: block; opacity: 1; transition: 1s;}
+        .con2 .bsn ul .box1{grid-area: box1; width: 253px; height: 350px;}
+        .con2 .bsn ul .box2{grid-area: box2; width: 253px; height: 450px; /*margin-top: -10px;*/ margin-left: 15px;}
+        .con2 .bsn ul .box3{grid-area: box3; width: 253px; height: 390px; /*margin-top: -60px;*/ margin-left: 15px;}
+        .con2 .bsn ul .box4{grid-area: box4; width: 253px; height: 430px; margin-top: -85px}
+        .con2 .bsn ul .box5{grid-area: box5; width: 253px; height: 330px; margin-left: 15px; overflow: hidden; margin-top: 15px;}
+        .con2 .bsn ul .box6{grid-area: box6; width: 253px; height: 390px; margin-top: -45px; margin-left: 15px;}
+        .con2 .bsn p{color: #fff; font-size: 26px; position: absolute; top: 0; left: 0; padding: 25px; text-shadow: 2px 2px 3px #000;}
+        .con2 .bsn span{position: absolute; top: 130px; left: 0; color: #fff; font-size: 16px; display: none; opacity: 0; text-shadow: 2px 2px 3px #000; transition: 1s;}
+
+        
+        
+        
+        .con3{width: 1200px; height: 500px; margin: 0 auto; padding-top: 150px;}
+        .news{width: 560px; height: 300px; float: left; border: 1px solid #ccc; box-sizing: border-box; background: #fff;}
+        .news h3{font-size: 28px; text-indent: 40px; line-height: 50px; margin-top: 20px; text-shadow: 2px 2px 3px #bbb;}
+        .news .newsBox{width: 100%; height: 200px; }
+        .news .newsBox .nTit{display: block; width: 420px; height: 20px; padding-left: 20px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 15px;}
+        .news .newsBox .nTit a{color: #000; font-weight: 500;}
+        .news .newsBox .nTit a:hover{text-decoration: underline;}
+        
+        .news .newsBox .nDate{width: 20%; height: auto; text-align: center; margin-top: 20px; padding-right: 10px;}
+        
+        .miniBox{width: 620px; height: 300px; float: right;}
+        .miniBox ul{width: 100%; height: 100%;}
+        .miniBox ul li{width: 300px; height: 100%; float: left; margin-left: 20px; border: 1px solid #ccc; box-sizing: border-box; background: #fff; position: relative;}
+        .miniBox ul li:hover p{opacity: 1; display: block;}
+        .miniBox ul li:hover img{filter: brightness(0.6);}
+        .miniBox ul li:nth-child(1){margin-left: 0;}
+        .miniBox ul li a{width: 100%; height: 100%;}
+        .miniBox a h3{position: absolute; top: 0; left: 0; padding: 30px; color: #fff; font-size: 22px; text-shadow: 2px 2px 3px #000; z-index: 1;}
+        .miniBox a p{position: absolute; bottom: 80px; left: calc(50% - 110px); opacity: 0; display: none; width: 220px; text-align: justify; color: #fff; font-size: 16px; z-index: 1; text-shadow: 2px 2px 3px #000;}
+        .miniBox a p:before{display: block; content: ""; width: 220px; height: 2px; background: #fff; margin-bottom: 30px; box-shadow: 2px 2px 3px #000;}
+        .miniBox a img{position: absolute; left: 0; top: 0; z-index: 0; width: 100%; height: 100%;}
+        
+        
+        
+        .con4{width: 1920px; height: 750px; margin: 0 auto;}
+        .imgBox{width: 1147px; height: 661px; float: left}
+        .imgBox img{width: 100%; height: 100%;}
+        .txtFrame{width: 750px; height: 100%; float: left; position: relative;}
+        .txtBox{width: 620px; height: 560px; margin: 200px auto;}
+        .txtBox h2{font-size: 20px; margin-top: 30px; color: #fff;}
+        .txtBox p{font-weight: 550; margin-top: 5px; color: #eee;}
+        .txtFrame a{display: block; width: 620px; height: 50px; position: absolute; bottom: 50px; left: calc(50% - 310px); color: #fff;}
+        .txtFrame a .tit{width: 309px; height: 41px; margin-top: 70px;}
+        .txtFrame a .more{width: 149px; height: 31px; margin-left: 100px;}
+        .txtFrame a:hover .more{animation: more_ani 2s infinite;}
+
+
+        
+        .ft{width: 100%; height: 160px; background: #4c4c4c; margin-top: 100px;}
+        .ft_top{width: 100%; height: 50px; border-bottom: 1px solid #fff;}
+        .ft_top .topBox{width: 1200px; height: 50px; margin: 0 auto;}
+        .topBox ul{width: 100%; height: 100%;}
+        .topBox ul li{float: left; width: auto; height: 100%; margin-right: 40px}
+        .topBox li a{color: #fff; line-height: 50px;}
+        .topBox li a:hover{text-decoration: underline;}
+        .ft_bot{width: 100%; height: 90px;}
+        .ft_bot .botBox{width: 1200px; height: 100px; margin: 0 auto;}
+        .botBox p{margin-top: 10px; color: #fff;}
+        
+        
+        /****** 모바일 ******/
+        @media screen and (max-width: 767px){
+            
+        #page{width: 100%; height: auto; background-image: none;}
+        
+        #hd{width: 100%; height: 60px; border-bottom: 1px solid #ccc; position: fixed; top: 0; left: 0; z-index: 99;}
+        .hd_wp1{display: none;}
+        
+        .hd_wp2{width: 100%; height: 100%; background: #fff; }
+        .hd_wp2Box{width: 100%; height: 100%; margin: 0; border-bottom: 0;}
+        .logo{width: 80px; height: auto; float: left; margin: 3% 5%;}
+        .logo img{width: 100%; height: 100%;}
+        .gnb{display: none;}
+        .toggle{display: block;}
+            
+        .visual{width: 300%; height: 200px; overflow: hidden; margin-top: 60px;}
+        .visual ul{width: 100%; height: 100%;}
+        .visual ul li{float: left; width: 33.3333%; height: 100%;}
+        .visual li a{width: 100%; height: 100%;}
+        .visual li a img{clear: both; width: 100%; height: 100%; filter: brightness(0.95); position: relative;}
+        .vs01{position: relative;}
+        .vs01 > a > p{position: absolute; top: 20%; left: 10%; width: 280px; font-size: 16px; font-weight: bold; color: #fff; text-shadow: 1px 1px 3px #000;}
+        .vs02{position: relative;}
+        .vs02 > a > p{position: absolute; top: 20%; left: 12%; width: 250px; font-size: 16px; font-weight: bold; color: #fff; text-shadow: 1px 1px 3px #000;}
+        .vs03{position: relative;}
+        .vs03 > a > p{position: absolute; top: 20%; left: 12%; width: 250px; font-size: 16px; font-weight: bold; color: #fff; text-shadow: 1px 1px 3px #000;}
+            
+        .con1{width: 100%; height: 100px;}
+        .con1Box{width: 100%; height: auto; margin: 0 auto; padding-top: 0;}
+        .con1 h2{display: none;}
+        .con1 .quick{width: 100%; height: auto;}
+        .con1 .quick ul{width: 99%; height: 100px; margin: 1% auto;}
+        .con1 .quick ul li{position: relative; left; width: 24.2%; height: 100%; transition: 0.5s; margin-left: 1%;}
+        .con1 .quick ul li:hover{box-shadow :0; transform: none; transition: none;}
+        .con1 .quick ul li a{display: block; width: 100%; height: 100%;}
+        .con1 .quick ul li:nth-child(1){margin-left: 0px;}
+        .con1 .quick ul li:nth-child(5){display: none;}
+        .con1 .quick ul li:nth-child(1) img{position: absolute; width: 38px; height: 30px; top: 25%; left: calc(50% - 18px);}
+        .con1 .quick ul li:nth-child(2) img{position: absolute; width: 23px; height: 30px; top: 25%; left: calc(50% - 11.5px);}
+        .con1 .quick ul li:nth-child(3) img{position: absolute; width: 19px; height: 30px; top: 25%; left: calc(50% - 9.5px);}
+        .con1 .quick ul li:nth-child(4) img{position: absolute; width: 26.5px; height: 30px; top: 25%; left: calc(50% - 13.25px);}
+        .con1 .quick ul li:nth-child(5) img{display: none;}
+        .con1 .quick ul li p{padding-top: 65px; text-align: center; color: #00578a; font-weight: bold; font-size: 11px;}    
+            
+            
+        .con2{width: 100%; height: auto; margin: 1% auto;}
+        .con2 h2{display: none;}
+        .con2 span{display: none;}
+        .con2 .bsn{width: 100%; height: 300px; float: left; margin-top: 0%;}
+        .con2 .bsn ul{width: 100%; height: 100%; display: grid; grid-template-areas: none; overflow: hidden;}
+        .con2 .bsn ul li{position: relative; width: 33.3333%; height: 50%; box-sizing: border-box; overflow: hidden; transition: 1s;}
+        .con2 .bsn ul li:hover img{transform: scale(none);}
+        .con2 .bsn ul li:hover span{opacity: 0;}
+        .con2 .bsn ul .box1{grid-area: box1; width: 100%; height: auto;}
+        .con2 .bsn ul .box2{grid-area: box2; width: 100%; height: auto; /*margin-top: -10px;*/ margin-left: 0;}
+        .con2 .bsn ul .box3{grid-area: box3; width: 100%; height: auto; /*margin-top: -60px;*/ margin-left: 0;}
+        .con2 .bsn ul .box4{grid-area: box4; width: 100%; height: auto; margin-top: 0%;}
+        .con2 .bsn ul .box5{grid-area: box5; width: 100%; height: auto; margin-left: 0; overflow: hidden; margin-top: 0%}
+        .con2 .bsn ul .box6{grid-area: box6; width: 100%; height: auto; margin-top: 0%; margin-left: 0%;}
+        .con2 .bsn p{color: #fff; font-size: 14px; position: absolute; top: 0; left: 0; padding: 20% 10%; text-shadow: 2px 2px 3px #000; font-weight: bold;}
+        .con2 .bsn span{display: none;}
+        .con2 .bsn ul li img{ margin-top: -80%; filter: brightness(0.8);}
+          
+            
+        .con3{width: 100%; height: 750px; margin: 0 auto; padding-top: 0px;}
+        .news{width: 100%; height: 250px; float: left; border: 1px solid #ccc; box-sizing: border-box; background: #fff; margin-top: 1%;}
+        .news h3{font-size: 20px; text-indent: 40px; line-height: 50px; margin-top: 3%; text-shadow: 1px 1px 2px #bbb;}
+        .news .newsBox{width: 100%; height: 100px; }
+        .news .newsBox .nTit{display: block; width: 230px; height: 15px; padding-left: 20px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 15px; font-size: 13px;}
+        .news .newsBox .nTit a{color: #000; font-weight: 500;}
+        .news .newsBox .nTit a:hover{text-decoration: underline;}
+        .news .newsBox .nDate{width: 100px; height: auto; text-align: center; padding-top: 3%; padding-right: 10px; font-size: 13px;}    
+            
+        
+        .miniBox{width: 100%; height: 200px; float: right; margin-top: 1%}
+        .miniBox ul{width: 100%; height: 100%;}
+        .miniBox ul li{width: 50%; height: 100%; float: left; margin-left: 0px; border: 0; box-sizing: border-box; position: relative;}
+        .miniBox a h3{position: absolute; top: 0; left: 0; padding: 15% 10%; color: #fff; font-size: 18px; text-shadow: 2px 2px 3px #000; z-index: 1;}
+        .miniBox a p{display: none;}
+        .miniBox a p:before{display: none;}
+        .miniBox a img{position: absolute; left: 0; top: 0; z-index: 0; width: 100%; height: 100%; filter: brightness(0.8)}    
+         
+            
+        .con4{clear: both; width: 100%; height: 700px; margin: 0 auto; background: #00578a;}
+        .imgBox{width: 110%; height: auto; float: left; margin-top: 2%;}
+        .imgBox img{width: 100%; height: 100%;}
+        .txtFrame{width: 90%; height: 100%; float: none; position: none; margin: 0 auto;}
+        .txtBox{width: 100%;float: left; height: auto; margin: 0px auto;}
+        .txtBox h2{font-size: 14px; margin-top: 5%; color: #fff; text-align: justify}
+        .txtBox p{font-weight: 550; margin-top: 3%; color: #fff; font-size: 12px;}
+        .txtFrame a{display: block; width: 100%; height: 40px; position: none; bottom: 0%; left: 0; color: #fff;}
+        .txtFrame a .tit{width: 40%; height: auto; margin-top: 0%; margin-left: 30%;}
+        .txtFrame a .more{width: 20%; height: auto; margin-left: 5% ;}
+            
+            
+        .ft{width: 100%; height: 180px; background: #4c4c4c; margin-top: 0%;}
+        .ft_top{width: 100%; height: 50px; border-bottom: 1px solid #fff; box-sizing: border-box;}
+        .ft_top .topBox{width: 100%; height: 50px; margin: 0;}
+        .topBox ul{width: 100%; height: 100%;}
+        .topBox ul li{float: left; height: 100%; margin-right: 0px; width: 33.3333%; text-align: center;}
+        .topBox li a{color: #fff; line-height: 50px; font-size: 14px;}
+        .ft_bot{width: 100%; height: 110px;}
+        .ft_bot .botBox{width: 100%; height: 100px; margin: 4% auto;}
+        .botBox p{margin-top: 10px; color: #fff; font-size: 12px; text-align: center; width: 250px; margin: 0 auto; line-height: 23px}
+            
+        }
+        
+        
+        /***** 태블릿 *****/
+        
+        @media screen and (min-width: 768px) and (max-width:1100px){
+          
+        #page{width: 100%; height: auto; background-image: none;}
+        
+        #hd{width: 100%; height: 60px; border-bottom: 1px solid #ccc; position: fixed; top: 0; left: 0; z-index: 99;}
+        .hd_wp1{display: none;}
+        
+        .hd_wp2{width: 100%; height: 100%; background: #fff; }
+        .hd_wp2Box{width: 100%; height: 100%; margin: 0; border-bottom: 0;}
+        .logo{width: 80px; height: auto; float: left; margin: 12px 4%;}
+        .logo img{width: 100%; height: 100%;}
+        .gnb{display: none;}
+        .toggle{display: block;}    
+            
+        .visual{width: 300%; height: 300px; overflow: hidden; margin-top: 60px;}
+        .visual ul{width: 100%; height: 100%;}
+        .visual ul li{float: left; width: 33.3333%; height: 100%;}
+        .visual li a{width: 100%; height: 100%;}
+        .visual li a img{clear: both; width: 100%; height: 100%; filter: brightness(0.95); position: relative;}
+        .vs01{position: relative;}
+        .vs01 > a > p{position: absolute; top: 20%; left: 8%; width: 280px; font-size: 16px; font-weight: bold; color: #fff; text-shadow: 1px 1px 3px #000;}
+        .vs02{position: relative;}
+        .vs02 > a > p{position: absolute; top: 20%; right: 10%; width: 340px; font-size: 16px; font-weight: bold; color: #fff; text-shadow: 1px 1px 3px #000;}
+        .vs03{position: relative;}
+        .vs03 > a > p{position: absolute; top: 20%; left: 15%; width: 340px; font-size: 16px; font-weight: bold; color: #fff; text-shadow: 1px 1px 3px #000;}
+            
+            
+        .con1{width: 100%; height: 105px;}
+        .con1Box{width: 100%; height: auto; margin: 0 auto; padding-top: 0;}
+        .con1 h2{display: none;}
+        .con1 .quick{width: 100%; height: auto;}
+        .con1 .quick ul{width: 99%; height: 100px; margin: 1% auto;}
+        .con1 .quick ul li{position: relative; left; width: 19.2%; height: 100%; transition: 0.5s; margin-left: 1%;}
+        .con1 .quick ul li:hover{box-shadow :0; transform: none; transition: none;}
+        .con1 .quick ul li a{display: block; width: 100%; height: 100%;}
+        .con1 .quick ul li:nth-child(1){margin-left: 0px;}
+        .con1 .quick ul li:nth-child(1) img{position: absolute; width: 38px; height: 30px; top: 25%; left: calc(50% - 18px);}
+        .con1 .quick ul li:nth-child(2) img{position: absolute; width: 23px; height: 30px; top: 25%; left: calc(50% - 11.5px);}
+        .con1 .quick ul li:nth-child(3) img{position: absolute; width: 19px; height: 30px; top: 25%; left: calc(50% - 9.5px);}
+        .con1 .quick ul li:nth-child(4) img{position: absolute; width: 26.5px; height: 30px; top: 25%; left: calc(50% - 13.25px);}
+        .con1 .quick ul li:nth-child(5) img{position: absolute; width: 21.5px; height: 30px; top: 25%; left: calc(50% - 10.75px);}
+        .con1 .quick ul li p{padding-top: 65px; text-align: center; color: #00578a; font-weight: bold; font-size: 11px;}
+            
+        .con2{width: 100%; height: auto; margin: 0 auto;}
+        .con2 h2{display: none;}
+        .con2 span{display: none;}
+        .con2 .bsn{width: 100%; height: 200px; float: left; margin-top: 0%;}
+        .con2 .bsn ul{width: 100%; height: 100%; display: grid; grid-template-areas: 'box1 box2 box3 box4 box5 box6'; overflow: hidden;}
+        .con2 .bsn ul li{position: relative; width: 100%; height: 100%; box-sizing: border-box; overflow: hidden; transition: 1s;}
+        .con2 .bsn ul li:hover img{transform: scale(none);}
+        .con2 .bsn ul li:hover span{display: none;}
+        .con2 .bsn ul .box1{grid-area: box1; width: 100%; height: auto;}
+        .con2 .bsn ul .box2{grid-area: box2; width: 100%; height: auto; /*margin-top: -10px;*/ margin-left: 0;}
+        .con2 .bsn ul .box3{grid-area: box3; width: 100%; height: auto; /*margin-top: -60px;*/ margin-left: 0;}
+        .con2 .bsn ul .box4{grid-area: box4; width: 100%; height: auto; margin-top: 0%;}
+        .con2 .bsn ul .box5{grid-area: box5; width: 100%; height: auto; margin-left: 0; overflow: hidden; margin-top: 0%}
+        .con2 .bsn ul .box6{grid-area: box6; width: 100%; height: auto; margin-top: 0%; margin-left: 0%;}
+        .con2 .bsn p{color: #fff; font-size: 14px; position: absolute; top: 0; left: 0; padding: 20% 10%; text-shadow: 2px 2px 3px #000; font-weight: bold;}
+        .con2 .bsn span{display: none;}
+        .con2 .bsn ul li img{ margin-top: -70%; filter: brightness(0.8);}
+            
+        .con3{width: 100%; height: 250px;float: left; padding-top: 0px;}
+        .news{width: 50%; height: 250px; float: left; border: 1px solid #ccc; box-sizing: border-box; background: #fff; margin-top: 0%;}
+        .news h3{font-size: 20px; text-indent: 40px; line-height: 50px; margin-top: 3%; text-shadow: 1px 1px 2px #bbb;}
+        .news .newsBox{width: 100%; height: 100px; }
+        .news .newsBox .nTit{display: block; width: 230px; height: 15px; padding-left: 20px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-top: 15px; font-size: 13px;}
+        .news .newsBox .nTit a{color: #000; font-weight: 500;}
+        .news .newsBox .nTit a:hover{text-decoration: underline;}
+        .news .newsBox .nDate{width: 100px; height: auto; text-align: center; padding-top: 3%; padding-right: 10px; font-size: 13px;}
+            
+            
+        .miniBox{width: 50%; height: 250px; float: right; margin-top: 0%}
+        .miniBox ul{width: 100%; height: 100%;}
+        .miniBox ul li{width: 50%; height: 100%; float: left; margin-left: 0px; border: 0; box-sizing: border-box; position: relative;}
+        .miniBox a h3{position: absolute; top: 0; left: 0; padding: 15% 10%; color: #fff; font-size: 18px; text-shadow: 2px 2px 3px #000; z-index: 1;}
+        .miniBox a p{display: none;}
+        .miniBox a p:before{display: none;}
+        .miniBox a img{position: absolute; left: 0; top: 0; z-index: 0; width: 100%; height: 100%; filter: brightness(0.8)}    
+            
+            
+        .con4{clear: both; width: 100%; height: 440px; margin: 0 auto; background: #00578a;}
+        .imgBox{width: 60%; height: auto; float: left; margin-top: 6%;}
+        .imgBox img{width: 100%; height: 100%; margin-left: 0%;}
+        .txtFrame{width: 99%; height: 100%; float: none; position: none; margin: 0 auto;}
+        .txtBox{width: 35%;float: left; height: auto; margin: 0px auto; margin-left: 2%; padding-top: 4%;}
+        .txtBox h2{font-size: 12px; margin-top: 5%; color: #fff; text-align: justify;}
+        .txtBox p{font-weight: 550; margin-top: 3%; color: #fff; font-size: 11px;}
+        .txtFrame a{display: block; width: 100%; height: 40px; position: none; bottom: 0%; left: 0; color: #fff;}
+        .txtFrame a .tit{width: 20%; height: auto; margin-top: 0%; position: absolute; right: 17%; }
+        .txtFrame a .more{width: 10%; height: auto; position: absolute; right: 4%; }
+           
+        .ft{width: 100%; height: 180px; background: #4c4c4c; margin-top: 0%;}
+        .ft_top{width: 100%; height: 50px; border-bottom: 1px solid #fff; box-sizing: border-box;}
+        .ft_top .topBox{width: 100%; height: 50px; margin: 0;}
+        .topBox ul{width: 100%; height: 100%;}
+        .topBox ul li{float: left; height: 100%; margin-right: 0px; width: 33.3333%; text-align: center;}
+        .topBox li a{color: #fff; line-height: 50px; font-size: 14px;}
+        .ft_bot{width: 100%; height: 110px;}
+        .ft_bot .botBox{width: 100%; height: 100px; margin: 4% auto;}
+        .botBox p{margin-top: 10px; color: #fff; font-size: 12px; text-align: center; width: 250px; margin: 0 auto; line-height: 23px}    
+            
+            
+            
+            
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        @keyframes more_ani{
+            0%{transform: translateX(0);}
+            50%{transform: translateX(20px);}
+            100%{transform: translateX(0px);}
+        }
+        
+        
+        
+        
+        
+        
+        
+    </style>
+    
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+       $(document).ready(function(){
+           $(".slideMenu li").click(function(){
+               $(this).toggleClass("on");
+               return false;
+           });
+        });
+        
+        $(document).ready(function(){
+           $(".menu_box").click(function(){
+               $(".gnb_m").toggleClass("on");
+               $(".menu_box .menuBarT").toggleClass("on");
+               $(".menu_box .menuBarM").toggleClass("on");
+               $(".menu_box .menuBarB").toggleClass("on");
+               $(".menu_box").toggleClass("on");
+               return false;
+           });
+        });
+        
+    </script>
+        <script>
+     $(document).ready(function(){
+      $('.visual ul').each(function(){
+          var $slides=$(this).find('li');  
+          var $slideCount=$slides.length;  
+          var currentIndex=0;             
+
+          $slides.eq(currentIndex).fadeIn();  
+
+          setInterval(showNextSlide,7000);
+
+          function showNextSlide(){
+              var nextIndex=(currentIndex+1)%$slideCount
+              $slides.eq(currentIndex).fadeOut();
+              $slides.eq(nextIndex).fadeIn(); 
+              currentIndex=nextIndex;
+          };
+          
+      })
+     });
+
+    </script>
+         
+        
+        
+<body>
+    <div id="page">
+        <header id="hd">
+            <div class="hd_wp1">
+                <div class="hd_wp1Box">
+                    <div class="fmlist">
+                        <ul>
+                            <li><a href="#">그룹사 바로가기</a></li>
+                            <li><a href="#">POSCO Group SNS</a></li>
+                            <li><a href="#">FAMILY PLAZA</a></li>
+                            <li><a href="#">Language</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="hd_wp2">
+                <div class="hd_wp2Box">
+                    <div class="logo"><a href="index.html"><img src="images/logo_posco.gif" alt=""></a></div>
+                    <div class="toggle">
+                    <!--<input type="checkbox" class="ckBox" id="ck1">-->
+                    <label class="menu_box" for="ck1">
+                        <span class="menuBarT"></span>
+                        <span class="menuBarM"></span>
+                        <span class="menuBarB"></span>
+                    </label>
+                    <div class="gnb_m">
+                        <ul class="slideMenu">
+                            <li class="item1">
+                               <a href="#" class="dep1_m">회사소개</a>
+                                <ul class="sub_m">
+                                    <li><a href="#">INTRO</a></li>
+                                    <li><a href="#">대표이사 인사말</a></li>
+                                    <li><a href="#">포스코그룹 비전</a></li>
+                                    <li><a href="#">포스코건설 비전</a></li>
+                                    <li><a href="#">재무정보</a></li>
+                                    <li><a href="#">조직구성</a></li>
+                                    <li><a href="#">인재양성</a></li>
+                                    <li><a href="#">찾아오시는 길</a></li>
+                                </ul>
+                            </li>
+                            <li class="item2"><a href="#" class="dep1_m">윤리경영</a>
+                                <ul class="sub_m">
+                                    <li><a href="#">신고/상담센터</a></li>
+                                    <li><a href="#">윤리규범</a></li>
+                                    <li><a href="#">윤리실천활동</a></li>
+                                    <li><a href="#">클린포스코시스템</a></li>
+                                </ul>
+                            </li>
+                            <li class="item3"><a href="#" class="dep1_m">사업영역</a>
+                                <ul class="sub_m">
+                                    <li><a href="#">제철플랜트</a></li>
+                                    <li><a href="#">발전플랜트</a></li>
+                                    <li><a href="#">화공플랜트</a></li>
+                                    <li><a href="#">산업플랜트</a></li>
+                                    <li><a href="#">건축</a></li>
+                                    <li><a href="#">인프라</a></li>
+                                </ul>
+                            </li>
+                            <li class="item4"><a href="#" class="dep1_m">지속가능영역</a>
+                                <ul class="sub_m">
+                                    <li><a href="#">품질안전환경</a></li>
+                                    <li><a href="#">사회공헌</a></li>
+                                    <li><a href="#">동반성장</a></li>
+                                    <li><a href="#">지속가능성보고서</a></li>
+                                </ul>
+                            </li>
+                            <li class="item5"><a href="#" class="dep1_m">홍보센터</a>
+                                <ul class="sub_m">
+                                    <li><a href="#">뉴스룸</a></li>
+                                    <li><a href="#">홍보자료</a></li>
+                                    <li><a href="#">역사관</a></li>
+                                </ul>
+                            </li>
+                            <li class="item6"><a href="#" class="dep1_m">R&D</a>
+                                <ul class="sub_m">
+                                    <li><a href="#">비전 및 전략방향</a></li>
+                                </ul>
+                            </li>
+                            <li class="item7"><a href="#" class="dep1_m">고객센터</a>
+                                <ul class="sub_m">
+                                    <li><a href="#">고객마당</a></li>
+                                    <li><a href="#">기업마당</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    </div>
+                    <div class="gnb">
+                        <ul>
+                            <li>
+                               <a href="#" class="dep1">회사소개</a>
+                                <ul class="sub">
+                                    <li><a href="#">INTRO</a></li>
+                                    <li><a href="#">대표이사 인사말</a></li>
+                                    <li><a href="#">포스코그룹 비전</a></li>
+                                    <li><a href="#">포스코건설 비전</a></li>
+                                    <li><a href="#">재무정보</a></li>
+                                    <li><a href="#">조직구성</a></li>
+                                    <li><a href="#">인재양성</a></li>
+                                    <li><a href="#">찾아오시는 길</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" class="dep1">윤리경영</a>
+                                <ul class="sub">
+                                    <li><a href="#">신고/상담센터</a></li>
+                                    <li><a href="#">윤리규범</a></li>
+                                    <li><a href="#">윤리실천활동</a></li>
+                                    <li><a href="#">클린포스코시스템</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" class="dep1">사업영역</a>
+                                <ul class="sub">
+                                    <li><a href="#">제철플랜트</a></li>
+                                    <li><a href="#">발전플랜트</a></li>
+                                    <li><a href="#">화공플랜트</a></li>
+                                    <li><a href="#">산업플랜트</a></li>
+                                    <li><a href="#">건축</a></li>
+                                    <li><a href="#">인프라</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" class="dep1">지속가능영역</a>
+                                <ul class="sub">
+                                    <li><a href="#">품질안전환경</a></li>
+                                    <li><a href="#">사회공헌</a></li>
+                                    <li><a href="#">동반성장</a></li>
+                                    <li><a href="#">지속가능성보고서</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" class="dep1">홍보센터</a>
+                                <ul class="sub">
+                                    <li><a href="#">뉴스룸</a></li>
+                                    <li><a href="#">홍보자료</a></li>
+                                    <li><a href="#">역사관</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" class="dep1">R&D</a>
+                                <ul class="sub">
+                                    <li><a href="#">비전 및 전략방향</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" class="dep1">고객센터</a>
+                                <ul class="sub">
+                                    <li><a href="#">고객마당</a></li>
+                                    <li><a href="#">기업마당</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="visual">
+            <ul>
+                <li class="vs01"><a href="#"><img src="images/vs1.jpg" alt=""><p>차별화된 경쟁역량을 기반으로 글로벌 선도 건설사로 성장하겠습니다.</p></a></li>
+                <li class="vs02"><a href="#"><img src="images/vs03.jpg" alt=""><p>SMART PLAYER<br>IN STEEL CONSTRUCTION & CONCESSION<br>부산 해운대 엘시티 더샵</p></a></li>
+                <li class="vs03"><a href="#"><img src="images/vs04.png" alt=""><p>SMART PLAYER<br>IN STEEL CONSTRUCTION & CONCESSION<br>송도국제도시</p></a></li>
+            </ul>
+        </div>
+        <div class="con1">
+           <div class="con1Box">
+            <h2>Quick Menu</h2>
+            <div class="quick">
+                <ul>
+                    <li><a href="#">
+                            <img src="images/ico-history.png" alt="">
+                            <p>역사관</p>
+                        </a></li>
+                    <li><a href="#">
+                            <img src="images/ico-profile.png" alt="">
+                            <p>채용</p>
+                        </a></li>
+                    <li><a href="#">
+                            <img src="images/ico-mic.png" alt="">
+                            <p>신고/상담센터</p>
+                        </a></li>
+                    <li><a href="#">
+                            <img src="images/ico-map.png" alt="">
+                            <p>오시는길</p>
+                        </a></li>
+                    <li><a href="#">
+                            <img src="images/ico-report.png" alt="">
+                            <p>지속가능성보고서</p>
+                        </a></li>
+                </ul>
+            </div>
+            </div>
+        </div>
+        <div class="con2">
+            <h2>사업 영역</h2>
+            <span>Business</span>
+            <div class="bsn">
+               <ul>
+                    <li class="box1"><a href="#">
+                            <img src="images/busi01.png" alt="">
+                            <p>제철플랜트</p>
+                            <span>· 분야소개<br>· 제선<br>· 제강<br>· 연주<br>· 압연</span>
+                        </a></li>
+                    <li class="box2"><a href="#">
+                            <img src="images/busi02.png" alt="">
+                            <p>발전플랜트</p>
+                            <span>· 분야소개<br>· 화력발전<br>· 신재생에너지</span>
+                        </a></li>
+                    <li class="box3"><a href="#">
+                            <img src="images/busi03.png" alt="">
+                            <p>화공플랜트</p>
+                            <span>· 분야소개<br>· LNG/LPG 터미널<br>· 정유/석유화학</span>
+                        </a></li>
+                    <li class="box4"><a href="#">
+                            <img src="images/busi04.png" alt="">
+                            <p>산업플랜트</p>
+                            <span>· 분야소개<br>· 전기/전자/반도체<br>· 제약/의료/식품/사료<br>· 자동차<br>· 물류<br>· 일반</span>
+                        </a></li>
+                    <li class="box5"><a href="#">
+                            <img src="images/busi05.png" alt="">
+                            <p>건축</p>
+                            <span>· 분야소개<br>· 주거시설<br>· 빌딩<br>· 도시개발</span>
+                        </a></li>
+                    <li class="box6"><a href="#">
+                            <img src="images/busi06.png" alt="">
+                            <p>인프라</p>
+                            <span>· 분야소개<br>· 도로<br>· 철도<br>· 항만<br>· 부지<br>· 수처리<br>· 폐기물</span>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="con3">
+            <div class="news">
+                <h3>News</h3>
+                <table class="newsBox">
+                                <tr>
+                                    <td class="nTit"><a href="#">서울 영등포 '더샵 파크프레스티지' 11일 1순위 청약</a></td>
+                                    <td class="nDate">2019.12.05</td>
+                                </tr>
+                                <tr>
+                                    <td class="nTit"><a href="#">국내 최고층 주거시설 '엘시티 더샵' 입주 개시</a></td>
+                                    <td class="nDate">2019.12.02</td>
+                                </tr>
+                                <tr>
+                                    <td class="nTit"><a href="#">부산 동래구에 '더샵 온천헤리티지' 내달 분양</a></td>
+                                    <td class="nDate">2019.11.29</td>
+                                </tr>
+                                <tr>
+                                    <td class="nTit"><a href="#">영등포에 '더샵 파크프레스티지' 내달 분양</a></td>
+                                    <td class="nDate">2019.11.26</td>
+                                </tr>
+                                <tr>
+                                    <td class="nTit"><a href="#">주말새 3천억원 규모 도시정비사업 수주</a></td>
+                                    <td class="nDate">2019.11.25</td>
+                                </tr>
+                        </table>
+            </div>
+            <div class="miniBox">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <h3>PROCUREMENT</h3>
+                            <p>포스코건설의 설비, 자제, 공사 부문 동반자가 되어주실 협력업체의 방문을 환영합니다.</p>
+                            <img src="images/pro-bg.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h3>PR FILM<br>포스코 건설 홍보영상</h3>
+                            <p>미래를 내다보는 앞선 생각. 100년을 준비하는 앞선 기술과 열정</p>
+                            <img src="images/ad-bg.png" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="con4">
+            <div class="imgBox"><img src="images/family.png" alt=""></div>
+            <div class="txtFrame">
+                <div class="txtBox">
+                <h2>한땀 한땀의 정성과 세심한 배려를 통해 고객의 삶에 진정한 풍요를 제공하려는 마음 - 더샵이 고객에게 드리는 약속 “헤아림”</h2>
+                <h2>인간중심적인(Human-Centric)</h2>
+                <p>고객보다 더 고객을 생각하는 마음으로 고객의 삶에 실질적인 혜택을 주는 주거공간</p>
+                <h2>기본에 충실한(Fundamental)</h2>
+                <p>빨리 짓고 빨리 팔겠다는 생각이 아니라 한땀 한땀 정성에 정성을 다하는 마음
+</p>
+                <h2>세련된(Refined)</h2>
+                <p>세월이 흘러도 그 가치를 인정받는 명품처럼 주거의 자부심을 심어줄 수 있는 세련된 아파트</p>
+                <h2>세심한 배려가 있는(Detailed)</h2>
+                <p>고객의 작은 소리에도 귀 기울이며 작은 감동과 세심한 배려를 지향하는 마음</p>
+                <a href="#"><img src="images/thesharp-txt.png" alt="" class="tit"><img src="images/more.png" alt="" class="more"></a>
+                </div>
+            </div>
+        </div>
+        <footer class="ft">
+            <div class="ft_top">
+                <div class="topBox">
+                    <ul>
+                        <li><a href="#">CCTV 운영방침</a></li>
+                        <li><a href="#">개인정보 처리방침</a></li>
+                        <li><a href="#">사이트맵</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ft_bot">
+                <div class="botBox">
+                    <p>(우)37863 경상북도 포항시 남구 대송로 180 | 대표전화 : 054-223-6114, 032-748-2114</p>
+                    <p>&copy;POSCO E&C. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
