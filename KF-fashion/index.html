@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <title>KF국제패션디자인직업전문학교</title>
+    <link rel="shortcut icon" href="images_m/favicon_32.png">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="collap.css">
+</head>
+
+
+    
+    <style>
+        
+        #wrap{width: 100%; height: auto; padding-top: 20px;}
+        #gnb1{display: none;}
+        #sub_visual{display: none;}
+        #gnb0{display: none;}
+        #gnb{display: block;}
+        #menu_box{display: flex; width: 100%; height: 100%;}
+        
+
+        #slider_section{clear: both; order: 2; display: block; width: 100%; height: 250px; margin-top: 40px; position: relative;}
+
+        .imgBox1 span{color: #eee; }
+        .imgBox1 .txt1{position: absolute; top: 23.3333333%; left: calc(50% - 100px); width:200px; text-align: center ; font-size: 24px; font-size: 1.5rem; font-size: 1.2em; border-bottom: 1px solid #fff; padding-bottom: 1%}
+        .imgBox1 .txt2{position: absolute; left: 13.554166667%; top: 43.333333333%; font-size: 0.8em;}
+        .imgBox1 .txt3{position: absolute; right: 13.554166667%; top: 43.333333333%; font-size: 0.8em;}
+        .imgBox1 .txt4{position: absolute; bottom: 26.6666666666%; left: calc(50% - 50px); border-top: 1px solid #fff; border-bottom: 1px solid #fff; padding: 5px; padding: 0.3125rem; left: calc(50% - 32.5px); font-size: 0.7em; width: 65px; height: auto;}
+        .imgBox2{clear: both; position: relative;}
+        .imgFrame p{border-bottom: 1px solid #fff; border-top: 1px solid #fff; padding: 5px; padding: 0.3125rem; margin-top: 0.3125rem; bottom: 20%;}
+        .imgBox2 img{filter: brightness(60%);}
+        .imgBox2 span{color: #eee; position: absolute; top: 23.33333%; text-align: center; left: calc(50% - 105px); font-size: 1.2em; width: 210px; height: auto;}
+        .imgBox2 p{color: #eee; position: absolute; left: calc(50% - 32.5px); font-size: 0.7em; width: 65px; height: auto;}
+        .imgBox3{clear: both; position:relative;}
+        .imgBox3 img{filter: brightness(60%);}
+        .imgBox3 span{color: #eee; position: absolute; top: 23.33333%; text-align: center; left: calc(50% - 90px); font-size: 1.2em; width: 180px; height: auto;}
+        .imgBox3 p{color: #eee; position: absolute; left: calc(50% - 32.5px); font-size: 0.7em; width: 65px; height: auto;}
+        .imgBox4{clear: both; position:relative;}
+        .imgBox4 img{filter: brightness(60%);}
+        .imgBox4 span{color: #eee; position: absolute; top: 23.33333%; text-align: center; left: calc(50% - 120px); font-size: 1.2em; width: 240px; height: auto;}
+        .imgBox4 p{color: #eee; position: absolute; left: calc(50% - 32.5px); font-size: 0.7em; width: 65px; height: auto;}
+                
+        
+        #visual{clear: both; width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;}
+/*
+        .raItem{display: none;}
+*/
+        .imgFrame{width: 100%; height: 100%; position: relative;}
+        .imgFrame ul{width: 100%; height: 100%;}
+        .imgFrame ul li{position: absolute; top: 0; left: 0; right: 0;}
+        
+        .imgBox1{clear: both; width: 100%; height: 100%; float: left; position: absolute; top: 0; left: 0; right: 0;}
+        .imgBox1 a{width: 100%; height: 100%; display: block;}
+        .imgBox1 img{display: block; width: 100%; height: 100%;}
+        .imgBox2{clear: both; width: 100%; height: 100%; float: left; position: absolute; top: 0; left: 0; right: 0;}
+        .imgBox2 a{width: 100%; height: 100%; display: block;}
+        .imgBox2 img{display: block; width: 100%; height: 100%;}
+        .imgBox3{clear: both; width: 100%; height: 100%; float: left; position: absolute; top: 0; left: 0; right: 0;}
+        .imgBox3 a{width: 100%; height: 100%; display: block;}
+        .imgBox3 img{display: block; width: 100%; height: 100%;}
+        .imgBox4{clear: both; width: 100%; height: 100%; float: left; position: absolute; top: 0; left: 0; right: 0;}
+        .imgBox4 a{width: 100%; height: 100%; display: block;}
+        .imgBox4 img{display: block; width: 100%; height: 100%;}
+        
+        .btnBox{position: absolute; left: calc(50% - 105px); right: 0; bottom: 20px; width: 210px; z-index: 10;}
+        .btnBox label{display: block; float: left; width: 15px; height: 15px; background: #fff; text-align: center; margin-left: 30px; box-sizing: border-box; cursor: pointer;}
+        .btnBox label.select{background: #002856;}
+        /*#ra1:checked ~ .imgFrame .imgBox1{opacity: 1;}    
+        #ra2:checked ~ .imgFrame .imgBox2{opacity: 1;}    
+        #ra3:checked ~ .imgFrame .imgBox3{opacity: 1;}    
+        #ra4:checked ~ .imgFrame .imgBox4{opacity: 1;}
+        #ra1:checked ~ .btnBox .btn1{background: #293d82; }
+        #ra2:checked ~ .btnBox .btn2{background: #293d82; }
+        #ra3:checked ~ .btnBox .btn3{background: #293d82; }
+        #ra4:checked ~ .btnBox .btn4{background: #293d82; }*/
+        
+        
+        
+        
+        #notice{width: 100%; height: 430px;}
+        .noFrame{width: 100%;}
+        .noItem{display: none;}
+        .btnFrame{width: 100%; z-index: 20;}
+        .btnFrame label{display: flex; float: left; width: 33.333333%; height: 50px; background: #fff; border: 1px solid #ccc; box-sizing: border-box; line-height: 3.5em; display: block; text-align: center; font-size: 14px; font-weight: bold;}
+        .btnFrame label:nth-of-type(2){border-left: 0;}
+        .btnFrame label:nth-of-type(3){border-left: 0;}
+        #no1:checked ~ .boxFrame .conFrame1{opacity: 1; z-index: 5;}
+        #no2:checked ~ .boxFrame .conFrame2{opacity: 1; z-index: 5;}
+        #no3:checked ~ .boxFrame .conFrame3{opacity: 1; z-index: 5;}
+        #no1:checked ~ .btnFrame .btn5{background: #293d82; color: #fff;}
+        #no2:checked ~ .btnFrame .btn6{background: #293d82; color: #fff;}
+        #no3:checked ~ .btnFrame .btn7{background: #293d82; color: #fff;}
+        
+        
+        .boxFrame{width: 100%; height: auto; position: relative; }
+        .conFrame1{width: 100%; height: 380px; position: absolute; top: 50px; right: 0; left: 0; opacity: 0; z-index: 1;}
+        .conBox1{border: 1px solid #ccc; width: 100%; height: 380px; box-sizing: border-box; border-top: 0;}
+        .conBox1 li{width: 85%; height: 120px; margin: 0 auto; display: flex; padding: 1em; box-sizing: border-box; border-bottom: 1px solid #ccc; padding-top: 7%;}
+        .conBox1 li:last-child{border: none;}
+        .conBox1 img{display: block; width: 100px; height: 75px;}
+        .conBox1 a{height: 20px; margin-left: 2em; margin-left: 2rem;}
+        .conBox1 p{font-size: 13px; font-weight: bold; color: #000; }
+        .conBox1 span{display: block;float: right;}
+        .conBox1 a:hover{text-decoration: underline;}
+        
+        .conFrame2{width: 100%; height: 380px; position: absolute; top: 50px; right: 0; left: 0; opacity: 0; z-index: 1;}
+        .conBox2{border: 1px solid #ccc; width: 100%; height: 380px; box-sizing: border-box; border-top: 0;}
+        .conBox2 li{width: 85%; height: 120px; margin: 0 auto; display: flex; padding: 1em; box-sizing: border-box; border-bottom: 1px solid #ccc; padding-top: 7%;}
+        .conBox2 li:last-child{border: none;}
+        .conBox2 img{display: block; width: 100px; height: 75px;}
+        .conBox2 a{height: 20px; margin-left: 2em; margin-left: 2rem;}
+        .conBox2 p{font-size: 13px; font-weight: bold; color: #000; }
+        .conBox2 span{float: right;}
+        .conBox2 a:hover{text-decoration: underline;}
+        
+        .conFrame3{width: 100%; height: 380px; position: absolute; top: 50px; right: 0; left: 0; opacity: 0; z-index: 1;}
+        .conBox3{border: 1px solid #ccc; width: 100%; height: 380px; box-sizing: border-box; border-top: 0;}
+        .conBox3 li{width: 85%; height: 120px; margin: 0 auto; display: flex; padding: 1em; box-sizing: border-box; border-bottom: 1px solid #ccc; padding-top: 7%;}
+        .conBox3 li:last-child{border: none;}
+        .conBox3 img{display: block; width: 100px; height: 75px;}
+        .conBox3 a{height: 20px; margin-left: 2em; margin-left: 2rem;}
+        .conBox3 p{font-size: 13px; font-weight: bold; color: #000; }
+        .conBox3 span{float: right;}
+        .conBox3 a:hover{text-decoration: underline;}
+        
+        
+        
+        
+        
+        #centers{clear: both; display: flex; width: 100%; height: 160px; margin-top: 0;}
+        #centers ul{width: 100%; height: 100%;}
+        #centers ul li{float: left; width: 33.3333%; height: 160px; position: relative;}
+        .cenBox1{display: block; width: 100%; }
+        .cenBox1 a{display: block; width: 100%;}
+        .cenBox1 a img{display: block; width: 100%; height: 160px; filter: brightness(70%); -webkit-filter: brightness(70%);}
+        .cenBox1:hover img{filter: brightness(90%); -webkit-filter: brightness(90%); transition: 0.6s;}
+        .cenBox1 p{position: absolute; top: 15%; left: 0; right: 0; text-align: center; color: #fff; font-size: 16px; font-size: 1em; font-size: 1rem; font-weight: bold;}
+        .cenBox1 span{position: absolute; width: 4rem; margin: 0 auto; display: block; bottom: 16.875%; left: 0; right: 0; text-align: center; color: #fff; font-size: 11px; font-size: 0.7em; font-size: 0.7rem; font-weight: bold; border: 1px solid #fff; padding: 4px 12px; padding: 0.3333333rem 0.75rem;  }
+        .cenBox1 span:hover{background: #293d82; border-radius: 1rem; border: none; transition: 1s;}
+        
+        .cenBox2{display: block; width: 100%; }
+        .cenBox2 a{display: block; width: 100%;}
+        .cenBox2 a img{display: block; width: 100%; height: 160px; filter: brightness(70%); -webkit-filter: brightness(70%);}
+        .cenBox2:hover img{filter: brightness(90%); -webkit-filter: brightness(90%); transition: 0.6s;}
+        .cenBox2 p{position: absolute; top: 15%; left: 0; right: 0; text-align: center; color: #fff; font-size: 16px; font-size: 1em; font-size: 1rem; font-weight: bold;}
+        .cenBox2 span{position: absolute; width: 4rem; margin: 0 auto; display: block; bottom: 16.875%; left: 0; right: 0; text-align: center; color: #fff; font-size: 11px; font-size: 0.7em; font-size: 0.7rem; font-weight: bold; border: 1px solid #fff; padding: 4px 12px; padding: 0.3333333rem 0.75rem;  }
+        .cenBox2 span:hover{background: #293d82; border-radius: 1rem; border: none; transition: 1s;}
+        
+        .cenBox3{display: block; width: 100%; }
+        .cenBox3 a{display: block; width: 100%;}
+        .cenBox3 a img{display: block; width: 100%; height: 160px; filter: brightness(70%); -webkit-filter: brightness(70%);}
+        .cenBox3:hover img{filter: brightness(90%); -webkit-filter: brightness(90%); transition: 0.6s;}
+        .cenBox3 p{position: absolute; top: 15%; left: 0; right: 0; text-align: center; color: #fff; font-size: 16px; font-size: 1em; font-size: 1rem; font-weight: bold;}
+        .cenBox3 span{position: absolute; width: 4rem; margin: 0 auto; display: block; bottom: 16.875%; left: 0; right: 0; text-align: center; color: #fff; font-size: 11px; font-size: 0.7em; font-size: 0.7rem; font-weight: bold; border: 1px solid #fff; padding: 4px 12px; padding: 0.3333333rem 0.75rem;  }
+        .cenBox3 span:hover{background: #293d82; border-radius: 1rem; border: none; transition: 1s;}
+        
+        
+        #lgdImg{margin-top: 1.875rem; width: 100%; height: auto;}
+        #lgdImg .txtBox{width: 100%; height: 60px; text-indent: 5%}
+        .txtBox .lgd{width: auto; height: auto; font-size: 1.3rem;}
+        .txtBox .lgd span{color: #293d82;}
+        .txtBox .txt{display: none;}
+        .lgdFrame{clear: both; display: flex; width: 100%; height: 200px; font-size: 18px; font-size: 1.125rem;}
+        .lgdFrame span{display: none;}
+        .lgdFrame ul{width: 100%; height: 100%;}
+        .lgdFrame ul li{float: left; width: 33.3333333333333%; height: 100%; position: relative;}
+        #lgdImg h2{display: block; float: left; margin-left: 1rem;}
+        .lgdFrame > a{display: block;width: 100%}
+        .lgdFrame > a > img{display: block;width: 100%}
+        .lgdBox1{width: 100%; height: 100%; overflow: hidden; transition: 0.7s;}
+        .lgdBox1 img{width: 100%; height: 100%; transition: 0.7s;}
+        .lgdBox1:hover img{filter: brightness(80%); -webkit-filter: brightness(80%); transition: 0.7s; transform: scale(1.1);}
+        .lgdBox1 p{position: absolute; bottom: 0; left: 0; right: 0; text-align: center; line-height: 1.75rem; background: rgb(0, 0, 0,0.5); color: #fdd017; font-weight: bold; font-size: 0.75rem;}
+        .lgdBox2{width: 100%; height: 100%; overflow: hidden; transition: 0.7s;}
+        .lgdBox2 img{width: 100%; height: 100%; transition: 0.7s;}
+        .lgdBox2:hover img{filter: brightness(80%); -webkit-filter: brightness(80%); transition: 0.7s; transform: scale(1.1);}
+        .lgdBox2 p{position: absolute; bottom: 0; left: 0; right: 0; text-align: center; line-height: 1.75rem;background: rgb(0, 0, 0,0.5); color: #fdd017; font-weight: bold; font-size: 0.75rem;}
+        .lgdBox3{width: 100%; height: 100%; overflow: hidden; transition: 0.7s;}
+        .lgdBox3 img{width: 100%; height: 100%; transition: 0.7s;}
+        .lgdBox3:hover img{filter: brightness(80%); -webkit-filter: brightness(80%); transition: 0.7s; transform: scale(1.1);}
+        .lgdBox3 p{position: absolute; bottom: 0; left: 0; right: 0; text-align: center; line-height: 1.75rem;background: rgb(0, 0, 0,0.5); color: #fdd017; font-weight: bold; font-size: 0.75rem;}
+        .lgdBox4{display: none;}
+        
+        #curFrame{margin-top: 3.125rem; width: 100%;}
+        #curFrame h2{text-indent: 8%; font-size: 1.3rem;}
+        #curFrame h2 span{color: #293d82;}
+        .curBox{clear: both;  width: 100%; display: grid; grid-template-areas:'box1 box1' 'box2 box2' 'box3 box4' 'box5 box6' 'box7 box8'}
+        
+        .curBox .box1{clear: both; grid-area: box1; width: 100%; height: 200px; position: relative; overflow: hidden;}
+        .curBox .box1 > a{display: block; width: 100%; height: 100%; overflow: hidden;}
+        .curBox .box1 img{display: block; width: 100%; height: 200px;  filter: brightness(50%); -webkit-filter: brightness(50%);transition: 0.6s; position: absolute;top: 0;left: 0;z-index: 1;}
+        .curBox .box1 .txt1{position: absolute; font-size: 14px; font-size: 0.875rem; color: #fff; font-weight: bold; top: 2.1875rem; left: 2rem; right: 0; z-index: 10;}
+        .curBox .box1 .txt2{position: absolute; top: 2.3rem; left: 2rem; right: 0;  font-size: 2rem; color: #fff; font-weight: 500; z-index: 10;}
+        .curBox .box1 span{position: absolute; left: 2rem; right: 0; bottom: 2rem; font-size: 14px; font-size: 0.875rem; font-size: 0.875rem; font-weight: bold; color: #fff; z-index: 10;}
+        .curBox .box1 button{position: absolute; bottom: 2rem; right: 2rem; padding: 5px 15px; font-size: 12px;  color: #fff; font-weight: bold; border: 1px solid #fff; z-index: 10; }
+        .curBox .box1 button:hover{cursor: pointer; background: #fff; color: #293d82; border: none; border-radius: 20px; border-radius: 1.25rem; transition: 0.5s;}
+        .curBox .box1:hover img{ transform: scale(1.2); }
+        
+        .curBox .box2{grid-area: box2; width: 100%; height: 200px; position: relative; overflow: hidden;}
+        .curBox .box2 > a{display: block; width: 100%;}
+        .curBox .box2 img{display: block; width: 100%; height: 200px; filter: brightness(50%); -webkit-filter: brightness(50%);transition: 0.6s; position: absolute; top: 0; left: 0; z-index: 1;}
+        .curBox .box2 .txt1{position: absolute; font-size: 14px; font-size: 0.875rem; color: #fff; font-weight: bold; top: 2.1875rem; left: 2rem; right: 0; z-index: 10;}
+        .curBox .box2 .txt2{position: absolute; top: 2.3rem; left: 2rem; right: 0; font-size: 2rem; color: #fff; font-weight: 500; z-index: 10;}
+        .curBox .box2 span{position: absolute; left: 2rem; right: 0; bottom: 2rem; font-size: 14px; font-size: 0.875rem; font-size: 0.875rem; font-weight: bold; color: #fff; z-index: 10;}
+        .curBox .box2 button{position: absolute; bottom: 2rem; right: 2rem; padding: 5px 15px; font-size: 12px;  color: #fff; font-weight: bold; border: 1px solid #fff; z-index: 10; }
+        .curBox .box2 button:hover{cursor: pointer; background: #fff; color: #293d82; border: none; border-radius: 20px; border-radius: 1.25rem; transition: 0.5s;}
+        .curBox .box2:hover img{ transform: scale(1.2); }
+        
+        .curBox .box3{grid-area: box3; width: 100%; height: 150px; position: relative; overflow: hidden;}
+        .curBox .box3 .bg{display: block; width: 100%; height: 150px; filter: brightness(50%); -webkit-filter: brightness(50%); transition: 0.6s;}
+        .curBox .box3 .icon1{position: absolute; top: 1.75rem; left: 0; right: 0; z-index: 20; margin: 0 auto;}
+        .curBox .box3 p{position: absolute; bottom: 1rem; left: 0; right: 0; text-align: center; color: #fff; font-size: 12px; font-size: 0.75rem; font-weight: bold;}
+        .curBox .box3:hover .bg{transform: scale(1.2);}
+        .curBox .box4{grid-area: box4; width: 100%; height: 150px; position: relative; overflow: hidden;}
+        .curBox .box4 .bg{display: block; width: 100%; height: 150px; filter: brightness(50%); -webkit-filter: brightness(50%); transition: 0.6s;}
+        .curBox .box4 .icon2{position: absolute; top: 1.75rem; left: 0; right: 0; z-index: 20; margin: 0 auto;}
+        .curBox .box4 p{position: absolute; bottom: 1rem; left: 0; right: 0; text-align: center; color: #fff; font-size: 12px; font-size: 0.75rem; font-weight: bold;}
+        .curBox .box4:hover .bg{transform: scale(1.2);}
+        .curBox .box5{grid-area: box5; width: 100%; height: 150px; position: relative; overflow: hidden;}
+        .curBox .box5 .bg{display: block; width: 100%; height: 150px; filter: brightness(50%); -webkit-filter: brightness(50%); transition: 0.6s;}
+        .curBox .box5 .icon3{position: absolute; top: 1.75rem; left: 0; right: 0; z-index: 20; margin: 0 auto;}
+        .curBox .box5 p{position: absolute; bottom: 1rem; left: 0; right: 0; text-align: center; color: #fff; font-size: 12px; font-size: 0.75rem; font-weight: bold;}
+        .curBox .box5:hover .bg{transform: scale(1.2);}
+        .curBox .box6{grid-area: box6; width: 100%; height: 150px; position: relative; overflow: hidden;}
+        .curBox .box6 .bg{display: block; width: 100%; height: 150px; filter: brightness(50%); -webkit-filter: brightness(50%); transition: 0.6s;}
+        .curBox .box6 .icon4{position: absolute; top: 1.75rem; left: 0; right: 0; z-index: 20; margin: 0 auto;}
+        .curBox .box6 p{position: absolute; bottom: 1rem; left: 0; right: 0; text-align: center; color: #fff; font-size: 12px; font-size: 0.75rem; font-weight: bold;}
+        .curBox .box6:hover .bg{transform: scale(1.2);}
+        .curBox .box7{grid-area: box7; width: 100%; height: 150px; position: relative; overflow: hidden;}
+        .curBox .box7 .bg{display: block; width: 100%; height: 150px; filter: brightness(50%); -webkit-filter: brightness(50%); transition: 0.6s;}
+        .curBox .box7 .icon5{position: absolute; top: 1.75rem; left: 0; right: 0; z-index: 20; margin: 0 auto;}
+        .curBox .box7 p{position: absolute; bottom: 1rem; left: 0; right: 0; text-align: center; color: #fff; font-size: 12px; font-size: 0.75rem; font-weight: bold;}
+        .curBox .box7:hover .bg{transform: scale(1.2);}
+        .curBox .box8{grid-area: box8; width: 100%; height: 150px; position: relative; overflow: hidden;}
+        .curBox .box8 .bg{display: block; width: 100%; height: 150px; filter: brightness(50%); -webkit-filter: brightness(50%); transition: 0.6s;}
+        .curBox .box8 .icon6{position: absolute; top: 1.75rem; left: 0; right: 0; z-index: 20; margin: 0 auto;}
+        .curBox .box8 p{position: absolute; bottom: 1rem; left: 0; right: 0; text-align: center; color: #fff; font-size: 12px; font-size: 0.75rem; font-weight: bold;}
+        .curBox .box8:hover .bg{transform: scale(1.2);}
+        
+        #intFrame{order: 7; width: 100%; margin-top: 3.125rem;}
+        #intFrame > h2{text-indent: 8%; font-size: 1.3rem;}
+        #intFrame > h2 > span{color: #293d82;}
+        .intBox{width: 100%; height: 450px; background: #eee; position: relative;}
+        .intBox2{width: 100%; height: 450px; background: #eee; position: relative;}
+        .intBox3{width: 100%; height: 450px; background: #eee; position: relative;}
+        .box_top{width: 100%; height: 50%; text-align: center;}
+        .box_bot{width: 100%; height: 50%; text-align: center;}
+        .box_top img{margin-top: 3em; margin-top: 3rem; width: 150px; height: auto;}
+        .box_bot h2{font-size: 16px; }
+        .box_bot h3{font-size: 15px; font-weight: bold; color: #293d82;}
+        .box_bot p{font-size: 14px; color: #474747; font-weight: bold;}
+        .box_bot a{font-size: 12px; font-size: 0.75rem;  border: 1px solid #293d82; padding: 10px 15px; font-weight: bold; background: #293d82; color: #fff; display: block; width: 80px; margin: 0 auto; margin-top: 2rem;}
+        .box_bot a:hover{background: #fff; color: #293d82; border: 1px solid #293d82; transition: 0.6s; }
+        .intBox2{display: none;}
+        .intBox3{display: none;}
+        .lstFrame{display: none;}
+        
+        
+        
+        
+        
+        
+         /*****  태블릿  *****/
+    
+        @media screen and (min-width:768px) and (max-width:1100px){
+            #wrap{padding-top: 20px;} 
+            
+            #gnb1{display: none;}
+            
+        #sub_visual{display: none;}
+        #gnb0{display: none;}
+        #menu_box{display: flex; width: 100%; height: 100%;}
+        #gnb{display: block;}
+  
+         #slider_section{clear: both; order: 2; display: block; width: 100%; height: 400px; margin-top: 40px; position: relative;}
+
+        #ncBox{width: 100%; height: 300px; background: #eee;}
+        .minincBox{width: 100%; margin: 0 auto; display: flex;}
+        #notice{order: 4; width: 45%; height: 300px;}
+        .noFrame{width: 100%;}
+        .noItem{display: none;}
+        .btnFrame{width: 100%; z-index: 20;}
+        .btnFrame label{display: flex; float: left; width: 33.333333%; height: 50px; background: #fff; border: 1px solid #ccc; box-sizing: border-box; line-height: 3em; display: block; text-align: center; font-size: 1em; font-weight: bold;}
+        .btnFrame label:nth-of-type(2){border-left: 0;}
+        .btnFrame label:nth-of-type(3){border-left: 0;}
+            
+        .boxFrame{width: 100%; position: relative; }
+        .conFrame1{width: 100%; height: 250px; position: absolute; top: 50px; right: 0; left: 0; opacity: 0; z-index: 1; }
+        .conBox1{border: 1px solid #ccc; width: 100%; height: 250px; background: #fff; border-top: 0;}
+        .conBox1 li{width: 85%; height: 33.333333333333%; margin: 0 auto; display: flex; padding: 0; box-sizing: border-box; border-bottom: 1px solid #ccc;}
+        .conBox1 li:last-child{border: none;}
+        .conBox1 img{display: block; width: 85px; height: 65px; padding-top: 0.5rem;}
+        .conBox1 a{height: 20px; margin-left: 2em; margin-left: 2rem;}
+        .conBox1 p{font-size: 13px; font-weight: bold; color: #000; }
+        .conBox1 a:hover{text-decoration: underline;}
+        
+        .conFrame2{width: 100%; height: 250px; position: absolute; top: 50px; right: 0; left: 0; opacity: 0; z-index: 1; background: #fff;}
+        .conBox2{border: 1px solid #ccc; width: 100%; height: 250px;}
+        .conBox2 li{width: 85%; height: 33.333333333333%; margin: 0 auto; display: flex; padding: 0; box-sizing: border-box; border-bottom: 1px solid #ccc;}
+        .conBox2 li:last-child{border: none;}
+        .conBox2 img{display: block; width: 85px; height: 65px; padding-top: 0.5rem;}
+        .conBox2 a{height: 20px; margin-left: 2em; margin-left: 2rem;}
+        .conBox2 p{font-size: 13px; font-weight: bold; color: #000; }
+        .conBox2 a:hover{text-decoration: underline;}
+        
+        .conFrame3{width: 100%; height: 250px; position: absolute; top: 50px; right: 0; left: 0; opacity: 0; z-index: 1; background: #fff;}
+        .conBox3{border: 1px solid #ccc; width: 100%; height: 250px;}
+        .conBox3 li{width: 85%; height: 33.333333333333%; margin: 0 auto; display: flex; padding: 0; box-sizing: border-box; border-bottom: 1px solid #ccc;}
+        .conBox3 li:last-child{border: none;}
+        .conBox3 img{display: block; width: 85px; height: 65px; padding-top: 0.5rem;}
+        .conBox3 a{height: 20px; margin-left: 2em; margin-left: 2rem;}
+        .conBox3 p{font-size: 13px; font-weight: bold; color: #000; }
+        .conBox3 a:hover{text-decoration: underline;}
+
+            
+            
+        #centers{clear: both; display: flex; width: 55%; height: 300px; margin-top: 0;}
+        #centers ul{width: 100%; height: 100%;}
+        #centers ul li{float: left; width: 33.3333333333333%; height: 100%; position: relative;}
+        .cenBox1{display: block; width: 100%; height: 100%;}
+        .cenBox1 a{display: block; width: 100%; height: 100%;}
+        .cenBox1 a img{display: block; width: 100%; height: 100%; filter: brightness(70%); -webkit-filter: brightness(70%);}
+        .cenBox1:hover img{filter: brightness(90%); -webkit-filter: brightness(90%); transition: 0.6s;}
+        .cenBox1 p{position: absolute; top: 15%; left: 0; right: 0; text-align: center; color: #fff; font-size: 18px; font-size: 1.125em; font-size: 1.125rem; font-weight: bold;}
+        .cenBox1 span{position: absolute; width: 4.6875rem; margin: 0 auto; display: block; bottom: 16.875%; left: 0; right: 0; text-align: center; color: #fff; font-size: 12px; font-size: 0.75em; font-size: 0.75rem; font-weight: bold; border: 1px solid #fff; padding: 4px 12px; padding: 0.3333333rem 0.75rem;  }
+        .cenBox1 span:hover{background: #293d82; border-radius: 1rem; border: none; transition: 1s;}
+        .cenBox2{display: block; width: 100%; height: 100%;}
+        .cenBox2 a{display: block; width: 100%; height: 100%;}
+        .cenBox2 a img{display: block; width: 100%; height: 100%; filter: brightness(70%); -webkit-filter: brightness(70%);}
+        .cenBox2:hover img{filter: brightness(90%); -webkit-filter: brightness(90%); transition: 0.6s;}
+        .cenBox2 p{position: absolute; top: 15%; left: 0; right: 0; text-align: center; color: #fff; font-size: 18px; font-size: 1.125em; font-size: 1.125rem; font-weight: bold;}
+        .cenBox2 span{position: absolute; width: 4.6875rem; margin: 0 auto; display: block; bottom: 16.875%; left: 0; right: 0; text-align: center; color: #fff; font-size: 12px; font-size: 0.75em; font-size: 0.75rem; font-weight: bold; border: 1px solid #fff; padding: 4px 12px; padding: 0.3333333rem 0.75rem;  }
+        .cenBox2 span:hover{background: #293d82; border-radius: 1rem; border: none; transition: 1s;}
+        .cenBox3{display: block; width: 100%; height: 100%;}
+        .cenBox3 a{display: block; width: 100%; height: 100%;}
+        .cenBox3 a img{display: block; width: 100%; height: 100%; filter: brightness(70%); -webkit-filter: brightness(70%);}
+        .cenBox3:hover img{filter: brightness(90%); -webkit-filter: brightness(90%); transition: 0.6s;}
+        .cenBox3 p{position: absolute; top: 15%; left: 0; right: 0; text-align: center; color: #fff; font-size: 18px; font-size: 1.125em; font-size: 1.125rem; font-weight: bold;}
+        .cenBox3 span{position: absolute; width: 4.6875rem; margin: 0 auto; display: block; bottom: 16.875%; left: 0; right: 0; text-align: center; color: #fff; font-size: 12px; font-size: 0.75em; font-size: 0.75rem; font-weight: bold; border: 1px solid #fff; padding: 4px 12px; padding: 0.3333333rem 0.75rem;  }
+        .cenBox3 span:hover{background: #293d82; border-radius: 1rem; border: none; transition: 1s;}
+        
+        
+        #lgdImg{order: 5; margin-top: 1.875rem; width: 100%;}
+        #lgdImg .txtBox{width: 100%; height: 60px; text-indent: 15%}
+        .txtBox .lgd{width: auto; height: auto; font-size: 1.3rem;}
+        .txtBox .lgd span{color: #293d82;}
+        .txtBox .txt{display: none;}
+        #lgdImg .lgd{display: block; width: 100%; margin: 0 auto; margin-left: 0;}
+        .lgdFrame{clear: both; display: flex; width: 100%; height: 250px; font-size: 18px; font-size: 1.125rem; margin: 0 auto;}
+        .lgdFrame ul{width: 100%; height: 100%;}
+        .lgdFrame ul li{width: 25%; height: 100%; position: relative;}
+        #lgdImg h2{display: block; float: left; margin-left: 1rem;}
+        .lgdFrame > a{display: block;width: 100%}
+        .lgdFrame > a > img{display: block;width: 100%; height: 100%;}
+        .lgdBox1{width: 100%; height: 100%; overflow: hidden;}
+        .lgdBox1 img{width: 100%; height: 100%;}
+        .lgdBox1:hover img{filter: brightness(80%); -webkit-filter: brightness(80%); transition: 0.7s; transform: scale(1.1);}
+        .lgdBox1 p{position: absolute; bottom: 0; left: 0; right: 0; text-align: center; line-height: 1.75rem; background: rgb(0, 0, 0,0.5); color: #fdd017; font-weight: bold; font-size: 0.75rem;}
+        .lgdBox1 p span{ color: #fff; display: block; margin: 0 auto; width: 90%}
+        .lgdBox2{width: 100%; height: 100%; overflow: hidden;}
+        .lgdBox2 img{width: 100%; height: 100%;}
+        .lgdBox2:hover img{filter: brightness(80%); -webkit-filter: brightness(80%); transition: 0.7s; transform: scale(1.1);}
+        .lgdBox2 p{position: absolute; bottom: 0; left: 0; right: 0; text-align: center; line-height: 1.75rem;background: rgb(0, 0, 0,0.5); color: #fdd017; font-weight: bold; font-size: 0.75rem;}
+        .lgdBox2 p span{ color: #fff; display: block; margin: 0 auto; width: 85%;}   
+        .lgdBox3{width: 100%; height: 100%; overflow: hidden;}
+        .lgdBox3 img{width: 100%; height: 100%;}
+        .lgdBox3:hover img{filter: brightness(80%); -webkit-filter: brightness(80%); transition: 0.7s; transform: scale(1.1);}
+        .lgdBox3 p{position: absolute; bottom: 0; left: 0; right: 0; text-align: center; line-height: 1.75rem;background: rgb(0, 0, 0,0.5); color: #fdd017; font-weight: bold; font-size: 0.75rem;}
+        .lgdBox3 p span{ color: #fff; display: block; margin: 0 auto; width: 95%;}
+        .lgdBox4{display: block; width: 100%; height: 100%; overflow: hidden;}
+        .lgdBox4 img{width: 100%; height: 100%;}
+        .lgdBox4:hover img{filter: brightness(80%); -webkit-filter: brightness(80%); transition: 0.7s; transform: scale(1.1);}
+        .lgdBox4 p{position: absolute; bottom: 0; left: 0; right: 0; text-align: center; line-height: 1.75rem;background: rgb(0, 0, 0,0.5); color: #fdd017; font-weight: bold; font-size: 0.75rem;}
+        .lgdBox4 p span{ color: #fff; display: block; margin: 0 auto; width: 85%;}     
+            
+            
+        #curFrame{margin-top: 3rem; width: 100%; height: auto;}
+        #curFrame h2{text-indent: 8%; font-size: 1.3rem;}
+        #curFrame h2 span{color: #293d82;}
+        .curBox{clear: both;  width: 100%; display: grid; grid-template-areas:'box1 box1 box1 box2 box2 box2' 'box3 box3 box4 box4 box5 box5' 'box6 box6 box7 box7 box8 box8'}
+        
+            
+        #intFrame{width: 100%; height: 550px; margin-top: 3.125rem;}
+        .intRow{width: 100%; height: auto; display: flex;justify-content: space-between; margin: 0 auto;}    
+        #intFrame > h2{text-indent: 10%; font-size: 1.3rem;}
+        #intFrame > h2 > span{color: #293d82;}
+        .intBox{width: 33.3333%; height: 450px; background: #eee; position: relative;}
+        .intBox2{display: block; width: 33.3333%; height: 450px; background: #eee; position: relative; margin-left: 0.5%}
+        .intBox3{display: block;width: 33.3333%; height: 450px; background: #eee; position: relative; margin-left: 0.5%}
+        .box_top{width: 100%; height: 50%; text-align: center;}
+        .box_bot{width: 100%; height: 50%; text-align: center;}
+        .box_top img{margin-top: 30px; margin-top: 1.875rem;}
+        .box_bot h2{font-size: 0.9rem;  font-weight: bold;}
+        .box_bot h3{font-size: 0.9rem; font-weight: bold; color: #293d82;}
+        .box_bot p{font-size: 0.5rem; color: #474747; font-weight: bold;}
+        .box_bot a{font-size: 0.75rem;  border: 1px solid #293d82; padding: 10px 15px; font-weight: bold; background: #293d82; color: #fff; display: block; width: 80px; margin: 0 auto; margin-top: 2.5rem;}
+        .box_bot a:hover{background: #fff; color: #293d82; border: 1px solid #293d82; transition: 0.6s;}    
+        
+            
+            
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        /****  데스크탑  ****/
+    
+        @media screen and (min-width:1101px){
+        #wrap{padding-top: 120px;}    
+        #header{height: 120px; }
+        
+        #gnb0{order: 1;display: flex; width: 100%; height: 40px; background-color: #063563}
+        #gnb0 .gnbBox{width: 1120px; height: 40px; margin: 0 auto; display: flex; justify-content:space-between; }
+        #gnb0 .aca{display: flex; width: 250px; height: 40px; border-left: 1px solid #fff; border-right: 1px solid #fff;float: left; }
+        
+        .aca a{display: block;width:200px; color: #fff; font-size: 14px; line-height: 10px; }
+        .aca p{text-align: center;}
+        .aca button{display: block; width: 50px; height: 40px; border-left: 1px solid #fff}
+        .aca button img{width: 23px; height: 13px; text-align: center; }        
+            
+        .gnbBox .gnb_side{display: flex; width: 500px; height: 40px; border-left: 1px solid #fff; border-right: 1px solid #fff; float: right;}
+        .gnb_side ul{display: flex; width: 100%; height: 100%;}
+        .gnb_side .tel{width: 300px;}
+        .gnb_side .tel a{text-align: center; width: 100%; height: 40px; line-height: 10px; }
+        .gnb_side .tel p{color: #fff; font-size: 14px;}
+        .gnb_side .system{display: flex; width: 200px; border-left: 1px solid #fff;}
+        .gnb_side .system a{width: 150px; height: 40px; line-height: 10px; }
+        .gnb_side .system p{color: #fff; font-size: 14px; text-align: center;}
+        .gnb_side .system button{width: 50px; height: 40px; border-left: 1px solid #fff;}
+        .gnb_side .system img{width: 20px; height: 20px;}
+
+        #menu_box{width: 1120px; height: 50px; display: flex; margin: 0 auto; justify-content: space-between;}
+            
+        
+        #header .menu{display: none;}
+        #header .menuIc{display: none;}
+        #header .logo{width: 250px; height: 28px;}
+        #header .logoIc{line-height: 100px; text-align: center;}
+        #header .search{display: none; }
+        #header .searchIc{display: none;}
+        
+        
+            
+            
+         #slider_section{order: 2; /*display: flex;*/ display: block; width: 100%; height: 700px; position: relative; margin: 0 auto;}
+
+        .imgBox1 span{color: #eee; }
+        .imgBox1 .txt1{position: absolute; top: 30%; left: calc(50% - 250px); width:500px;text-align: center ; font-size: 3em; border-bottom: 1px solid #fff;}
+        .imgBox1 .txt2{position: absolute; left: 13.554166667%; top: 43.333333333%; font-size: 2.5em;}
+        .imgBox1 .txt3{position: absolute; right: 13.554166667%; top: 43.333333333%; font-size: 2.5em;}
+        .imgBox1 .txt4{position: absolute; bottom: 26.6666666666%; left: calc(50% - 90px); border-top: 1px solid #fff; border-bottom: 1px solid #fff; padding: 5px; padding: 0.3125rem; font-size: 2em; width: 180px;}
+        .imgBox2{clear: both; position: relative;}
+        .imgFrame p{border-bottom: 1px solid #fff; border-top: 1px solid #fff; padding: 5px; padding: 0.3125rem; margin-top: 0.3125rem; bottom: 20%;}
+        .imgBox2 img{filter: brightness(60%);}
+        .imgBox2 span{color: #eee; position: absolute; top: 23.33333%; text-align: center; left: calc(50% - 300px); font-size: 3em; width: 600px;}
+        .imgBox2 p{color: #eee; position: absolute; left: calc(50% - 90px); font-size: 2em; width: 180px;}
+        .imgBox3{clear: both; position:relative;}
+        .imgBox3 img{filter: brightness(60%);}
+        .imgBox3 span{color: #eee; position: absolute; top: 30%; text-align: center; left: calc(50% - 180px); font-size: 2.5em; width: 380px;}
+        .imgBox3 p{color: #eee; position: absolute; left: calc(50% - 90px); font-size: 2em; width: 180px;}
+        .imgBox4{clear: both; position:relative;}
+        .imgBox4 img{filter: brightness(60%);}
+        .imgBox4 span{color: #eee; position: absolute; top: 35%; text-align: center; left: calc(50% - 250px); font-size: 2.5em; width: 500px;}
+        .imgBox4 p{color: #eee; position: absolute; left: calc(50% - 90px); font-size: 2em; width: 180px;}
+                
+        
+        
+        #ncBox{order: 3; width: 100%; height: 350px; background: #eee;}
+        .minincBox{width: 1120px; margin: 0 auto; display: flex; padding-top: 25px;}
+        #notice{order: 4; width: 420px; height: 300px;}
+        .noFrame{width: 100%;}
+        .noItem{display: none;}
+        .btnFrame{width: 100%; z-index: 20;}
+        .btnFrame label{display: flex; float: left; width: 33.333333%; height: 50px; background: #fff; border: 1px solid #ccc; box-sizing: border-box; line-height: 3em; display: block; text-align: center; font-size: 16px; font-weight: bold; }
+
+            
+        .boxFrame{width: 100%; position: relative; }
+        .conFrame1{width: 100%; height: 250px; position: absolute; top: 50px; right: 0; left: 0; opacity: 0; z-index: 1; }
+        .conBox1{border: 1px solid #ccc; border-top: 0; width: 100%; height: 250px; background: #fff; box-sizing: border-box;}
+        .conBox1 li{width: 85%; height: 33.333333333333%; margin: 0 auto; display: flex; padding: 0; box-sizing: border-box; border-bottom: 1px solid #ccc;}
+        .conBox1 li:last-child{border: none;}
+        .conBox1 img{display: block; width: 85px; height: 65px; padding-top: 0.5rem;}
+        .conBox1 a{height: 20px; margin-left: 2em; margin-left: 2rem;}
+        .conBox1 p{font-size: 13px; font-weight: bold; color: #000; }
+        .conBox1 a:hover{text-decoration: underline;}
+        
+        .conFrame2{width: 100%; height: 250px; position: absolute; top: 50px; right: 0; left: 0; opacity: 0; z-index: 1; background: #fff;}
+        .conBox2{border: 1px solid #ccc; border-bottom: 3px solid #ccc; width: 100%; height: 250px;}
+        .conBox2 li{width: 85%; height: 33.333333333333%; margin: 0 auto; display: flex; padding: 0; box-sizing: border-box; border-bottom: 1px solid #ccc;}
+        .conBox2 li:last-child{border: none;}
+        .conBox2 img{display: block; width: 85px; height: 65px; padding-top: 0.5rem;}
+        .conBox2 a{height: 20px; margin-left: 2em; margin-left: 2rem;}
+        .conBox2 p{font-size: 13px; font-weight: bold; color: #000; }
+        .conBox2 a:hover{text-decoration: underline;}
+        
+        .conFrame3{width: 100%; height: 250px; position: absolute; top: 50px; right: 0; left: 0; opacity: 0; z-index: 1; background: #fff;}
+        .conBox3{border: 1px solid #ccc; border-bottom: 3px solid #ccc; width: 100%; height: 250px;}
+        .conBox3 li{width: 85%; height: 33.333333333333%; margin: 0 auto; display: flex; padding: 0; box-sizing: border-box; border-bottom: 1px solid #ccc;}
+        .conBox3 li:last-child{border: none;}
+        .conBox3 img{display: block; width: 85px; height: 65px; padding-top: 0.5rem;}
+        .conBox3 a{height: 20px; margin-left: 2em; margin-left: 2rem;}
+        .conBox3 p{font-size: 13px; font-weight: bold; color: #000; }
+        .conBox3 a:hover{text-decoration: underline;}
+
+            
+            
+        #centers{clear: both; display: flex; width: 700px; height: 300px; margin-top: 0;}
+        #centers ul{width: 100%; height: 100%;}
+        #centers ul li{float: left; width: 33.3333333333333%; height: 100%; position: relative;}
+        .cenBox1{display: block; width: 100%; }
+        .cenBox1 a{display: block; width: 100%;}
+        .cenBox1 a img{display: block; width: 100%; height: 300px; filter: brightness(70%); -webkit-filter: brightness(70%);}
+        .cenBox1:hover img{filter: brightness(90%); -webkit-filter: brightness(90%); transition: 0.6s;}
+        .cenBox1 p{position: absolute; top: 15%; left: 0; right: 0; text-align: center; color: #fff; font-size: 18px; font-size: 1.125em; font-size: 1.125rem; font-weight: bold;}
+        .cenBox1 span{position: absolute; width: 4.6875rem; margin: 0 auto; display: block; bottom: 16.875%; left: 0; right: 0; text-align: center; color: #fff; font-size: 12px; font-size: 0.75em; font-size: 0.75rem; font-weight: bold; border: 1px solid #fff; padding: 4px 12px; padding: 0.3333333rem 0.75rem;  }
+        .cenBox1 span:hover{background: #293d82; border-radius: 1rem; border: none; transition: 1s;}
+        .cenBox2{display: block; width: 100%; }
+        .cenBox2 a{display: block; width: 100%;}
+        .cenBox2 a img{display: block; width: 100%; height: 300px; filter: brightness(70%); -webkit-filter: brightness(70%);}
+        .cenBox2:hover img{filter: brightness(90%); -webkit-filter: brightness(90%); transition: 0.6s;}
+        .cenBox2 p{position: absolute; top: 15%; left: 0; right: 0; text-align: center; color: #fff; font-size: 18px; font-size: 1.125em; font-size: 1.125rem; font-weight: bold;}
+        .cenBox2 span{position: absolute; width: 4.6875rem; margin: 0 auto; display: block; bottom: 16.875%; left: 0; right: 0; text-align: center; color: #fff; font-size: 12px; font-size: 0.75em; font-size: 0.75rem; font-weight: bold; border: 1px solid #fff; padding: 4px 12px; padding: 0.3333333rem 0.75rem;  }
+        .cenBox2 span:hover{background: #293d82; border-radius: 1rem; border: none; transition: 1s;}
+        .cenBox3{display: block; width: 100%; }
+        .cenBox3 a{display: block; width: 100%;}
+        .cenBox3 a img{display: block; width: 100%; height: 300px; filter: brightness(70%); -webkit-filter: brightness(70%);}
+        .cenBox3:hover img{filter: brightness(90%); -webkit-filter: brightness(90%); transition: 0.6s;}
+        .cenBox3 p{position: absolute; top: 15%; left: 0; right: 0; text-align: center; color: #fff; font-size: 18px; font-size: 1.125em; font-size: 1.125rem; font-weight: bold;}
+        .cenBox3 span{position: absolute; width: 4.6875rem; margin: 0 auto; display: block; bottom: 16.875%; left: 0; right: 0; text-align: center; color: #fff; font-size: 12px; font-size: 0.75em; font-size: 0.75rem; font-weight: bold; border: 1px solid #fff; padding: 4px 12px; padding: 0.3333333rem 0.75rem;  }
+        .cenBox3 span:hover{background: #293d82; border-radius: 1rem; border: none; transition: 1s;}
+            
+        #lgdImg{order: 5; margin-top: 4rem; width: 100%; height: 500px;}
+        #lgdImg .txtBox{width: 1120px; height: 80px; text-indent: 20%; margin: 0 auto;}
+        .txtBox .lgd{width: auto; height: auto; font-size: 2rem;}
+        .txtBox .lgd span{color: #293d82;}
+        .txtBox .txt{display: none;}
+        .txtBox .txt{color: #444; width: auto; height: auto;}
+        .lgdFrame{clear: both; display: flex; width: 1120px; height: 350px; font-size: 18px; font-size: 1.125rem; margin: 0 auto;}
+        .lgdFrame ul{width: 100%; height: 100%;}
+        .lgdFrame ul li{float: left; width: 25%; height: 100%; position: relative;}
+        #lgdImg h2{display: block; float: left; margin-left: 1rem;}
+        .lgdFrame > a{display: block;width: 100%}
+        .lgdFrame > a > img{display: block;width: 100%; height: 100%;}
+        .lgdBox1{width: 100%; height: 100%; overflow: hidden;}
+        .lgdBox1 img{width: 100%; height: 100%;}
+        .lgdBox1:hover img{filter: brightness(80%); -webkit-filter: brightness(80%); transition: 0.7s; transform: scale(1.1);}
+        .lgdBox1 p{position: absolute; bottom: 0; left: 0; right: 0; text-align: center; line-height: 1.75rem; background: rgb(0, 0, 0,0.5); color: #fdd017; font-weight: bold; font-size: 0.75rem;}
+        .lgdBox1 p span{ color: #fff; display: block; margin: 0 auto; width: 210px;}
+        .lgdBox2{width: 100%; height: 100%; overflow: hidden;}
+        .lgdBox2 img{width: 100%; height: 100%;}
+        .lgdBox2:hover img{filter: brightness(80%); -webkit-filter: brightness(80%); transition: 0.7s; transform: scale(1.1);}
+        .lgdBox2 p{position: absolute; bottom: 0; left: 0; right: 0; text-align: center; line-height: 1.75rem;background: rgb(0, 0, 0,0.5); color: #fdd017; font-weight: bold; font-size: 0.75rem;}
+        .lgdBox2 p span{ color: #fff; display: block; margin: 0 auto; width: 210px;}   
+        .lgdBox3{width: 100%; height: 100%; overflow: hidden;}
+        .lgdBox3 img{width: 100%; height: 100%;}
+        .lgdBox3:hover img{filter: brightness(80%); -webkit-filter: brightness(80%); transition: 0.7s; transform: scale(1.1);}
+        .lgdBox3 p{position: absolute; bottom: 0; left: 0; right: 0; text-align: center; line-height: 1.75rem;background: rgb(0, 0, 0,0.5); color: #fdd017; font-weight: bold; font-size: 0.75rem;}
+        .lgdBox3 p span{ color: #fff; display: block; margin: 0 auto; width: 210px;}
+        .lgdBox4{display: block; width: 100%; height: 100%; overflow: hidden; transition: 0.7s;}
+        .lgdBox4 img{width: 100%; height: 100%; transition: 0.7s;}
+        .lgdBox4:hover img{filter: brightness(80%); -webkit-filter: brightness(80%); transition: 0.7s; transform: scale(1.1);}
+        .lgdBox4 p{position: absolute; bottom: 0; left: 0; right: 0; text-align: center; line-height: 1.75rem;background: rgb(0, 0, 0,0.5); color: #fdd017; font-weight: bold; font-size: 0.75rem;}
+        .lgdBox4 p span{ color: #fff; display: block; margin: 0 auto; width: 210px;}    
+            
+            
+        #curFrame{order: 6; margin-top: 4rem; width: 100%; height: 480px; background: #eee;}
+        #curFrame h2{display:block; width: 1120px; height: auto; margin: 0 auto; line-height: 100px; font-size: 2rem; text-indent: 8%;}
+        #curFrame h2 span{color: #293d82;}
+        .curBox{clear: both;  width: 1120px; margin: 0 auto; display: grid; grid-template-areas:'box1 box1 box1 box2 box2 box2' 'box3 box4 box5 box6 box7 box8'}
+        
+        #intFrame{order: 7; width: 100%; height: 550px; margin-top: 3.125rem;}
+        .intRow{width: 1120px; height: 450px; display: flex;justify-content: space-between; margin: 0 auto;}    
+        #intFrame > h2{display: block; width: 1120px; margin: 0 auto; line-height: 100px; font-size: 2rem; text-indent: 8%;}
+        #intFrame > h2 > span{color: #293d82;}
+        .intBox{width: 370px; height: 450px; background: #eee; position: relative;}
+        .intBox2{display: block; width: 370px; height: 450px; background: #eee; position: relative;}
+        .intBox3{display: block; width: 370px; height: 450px; background: #eee; position: relative;}
+        .box_top{width: 100%; height: 50%; text-align: center;}
+        .box_bot{width: 100%; height: 50%; text-align: center;}
+        .box_top img{margin-top: 30px; margin-top: 1.875rem;}
+        .box_bot h2{font-size: 1rem;  font-weight: bold;}
+        .box_bot h3{font-size: 1rem; font-weight: bold; color: #293d82;}
+        .box_bot p{font-size: 0.8rem; color: #474747; font-weight: bold;}
+        .box_bot a{font-size: 0.75rem;  border: 1px solid #293d82; padding: 10px 15px; font-weight: bold; background: #293d82; color: #fff; display: block; width: 80px; margin: 0 auto; margin-top: 2rem;}
+        .box_bot a:hover{background: #fff; color: #293d82; border: 1px solid #293d82; transition: 0.6s;}
+            
+        }
+        
+        
+        
+        
+    </style>
+    
+    
+     <script src="jquery.min.js"></script>
+     <script src="collap.js"></script>
+     <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+    $(document).ready(function(){
+     
+         var index=0;  
+         var imgs=$('#visual .imgFrame ul li');
+         var btns=$('.btnBox label');
+         var imgCount=$(imgs).size();  
+         
+         imgs.hide();  
+         $(imgs[index]).show();   
+         $(btns[index]).addClass('select')
+         
+         btns.on('click',function(){
+            index=$(this).attr('class');  
+             imgs.fadeOut(2000);    
+             btns.removeClass('select') 
+            $(imgs[index]).fadeIn(2000);
+               
+             $(btns[index]).addClass('select')
+             return false; 
+             
+         });    
+         setInterval(function(){
+             imgs.fadeOut(2000);
+             btns.removeClass('select');
+             
+            
+             if((imgCount-1)==index){  
+                index=0;    
+                }else{     
+                index=index+1
+                }
+             $(imgs[index]).fadeIn(2000);
+             $(btns[index]).addClass('select')
+         },5000)
+         
+         
+     });
+    </script>
+     
+     
+     
+    <script>
+        $(document).ready(function(){
+            $(".search").click(function(){
+            $(".searchFrm").toggleClass("on");    
+            });
+          
+        });
+        
+    </script>
+    
+    <script>
+     $(document).ready(function(){
+      $('#sub1').hide();
+         $('#gnb1').hover(function(){
+             $(this).parent().find('#sub1').slideDown();
+             $(this).parent().hover(function(){
+         },function(){
+             $(this).parent().find('#sub1').slideUp();
+         })
+             })
+         
+     });
+       
+        
+    </script>
+    
+
+
+<body>
+    <div id="wrap">
+       <input type="checkbox" class="ck_item" id="ck2"><!-- 추가   -->
+         <nav id="gnb">
+                <ul class="menuT">
+                    <li><a href="#">학사관리 시스템</a></li>
+                    <li><a href="#">국제패션디자인아카데미</a></li>
+                </ul>
+                <ul class="menu">
+                    <li class="item1">
+                    <a href="#" class="dp1">입학안내</a>
+                    <ul class="sub">
+                        <li class="it1"><a href="#">모집요강</a></li>
+                        <li class="it2"><a href="#">원서접수</a></li>
+                        <li class="it3"><a href="#">원서접수 조회</a></li>
+                        <li class="it4"><a href="#">합격자조회</a></li>
+                        <li class="it5"><a href="#">수업료 납부 확인</a></li>
+                        <li class="it6"><a href="#">입학상담</a></li>
+                        <li class="it7"><a href="#">면접협조공문신청</a></li>
+                        <li class="it8"><a href="#">입시자료요청</a></li>
+                        <li class="it9"><a href="#">학생생활관</a></li>
+                    </ul>
+                    </li>
+                    <li class="item2"><a href="#"  class="dp1">학교소개</a>
+                    <ul class="sub">
+                        <li class="it1"><a href="#">학교연혁</a></li>
+                        <li class="it2"><a href="#">이사장인사말</a></li>
+                        <li class="it3"><a href="#">학교특징</a></li>
+                        <li class="it4"><a href="#">KF지원처</a></li>
+                        <li class="it5"><a href="sub.html">KF레전드</a></li>
+                        <li class="it6"><a href="#">교수진소개</a></li>
+                        <li class="it7"><a href="#">오시는 길</a></li>
+                    </ul>
+                    </li>
+                    <li class="item3"><a href="#"  class="dp1">KF스페셜플랜</a>
+                    <ul class="sub">
+                        <li class="it1"><a href="#">퍼스널컬러메이킹</a></li>
+                        <li class="it2"><a href="#">창업경영수업</a></li>
+                        <li class="it3"><a href="#">패턴명장수업</a></li>
+                        <li class="it4"><a href="#">슈메이커</a></li>
+                        <li class="it5"><a href="#">KF마스터과정</a></li>
+                        <li class="it6"><a href="#">패턴실무특강</a></li>
+                    </ul></li>
+                    <li class="item4"><a href="#"  class="dp1">전공안내</a>
+                    <ul class="sub">
+                        <li class="it1"><a href="#">패션디자인</a></li>
+                        <li class="it2"><a href="#">패션비즈니스</a></li>
+                    </ul></li>
+                    <li class="item5"><a href="#"  class="dp1">학사안내</a>
+                    <ul class="sub">
+                        <li class="it1"><a href="#">학사일정</a></li>
+                        <li class="it2"><a href="#">학칙·정보공시</a></li>
+                        <li class="it3"><a href="#">학점은행제</a></li>
+                        <li class="it4"><a href="#">학자금대출</a></li>
+                    </ul></li>
+                    <li class="item6"><a href="#"  class="dp1">캠퍼스생활</a>
+                    <ul class="sub">
+                        <li class="it1"><a href="#">공지사항</a></li>
+                        <li class="it2"><a href="#">KF장학제도</a></li>
+                        <li class="it3"><a href="#">병역·군부사관</a></li>
+                        <li class="it4"><a href="#">KF동아리</a></li>
+                        <li class="it5"><a href="#">학교시설</a></li>
+                        <li class="it6"><a href="#">포트폴리오</a></li>
+                        <li class="it7"><a href="#">공모전안내</a></li>
+                        <li class="it8"><a href="#">KF미디어</a></li>
+                    </ul></li>
+                    <li class="item7"><a href="#"  class="dp1">KF진로지원</a>
+                    <ul class="sub">
+                        <li class="it1"><a href="#">KF취업센터</a></li>
+                        <li class="it2"><a href="#">KF유학센터</a></li>
+                        <li class="it3"><a href="#">KF진학센터</a></li>
+                    </ul></li>
+                </ul>
+             
+            </nav>        
+        <div class="searchFrm">
+            <div class="textBox">
+                <input type="text" size="35" name="textfield" placeholder="">
+            </div>
+            <div class="search2">
+                <button><img src="images_m/search_white.png" alt=""></button>
+            </div>
+        </div>
+        <section id="header">
+           <div id="gnb0">
+              <div class="gnbBox">
+               <div class="aca">
+               <a href="#"><p>국제패션디자인아카데미</p></a>
+               <button><img src="images_m/menu_arrow_m.png" alt=""></button>
+               </div>
+            
+               <div class="gnb_side">
+                       <ul>
+                           <li class="tel">
+                           <a href="#"><p>입학상담(신입생) tel. 02-512-2200</p></a>
+                           </li>
+                           <li class="system"><a href="#"><p>학사관리 시스템</p></a>
+                           <button><img src="images_m/search_white.png" alt=""></button>
+                           </li>
+                       </ul>
+               </div>
+         <!--
+               <ul>
+                   <li><a href="">국제패션디자인아카데미</a></li>
+                   <li><a href="">국제패션디자인직업전문학교</a></li>
+               </ul>-->
+               </div>
+           </div>
+           
+        <div id="menu_box">
+           <div class="menu">
+              <label for="ck2" class="menuIc"><img src="images_m/toggle_m.png" alt=""></label>
+           </div>
+           <div class="logo">
+               <a href="index.html" class="logoIc"><img src="images_m/logo_m.png" alt=""></a>
+           </div>
+           <div class="search">
+            <button class="searchIc"><img src="images_m/searching_m.png" alt=""></button>
+           </div>
+           <div id="nav">
+           <nav id="gnb1">
+                <ul>
+                    <li><a href="#">입학안내</a></li>
+                    <li><a href="#">학교소개</a></li>
+                    <li><a href="#">KF스페셜플랜</a></li>
+                    <li><a href="#">전공안내</a></li>
+                    <li><a href="#">학사안내</a></li>
+                    <li><a href="#">캠퍼스생활</a></li>
+                    <li><a href="#">KF진로지원</a></li>
+                </ul>
+            </nav>
+            <div id="sub1">
+            <div id="sub1_menu1">
+                <ul class="menu1">
+                    <li><p>입학안내</p></li>
+                    <li><a href="#">모집요강</a></li>
+                    <li><a href="#">원서접수</a></li>
+                    <li><a href="#">원서접수 조회</a></li>
+                    <li><a href="#">합격자 조회</a></li>
+                    <li><a href="#">수업료 납부 확인</a></li>
+                    <li><a href="#">입학상담</a></li>
+                    <li><a href="#">면접협조공문신청</a></li>
+                    <li><a href="#">임시자료요청</a></li>
+                    <li><a href="#">임시자료요청</a></li>
+                    <li><a href="#">학생생활관</a></li>
+                </ul>
+                <ul class="menu1">
+                   <li><p>학교소개</p></li>
+                    <li><a href="#">학교연혁</a></li>
+                    <li><a href="#">이사장인사말</a></li>
+                    <li><a href="#">학교특징</a></li>
+                    <li><a href="#">KF지원처</a></li>
+                    <li><a href="sub.html">KF레전드</a></li>
+                    <li><a href="#">교수진소개</a></li>
+                    <li><a href="#">오시는길</a></li>
+                </ul>
+                <ul class="menu1">
+                   <li><p>KF스페셜플랜</p></li>
+                    <li><a href="#">퍼스널컬러메이킹</a></li>
+                    <li><a href="#">창업경영수업</a></li>
+                    <li><a href="#">패턴명장수업</a></li>
+                    <li><a href="#">슈메이커</a></li>
+                    <li><a href="#">KF마스터과정</a></li>
+                    <li><a href="#">패턴실무특강</a></li>
+                </ul>
+                <ul class="menu1">
+                   <li><p>전공안내</p></li>
+                    <li><a href="#">패션디자인</a></li>
+                    <li><a href="#">패션비즈니스</a></li>
+                </ul>
+                <ul class="menu1">
+                   <li><p>학사안내</p></li>
+                    <li><a href="#">학사일정</a></li>
+                    <li><a href="#">학칙·정보공시</a></li>
+                    <li><a href="#">학점은행제</a></li>
+                    <li><a href="#">학자금대출</a></li>
+                </ul>
+                <ul class="menu1">
+                   <li><p>캠퍼스생활</p></li>
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="#">KF장학제도</a></li>
+                    <li><a href="#">병역·군부사관</a></li>
+                    <li><a href="#">KF동아리</a></li>
+                    <li><a href="#">학교시설</a></li>
+                    <li><a href="#">포트폴리오</a></li>
+                    <li><a href="#">공모전안내</a></li>
+                    <li><a href="#">KF미디어</a></li>
+                </ul>
+            </div>
+        </div>
+            </div>
+           </div>
+        </section>
+        <section id="slider_section">
+          <figure id="visual">
+             <!--<input type="radio" name="raitem" id="ra1" class="raItem" checked>
+             <input type="radio" name="raitem" id="ra2" class="raItem" >
+             <input type="radio" name="raitem" id="ra3" class="raItem" >
+             <input type="radio" name="raitem" id="ra4" class="raItem" >-->
+           <div class="imgFrame">
+              <ul>
+               <li class="imgBox1">
+                   <a href="#">
+                       <img src="images_m/visual01_m.png" alt="">
+                       <span class="txt1">패션 실무 멘토 교수</span>
+                       <span class="txt2">김성일 스타일리스트</span>
+                       <span class="txt3">박승건 디자이너</span>
+                       <span class="txt4">VIEW MORE</span>
+                   </a>
+               </li>
+               <li class="imgBox2"><a href="#"><img src="pho_images/main_slider1_bg0.jpg" alt="">
+               <span>패션디자인 <br> 패션비즈니스 창업/경영<br> 과정 개설</span><p>VIEW MORE</p></a></li>
+               <li class="imgBox3"><a href="#"><img src="pho_images/main_slider2_bg2.jpg" alt="">
+               <span>대한민국 최고<br>디자이너들이 졸업한<br>검증된 학교</span><p>VIEW MORE</p></a></li>
+               <li class="imgBox4"><a href="#"><img src="pho_images/main_slider3_bg1.jpg" alt="">
+               <span>패션실무 멘토교수<br>ZE QUUN 황재근 디자이너</span><p>VIEW MORE</p></a></li>
+               </ul>
+           </div>
+           <div class="btnBox">
+               <label for="ra1" class="btn1" id="0"></label>
+               <label for="ra2" class="btn2" id="1"></label>
+               <label for="ra3" class="btn3" id="2"></label>
+               <label for="ra4" class="btn4" id="3"></label>
+           </div>
+          
+          </figure>  
+        </section>
+        
+        <section id="ncBox">
+        <div class="minincBox">
+        <section id="notice">    
+          <div class="noFrame">
+           <input type="radio" name="noitem" id="no1" class="noItem" checked>
+           <input type="radio" name="noitem" id="no2" class="noItem" >
+           <input type="radio" name="noitem" id="no3" class="noItem" >
+           
+            <div class="btnFrame">
+                   <label for="no1" class="btn5">공지사항</label>
+                   <label for="no2" class="btn6">공모전 안내</label>
+                   <label for="no3" class="btn7">KF 미디어</label>
+            </div>
+            <div class="boxFrame">
+            <div class="conFrame1">
+                <ul class="conBox1">
+                    <li><img src="images_m/notice01_m.png" alt=""><a href="#"><p><span class="context">2019학년 가을학기 입학식 및 오리엔테이션</span><br><span class="date">2019.08.29</span></p></a></li>
+                    <li><img src="images_m/notice02_m.png" alt=""><a href="#"><p>2019년 가을학기 교수 오리엔테이션 진행<br><span>2019.08.21</span></p></a></li>
+                    <li><img src="images_m/notice03_m.png" alt=""><a href="#"><p>제4회 고교패션컨테스트 with 이상봉,심사 및 국제패션학교상 시상<br><span>2019.08.21</span></p></a></li>
+                </ul>
+            </div>
+            <div class="conFrame2">
+                <ul class="conBox2">
+                    <li><img src="images_m/gong_img_m.png" alt=""><a href="#"><p>[공모전] 제38회 대한민국미술대전 현대공예<br><span>2019.10.22</span></p></a></li>
+                    <li><img src="images_m/gong_img_m2.png" alt=""><a href="#"><p>[공모전] 제49회 중앙패션디자인컨테스트<br><span>2019.10.07</span></p></a></li>
+                    <li><img src="images_m/gong_img_m3.png" alt=""><a href="#"><p>[공모전] 제22회 한국국제패션일러스트레이션<br><span>2019.09.30</span></p></a></li>
+                </ul>
+            </div>
+            <div class="conFrame3">
+                <ul class="conBox3">
+                    <li><img src="images_m/media_img01_m.png" alt=""><a href="#"><p>'제5회 정연패션대상' 패션 일러스트레이션<br><span>2019.10.24</span></p></a></li>
+                    <li><img src="images_m/media_img02_m.png" alt=""><a href="#"><p>해외 패션학교 마랑고니 마테오 렌쪼티 교수<br><span>2019.10.24</span></p></a></li>
+                    <li><img src="images_m/media_img03_m.png" alt=""><a href="#"><p>'제4회 고교패션컨테스트 with 이상봉'<br><span>2019.10.21</span></p></a></li>
+                </ul>
+            </div>
+            </div>
+            </div>
+        </section>
+        
+        <section id="centers">
+           <ul>
+               <li class="cenBox1"><a href="#"><img src="images_m/edu01_m.png" alt=""><p>KF 취업센터</p><span>자세히 보기</span></a></li>
+               <li class="cenBox2"><a href="#"><img src="images_m/edu02_m.png" alt=""><p>KF 유학센터</p><span>자세히 보기</span></a></li>
+               <li class="cenBox3"><a href="#"><img src="images_m/edu03_m.png" alt=""><p>KF 진학센터</p><span>자세히 보기</span></a></li>
+           </ul>
+        </section>
+        </div>
+        </section>
+        
+        <section id="lgdImg">
+           <div class="txtBox">
+           <h2 class="lgd"><span>KF</span>&nbsp;LEGEND</h2>
+            <h3 class="txt">국제가 배출한 세계적인 패션디자이너</h3>
+            </div>
+            
+            <nav class="lgdFrame">
+               <ul>
+                   <li class="lgdBox1"><a href="#">
+                        <img src="images_m/lgd01_m.png" alt="">
+                        <div class="intro">
+                        <p>박춘무 디자이너 <br><span>'무(無)로부터'라는 창조적 모노톤 디자인의 "DEMOO"</span></p>
+                        
+                        </div>
+                    </a></li>
+                   <li class="lgdBox2"><a href="#">
+                        <img src="images_m/lgd02_m.png" alt="">
+                        <p>이상봉 디자이너<br><span>한글패션의 창시자 K-패션의 1세대 "LIE SANG BONG"</span></p>
+                    </a></li>
+                   <li class="lgdBox3"><a href="#">
+                       <img src="images_m/lgd03_m.png" alt="">
+                        <p>(故) 앙드레김<br><span>여성의 우아함을 최대한 끌어내는 로맨티시즘의 대표</span></p>
+                    </a></li>
+                   <li class="lgdBox4"><a href="#">
+                       <img src="images_pc/lgd04.png" alt="">
+                        <p>박윤수 디자이너<br><span>문화와 여행을 기반으로한 모험적인 컨셉의 "BIG PARK"</span></p>
+                    </a></li>
+               </ul>
+            </nav>
+        </section>
+        
+        <section id="curFrame">
+            <h2><span>KF</span>&nbsp;CURRICULUM</h2>
+            <div class="curBox">
+                <div class="box1">
+                    <a href="#">
+                    <p class="txt1">Fashion Design<p>
+                    <p class="txt2">패션디자인<p>
+                    <span>시대의 흐름에 따른 독창적이고<br>감각적인 아트 패션을 완성하다.</span>
+                    <button>바로가기</button>
+                    <img src="images_m/curri01_m.png" alt="">
+                    </a>
+                </div>
+                <div class="box2">
+                    <a href="#">
+                    <p class="txt1">Fashion Business<p>
+                    <p class="txt2">패션비즈니스<p>
+                    <span>국내를 넘어 글로벌한<br>패션마이더스 터치로 성장한다</span>
+                    <button>바로가기</button>
+                    <img src="images_m/curri02_m.png" alt="">
+                    </a>
+                </div>
+                <div class="box3">
+                <a href="#">
+                <img class="icon1" src="images_m/curri_icon01_m.png" alt="">
+                <img class="bg" src="images_m/curri03_m.png" alt="">
+                <p>퍼스널컬러 이미지메이킹</p>
+                </a>
+                </div>
+                <div class="box4"><a href="#"><img class="icon2" src="images_m/curri_icon02_m.png" alt=""><img class="bg" src="images_m/curri04_m.png" alt=""><p>창업 경영 수업</p></a></div>
+                <div class="box5"><a href="#"><img class="icon3" src="images_m/curri_icon03_m.png" alt=""><img class="bg" src="images_m/curri05_m.png" alt=""><p>패턴명장수업</p></a></div>
+                <div class="box6"><a href="#"><img class="icon4" src="images_m/curri_icon04_m.png" alt=""><img class="bg" src="images_m/curri06_m.png" alt=""><p>슈메이커</p></a></div>
+                <div class="box7"><a href="#"><img class="icon5" src="images_m/curri_icon05_m.png" alt=""><img class="bg" src="images_m/curri07_m.png" alt=""><p>KF 마스터 과정</p></a></div>
+                <div class="box8"><a href="#"><img class="icon6" src="images_m/curri_icon06_m.png" alt=""><img class="bg" src="images_m/curri08_m.png" alt=""><p>패션 실무 특강</p></a></div>
+            </div>
+        </section>
+        
+        <section id="intFrame">
+            <h2><span>KF</span>&nbsp;INTERVIEW</h2>
+            <div class="intRow">
+            <div class="intBox">
+                <div class="box_top">
+                    <img src="images_pc/interview01.png" alt="">
+                </div>
+                <div class="box_bot">
+                    <h2>패션디자인전공 16학번 한주엽</h2>
+                    <h3>루비나 입사</h3>
+                    <p>어릴적부터 패션에 관심이 많았고 패션을<br>좋아하여 꿈이 생겨 패션에 관한 전문적인...</p>
+                    <a href="#">인터뷰 보기</a>
+                </div>
+            </div>
+            <div class="intBox2">
+                <div class="box_top">
+                    <img src="images_pc/interview02.png" alt="">
+                </div>
+                <div class="box_bot">
+                    <h2>패션디자인전공 16학번 김정영</h2>
+                    <h3>루비나 입사</h3>
+                    <p>저는 운좋게 루비나에서 막내로 일하고 있습니다.<br>세컨브랜드인 ROUTE1도 함께 하고있는데요...</p>
+                    <a href="#">인터뷰 보기</a>
+                </div>
+            </div>
+            <div class="intBox3">
+                <div class="box_top">
+                    <img src="images_pc/interview03.png" alt="">
+                </div>
+                <div class="box_bot">
+                    <h2>패션디자인전공 16학번 한주엽</h2>
+                    <h3>루비나 입사</h3>
+                    <p>저는 교수님의 추천으로 취업하게 되었는데요.<br>수업은 물론이고 학교생활에 적극적으로...</p>
+                    <a href="#">인터뷰 보기</a>
+                </div>
+            </div>
+            </div>
+        </section>
+        
+        <section id="infoFrame">
+            <h2>INFORMATION</h2>
+            <div class="infoBox">
+                <a href="#">
+                       <div class="box1">
+                       <img src="images_m/info01_m.png" alt="">
+                        <p>입학상담</p>
+                    </div>
+                    </a>
+                <a href="#">
+                       <div class="box2">
+                       <img src="images_m/info02_m.png" alt="">
+                        <p>원서접수</p>
+                    </div>
+                    </a>
+                <a href="#">
+                       <div class="box3">
+                       <img src="images_m/info03_m.png" alt="">
+                        <p>합격자 조회</p>
+                    </div>
+                    </a>
+                <a href="#"><div class="box4"><img src="images_m/info04_m.png" alt="">
+                        <p>모집요강</p>
+                    </div>
+                </a>                     
+
+                <a href="#"><div class="box5"><img src="images_m/info05_m.png" alt="">
+                        <p>포트폴리오</p>
+                    </div></a>
+                <a href="#"><div class="box6"><img src="images_m/info06_m.png" alt="">
+                        <p>오시는 길</p>
+                    </div></a>
+            </div>
+        </section>
+        
+        <section id="footer">
+            <div class="ft_top">
+                <ul class="snsBox">
+                    <li><a href="#"><img src="images_m/sns_fb_m.png" alt=""></a></li>
+                    <li><a href="#"><img src="images_m/sns_nv_m.png" alt=""></a></li>
+                    <li><a href="#"><img src="images_m/sns_insta_m.png" alt=""></a></li>
+                    <li><a href="#"><img src="images_m/sns_ut_m.png" alt=""></a></li>
+                </ul>
+                <div class="logoBox">
+                    <img src="images_m/ft_logo_m.png" alt="">
+                </div>
+            </div>
+            <div class="ft_bot">
+                <div class="txtBox">
+                    <div class="box1">
+                        <h3>상호명</h3>
+                        <p>(주)국제패션디자인직업전문학교<br>교육부 평가인정 학점은행제교육기관</p>
+                    </div>
+                    <div class="box2">
+                        <h3>입학상담(신입생)</h3>
+                        <p>Tel 02-512-2200 / Fax 02-6010-1144</p>
+                    </div>
+                    <div class="box3">
+                        <h3>사업자등록번호</h3>
+                        <p>211-88-91185 대표. 신현우</p>
+                    </div>
+                    <div class="box4">
+                        <h3>재학생(교학처)</h3>
+                        <p>Tel 02-517-6262 / Fax 02-542-1146</p>
+                    </div>
+                    <div class="box5">
+                        <h3>주소</h3>
+                        <p>서울시 서초구 남부순환로 350길 12</p>
+                    </div>
+                    <div class="box6">
+                        <h3>일반과정문의</h3>
+                        <p>Tel 02-542-3665</p>
+                    </div>
+                    <div class="box7">
+                        <h3>통신판매업신고증</h3>
+                        <p>제 2013-서울강남-01482호</p>
+                    </div>
+                    <div class="box8">
+                        <h3>이메일</h3>
+                        <p>info@kookjefashion.co.kr</p>
+                    </div>
+                    <div class="box9">
+                        <h3>관리자</h3>
+                        <p>신호철</p>
+                    </div>
+                </div>
+                <h2>Copyright(c) 2019 국제패션디자인직업전문학교 All right reseverd.</h2>
+            </div>
+        </section>
+        
+        
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

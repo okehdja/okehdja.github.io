@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+#wrap{width: 100%; height: 100%;}
+
+
+#header{width: 100%; height: 60px; background: #fff; position: fixed; top: 0; left: 0; z-index: 999; border-bottom: 1px solid #ccc; box-sizing: border-box;}
+
+
+#ck2{position: absolute;top: 0;left: 0;z-index: 10000;}
+
+
+
+
+
+#header .menu{width: 17.7083333333333%;}
+#header .menuIc{display: block; text-align: center; line-height: 70px;}
+#header .menuIc img{width: 20px; height: auto;}
+#header .logo{width: 64.58333333333333%; }
+#header .logoIc{display: block; text-align: center; line-height: 75px;}
+#header .logoIc img{width: 200px; height: auto;}
+#header .search{width: 17.7083333333333%; }
+#header .searchIc{display: block; margin: 0 auto; line-height: 70px;}
+#header .searchIc img{width: 20px; height: auto;}
+
+
+/*****  태블릿  *****/
+    
+@media screen and (min-width:768px){
+    
+
+    
+}
+
+
+    
+ /****  데스크탑  ****/
+    
+        @media screen and (min-width:1100px){
+            
+            
+             
+        #header{height: 120px; display: inherit;}
+        
+        #gnb0{order: 1;display: flex; width: 100%; height: 40px; background-color: #063563}
+        #gnb0 .gnbBox{width: 1120px; height: 40px; margin: 0 auto; display: flex; justify-content:space-between; }
+        #gnb0 .aca{display: flex; width: 250px; height: 40px; border-left: 1px solid #fff; border-right: 1px solid #fff;float: left; }
+        
+        .aca a{display: block;width:200px; color: #fff; font-size: 14px; line-height: 10px; }
+        .aca p{text-align: center;}
+        .aca button{display: block; width: 50px; height: 40px; border-left: 1px solid #fff}
+        .aca button img{width: 23px; height: 13px; text-align: center; }
+        
+        .gnbBox .gnb_side{display: flex; width: 500px; height: 40px; border-left: 1px solid #fff; border-right: 1px solid #fff; float: right;}
+        .gnb_side ul{display: flex; width: 100%; height: 100%;}
+        .gnb_side .tel{width: 300px;}
+        .gnb_side .tel a{text-align: center; width: 100%; height: 40px; line-height: 10px; }
+        .gnb_side .tel p{color: #fff; font-size: 14px;}
+        .gnb_side .system{display: flex; width: 200px; border-left: 1px solid #fff;}
+        .gnb_side .system a{width: 150px; height: 40px; line-height: 10px; }
+        .gnb_side .system p{color: #fff; font-size: 14px; text-align: center;}
+        .gnb_side .system button{width: 50px; height: 40px; border-left: 1px solid #fff;}
+        .gnb_side .system img{width: 20px; height: 20px;}
+
+        #menu_box{width: 1120px; height: 50px; display: flex; margin: 0 auto; justify-content: space-between;}
+
+        #header .menu{display: none;}
+        #header .menuIc{display: none;}
+        #header .logo{width: 250px; height: 28px;}
+        #header .logoIc{line-height: 100px; text-align: center;}
+        #header .search{display: none; }
+        #header .searchIc{display: none;}
+
+        /*#menu_box #gnb1{display: block; width: 850px; height: 70px;}
+        #gnb1 ul{display: flex; width: 100%; height: 100%; line-height: 80px;}
+        #gnb1 li{float: right; margin-left: 5%;}
+        #gnb1 li a{color: #000; font-weight: bold; font-size: 16px;}*/
+                #nav{clear: both; width: 850px;}
+        #menu_box #gnb1{display: block; width: 850px; height: 80px;}
+        #gnb1 ul{display: flex; width: 100%; height: 100%; line-height: 80px;}
+        #gnb1 li{ width: auto; height: 100%; float: right; margin-left: 5%;}
+        #gnb1 li a{color: #000; font-weight: bold; font-size: 16px; line-height: 70px;}
+        #sub1{width: 100%; position: absolute; top: 120px; left: 0; right: 0; background: #fff; border-bottom: 1px solid #ccc;}
+        #sub1_menu1{overflow: hidden; width: 1000px; margin: 0 auto; padding-top: 15px;}
+        #sub1_menu1 .menu1{float: left; width: 160px;}
+        #sub1_menu1 .menu1 li{margin-bottom: 1px; width: 100%; height: 100%;}
+        #sub1_menu1 .menu1 li p{text-align: center; font-size: 1em; color: #002856; font-weight: bold;}
+        #sub1_menu1 .menu1 li a{display: block; font-size: 15px; color: #333; text-align: center; width: auto; height: 40px; font-size: 0.8em; line-height: 40px; color: #444; font-weight: bold;}
+        #gnb1 li:hover #sub1_menu1{background: #002856;}
+        #sub1_menu1 .menu1 li a:hover{background: #002856; color: #fff; }
+        }

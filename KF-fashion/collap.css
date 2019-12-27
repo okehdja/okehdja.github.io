@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+        #gnb { position:fixed; right:-110%; top: 60px; z-index:9999; /*padding-top:20px;*/  width: 100%; height: 100vh; background-color:#eee; transition:0.5s;} 
+        #ck2:checked ~ #gnb { right:0; }
+#ck2{display: none;}
+
+        .menuT{width: 100%; height: 50px;overflow: hidden;}
+        .menuT li{float: left; width: 50%; height: 50px; background: #002856; box-sizing: border-box;}
+        .menuT li:first-child{border-right: 1px solid #fff;}
+        .menuT li a{display: block; color: #fff; text-align: center; line-height: 50px; line-height: 3.125rem; font-size: 0.8em;}
+        #gnb .menu > li{clear: both;width: 100%; background: #fff; border-bottom: 1px solid #ccc;}
+        #gnb .menu > li > a{display: block; color: #000; font-weight: bold; line-height: 70px; line-height: 4.375rem; padding-left: 30px; padding-left: 1.875rem;position: relative;}
+
+/*___________________ 추가 ___________________ */
+.sub { width:90%; height:0; overflow:hidden; transition:0.5s; margin: 0 auto; }
+.sub a{ display: block;color: #555; font-weight: bold; line-height: 60px; padding-left: 40px; padding-left: 2.275rem; border-bottom: 1px solid #ccc}
+.sub li:hover a{background: #1d2b5b; color: #fff;}
+.sub.on { height:125px; }
+.item1 .sub.on{height: 560px;}
+.item2 .sub.on{height: 440px;}
+.item3 .sub.on{height: 380px;}
+.item4 .sub.on{height: 140px;}
+.item5 .sub.on{height: 260px;}
+.item6 .sub.on{height: 500px;}
+.item7 .sub.on{height: 200px;}
+
+.close {position: absolute; right:20px; top:20px; }
+/*___________________ 추가 ___________________ */
+
+        .searchFrm{width: 100%; height: 70px; background: #1d2b5b; position: fixed; display: flex; z-index: 99; overflow: hidden; transition: 0.7s; top: -20px;}
+        .searchFrm.on{top: 60px; z-index: 99;}
+        .textBox{width: 80.291666666667%;text-align: center; margin-top: 17px; margin-top: 1.0625rem;}
+        .textBox input{height: 30px; text-indent: 10px;}
+        .search2{width: 17.7083333333333%; text-align: center; line-height: 85px; line-height: 5rem;}
+        .search2 img{ width: 20px; height: auto;}
+
