@@ -52,7 +52,7 @@
         .dep2 li a{color: #333; padding: 0.5em; background-color: #fff; font-size: 0.9em;}
         .dep2 li a:hover{background: #f5c400; color: #002856;}
         
-        .lang{position: absolute; display: block; top: 0.5em; right: 18%; width: 130px; height: 42px; border: 2px solid #fff; color: #fff; z-index: 99; line-height: 3;}
+        .lang{position: absolute; display: block; top: 0.5em; right: 15%; width: 130px; height: 42px; border: 2px solid #fff; color: #fff; z-index: 99; line-height: 3;}
         .lang.on{height: 106px;}
         .this_lang{display: block; width: 130px; color: #fff; line-height: 2.4; padding: 0.5em; cursor: pointer; background-image: url(image/lang_icon.png); background-repeat: no-repeat; background-position: 1em center;}
         .this_lang:after{content: "▼"; position: absolute; right: 1em;}
@@ -63,7 +63,7 @@
         .lang_list a{display: block; color: #fff; width: 130px;}
         
         
-        .lst_btn{position: absolute; top: 0.5em; right: 2%; width: 48px; height: 48px; border: 2px solid #fff; cursor: pointer; box-sizing: border-box; z-index: 99;}
+        .lst_btn{position: absolute; top: 0.5em; right: 2%; width: 48px; height: 48px; border: 2px solid #fff; cursor: pointer; box-sizing: border-box; z-index: 99; display: none;}
         .lst_btn .line{display: block; height: 2px; background-color: #fff; position: absolute; top: 0.5em; right: 0.5em; transition: 0.4s; z-index: 99; transform: rotate(0deg);}
         .lst_btn .item1{width: 20px; top: 1.5em;}
         .lst_btn .item2{width: 30px; top: 0.7em;}
@@ -192,7 +192,7 @@
             /*모바일 사이즈*/
             .logo{width: 150px; left: 0; margin-left: 3%;}
             .gnb{display: none;}
-
+            .lst_btn{display: block;}
             
             /* page1*/
             .vs1 .vs_tit{font-size: 5em; margin-left: 10%; font-size: 4em; margin-top: -10%;}
@@ -203,8 +203,8 @@
             /*page2 button2 */
             .btn_box2 li button{width: 120px;font-size: 12px;}
             .btn_box2 li.on button{font-size: 14px;}
-            .vs2 .vs_lst2 li .vs_tit{margin-left: 7%; margin-top: -15%; font-size: 4em;}
-            .vs2 .vs_lst2 .item2 .vs_tit{margin-left: 7%;margin-top: 10%; font-size: 4em;}
+            .vs2 .vs_lst2 li .vs_tit{margin-left: 7%; margin-top: -15%; font-size: 3em;}
+            .vs2 .vs_lst2 .item2 .vs_tit{margin-left: 7%;margin-top: 10%; font-size: 3em;}
             .vs2 .vs_lst2 li .vs_com{margin-left: 7%; font-size: 1.4em; width: 300px;}
             .vs2 .vs_lst2 li .vs_more{margin-left: 7%; width: 150px; margin-top: 15%;}
 
@@ -235,6 +235,7 @@
         
         @media screen and (min-width:768px) and (max-width:1280px) {
             /* 저해상도 데스크탑 및 태블릿*/
+            .lst_btn{display: block;}
             .gnb{display: none;} 
             .thum_lst li{width: 33.33333%; height: 100%; float:left; clear:none;}
             .thum_lst .pic_box{left: calc(50% - 60px);}
@@ -502,7 +503,7 @@
                 <a href="policy.html#page1" class="dep1">여성</a>
                 <ul class="dep2">
                     <li><a href="policy.html#page1">RALPH LAUREN COLLECTION</a></li>
-                    <li><a href="policy.html#page2">POLO RALPH LAUREN</a></li>
+                    <li><a href="sub.html">POLO RALPH LAUREN</a></li>
                     <li><a href="research.html#page3">POLO DENIM</a></li>
                     <li><a href="research.html#page4">LAUREN</a></li>
                     <li><a href="research.html#page5">타임피스 &amp; 쥬얼리</a></li>
@@ -560,7 +561,7 @@
                     <div class="tit_box">
                         <h3 class="vs_tit">POLO SPORTS<br><span>RALPH LAUREN</span></h3>
                         <p class="vs_com">11월 15일 오전 10시부터 일부 오프라인<br>스토어에서 만나볼 수 있습니다.</p>
-                        <a href="" class="vs_more">
+                        <a href="#" class="vs_more">
                             <span class="more_txt">more</span>
                             <span class="more_arrow"></span>
                         </a>
@@ -570,7 +571,7 @@
                     <div class="tit_box">
                         <h3 class="vs_tit">LOVE IN PINK</h3>
                         <p class="vs_com">암 퇴치 캠페인에 동참해 주세요<br><span>Pink Pony 컬렉션을 구매하면 <br>각 아이템 판매 가격의 25%가<br> 랄프 로렌 암 퇴치 프로그램에 기부됩니다.</span></p>
-                        <a href="" class="vs_more">
+                        <a href="#" class="vs_more">
                             <span class="more_txt">more</span>
                             <span class="more_arrow"></span>
                         </a>
@@ -596,7 +597,7 @@
                     <div class="tit_box">
                         <h3 class="vs_tit"><span>랄프로렌의 약속</span></h3>
                          <p class="vs_com">1억 7천만 개의<br><span>플라스틱 병을 2025년까지 재활용</span></p>
-                        <a href="" class="vs_more">
+                        <a href="#" class="vs_more">
                         <span class="more_txt">more</span>
                         <span class="more_arrow"></span>
                         </a>
@@ -606,7 +607,7 @@
                     <div class="tit_box">
                         <h3 class="vs_tit">RL50 YEARS</h3>
                         <p class="vs_com">THE 50TH ANNIVERSARY SHOW</p>
-                        <a href="" class="vs_more">
+                        <a href="#" class="vs_more">
                         <span class="more_txt">more</span>
                         <span class="more_arrow"></span>
                         </a>
@@ -616,7 +617,7 @@
                     <div class="tit_box">
                         <h3 class="vs_tit">THE HOLIDAY<br>COLLECTION</h3>
                         <p class="vs_com">매력저인 데이타임 수트, 우아한 이브닝웨어, 이퀘스트리안 스포츠웨어까지 기품 있는 색감과 텍스처를 더했습니다</p>
-                        <a href="" class="vs_more">
+                        <a href="#" class="vs_more">
                         <span class="more_txt">more</span>
                         <span class="more_arrow"></span>
                         </a>
@@ -626,7 +627,7 @@
                     <div class="tit_box">
                         <h3 class="vs_tit">HOLIDAY</h3>
                         <p class="vs_com">알프스에서 영감을 받은 랄프로렌의 러기드한 클래식 아이콘들을 만나보세요</p>
-                        <a href="" class="vs_more">
+                        <a href="#" class="vs_more">
                         <span class="more_txt">more</span>
                         <span class="more_arrow"></span>
                         </a>
@@ -637,7 +638,7 @@
                         <h3 class="vs_tit">WEAR YOUR STORY</h3>
                         <p class="vs_com">오랫동안 즐겨 입을 수 있는 데님은 당신의 
                         이야기를 담고 있습니다</p>
-                        <a href="" class="vs_more">
+                        <a href="#" class="vs_more">
                         <span class="more_txt">more</span>
                         <span class="more_arrow"></span>
                         </a>
@@ -647,7 +648,7 @@
                     <div class="tit_box">
                         <h3 class="vs_tit">랄프 로렌의<br> 럭셔리 타임피스</h3>
                         <p class="vs_com">흠잡을 데 없는 디자인과 독보적인 예슬성을 자랑하는 랄프로렌의 타임피스는, 스위스 마스터 장인의 수작업으로 탄생했습니다</p>
-                        <a href="" class="vs_more">
+                        <a href="#" class="vs_more">
                         <span class="more_txt">more</span>
                         <span class="more_arrow"></span>
                         </a>
@@ -657,7 +658,7 @@
                     <div class="tit_box">
                         <h3 class="vs_tit">아우터웨어 샵</h3>
                         <p class="vs_com">우아한 오버코트부터 실용적인 점퍼, 에센셜한 스타일의 액세서리까지 겨울 필수 아이템들을 만나보세요 </p>
-                        <a href="" class="vs_more">
+                        <a href="#" class="vs_more">
                         <span class="more_txt">more</span>
                         <span class="more_arrow"></span>
                         </a>
@@ -696,17 +697,17 @@
     <section class="page sc_daata" id="page4">
         <!--ul.thum_lst>li.item$*3>a>div.pic_box+h3.thum_tit+thum_com-->
         <ul class="thum_lst">
-            <li class="item1"><a href="">
+            <li class="item1"><a href="#">
                     <div class="pic_box"></div>
                     <h3 class="thum_tit">PURPLE LABEL</h3>
                     <p class="thum_com">매력적인 데이타임 수트, 우아한 이브닝웨어,<br> 이퀘스트리안 스포츠웨어까지 기품 있는<br> 색감과 텍스처를 더했습니다.</p>
                 </a></li>
-            <li class="item2"><a href="">
+            <li class="item2"><a href="#">
                     <div class="pic_box"></div>
                     <h3 class="thum_tit">EARTH POLO</h3>
                     <p class="thum_com">대자연의 의미를 담은 디자인.</p>
                 </a></li>
-            <li class="item3"><a href="">
+            <li class="item3"><a href="#">
                     <div class="pic_box"></div>
                     <h3 class="thum_tit">ONLINE STORE</h3>
                     <p class="thum_com">공식 온라인 스토어를 통해 만나 보세요.</p>
@@ -716,11 +717,11 @@
     <footer class="ft">
         <nav class="fnb">
             <ul class="menu">
-                <li class="item1"><a href="">개인정보취급방침</a></li>
-                <li class="item2"><a href="">사용 약관</a></li>
-                <li class="item3"><a href="">About Ralph Lauren</a></li>
-                <li class="item4"><a href="">채용 정보</a></li>
-                <li class="item5"><a href="">고객지원부</a></li>
+                <li class="item1"><a href="#">개인정보취급방침</a></li>
+                <li class="item2"><a href="#">사용 약관</a></li>
+                <li class="item3"><a href="#">About Ralph Lauren</a></li>
+                <li class="item4"><a href="#">채용 정보</a></li>
+                <li class="item5"><a href="#">고객지원부</a></li>
             </ul>
         </nav>
 

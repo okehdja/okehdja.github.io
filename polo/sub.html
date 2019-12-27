@@ -52,7 +52,7 @@
         .dep2 li a{color: #333; padding: 0.5em; background-color: #fff; font-size: 0.9em;}
         .dep2 li a:hover{background: #f5c400; color: #002856;}
         
-        .lang{position: absolute; display: block; top: 0.5em; right: 18%; width: 130px; height: 42px; border: 2px solid #fff; color: #fff; z-index: 99; line-height: 3;}
+        .lang{position: absolute; display: block; top: 0.5em; right: 15%; width: 130px; height: 42px; border: 2px solid #fff; color: #fff; z-index: 99; line-height: 3;}
         .lang.on{height: 106px;}
         .this_lang{display: block; width: 130px; color: #fff; line-height: 2.4; padding: 0.5em; cursor: pointer; background-image: url(image/lang_icon.png); background-repeat: no-repeat; background-position: 1em center;}
         .this_lang:after{content: "▼"; position: absolute; right: 1em;}
@@ -187,34 +187,27 @@
    
     <script src="https://code.jquery.com/jquery-latest.js"></script>
     <script>
-        $(document).ready(function(){ /* 이 문서가 시작되면*/
-           var ck1=true, ck2=true; // true 라는 값을 ck1이라는 변수에 저장하십시오.
-            // 토글버튼(선택) 클릭해서(동작) 펼침메뉴(선택) 열기/닫기(동작) 모션
-            // $("선택자").메소드(function(){})
+        $(document).ready(function(){ 
                $(".lst_btn").click(function(){
-                   //if(조건문=참){참일시 실행문}else{거짓일때 실행문}
                      if(ck1){
-                         $(".collap").addClass("on");    // 펼침 메뉴에 on이라는 클래스를 추가해라 (on - right:0)
-                         $(".lst_btn").addClass("on");   // X자 모양
+                         $(".collap").addClass("on");    
+                         $(".lst_btn").addClass("on");  
                      }else{
                          $(".collap").removeClass("on");
                          $(".lst_btn").removeClass("on");
                      }
-                   ck1=!ck1;  // true=false
+                   ck1=!ck1;  
                });
-             // 펼침메뉴의 대메뉴 클릭해서 서브메뉴 열기
+            
             $(".collap li").click(function(){
-                $(".collap li").removeClass("on");  // display: block을 제거해라  --> 보이지 않게 해라
-             // $(this).addClass("on");    display: block   this는 "내가 클릭한" 
+                $(".collap li").removeClass("on"); 
             });
             
-            // 언어 선택메뉴 모션
-            // 한국어 박스를 클릭하면 .lang_list(en,jp)가  height: 0 --> height: 64px
             $("this_lang").click(function(){
                 if(ck2){
                     $(".lang_list").addClass("on");
-                    $(".lang").addClass("on"); // h:106px 
-                    $(this).addClass("on"); // ▲
+                    $(".lang").addClass("on"); 
+                    $(this).addClass("on");
                 }else{
                     $(".lang_list").removeClass("on");
                     $(".lang").removeClass("on");
@@ -255,7 +248,7 @@
                 <a href="policy.html#page1" class="dep1">여성</a>
                 <ul class="dep2">
                     <li><a href="policy.html#page1">RALPH LAUREN COLLECTION</a></li>
-                    <li><a href="policy.html#page2">POLO RALPH LAUREN</a></li>
+                    <li><a href="sub.html">POLO RALPH LAUREN</a></li>
                     <li><a href="policy.html#page3">POLO DENIM</a></li>
                     <li><a href="policy.html#page4">LAUREN</a></li>
                     <li><a href="policy.html#page5">타임피스 &amp; 쥬얼리</a></li>
@@ -373,10 +366,10 @@
         </div>
         <div class="stoFrame">
             <div class="stoBox">
-                <a href="" class="Box1">
+                <a href="#" class="Box1">
                     <span>ONLINE STORE</span>
                 </a>
-                <a href="" class="Box2">
+                <a href="#" class="Box2">
                     <span>POLO RALPH LAUREN</span>
                 </a>
             </div>
@@ -385,11 +378,11 @@
     <footer class="ft">
         <nav class="fnb">
             <ul class="menu">
-                <li class="item1"><a href="">개인정보취급방침</a></li>
-                <li class="item2"><a href="">사용 약관</a></li>
-                <li class="item3"><a href="">About Ralph Lauren</a></li>
-                <li class="item4"><a href="">채용 정보</a></li>
-                <li class="item5"><a href="">고객지원부</a></li>
+                <li class="item1"><a href="#">개인정보취급방침</a></li>
+                <li class="item2"><a href="#">사용 약관</a></li>
+                <li class="item3"><a href="#">About Ralph Lauren</a></li>
+                <li class="item4"><a href="#">채용 정보</a></li>
+                <li class="item5"><a href="#">고객지원부</a></li>
             </ul>
         </nav>
 
