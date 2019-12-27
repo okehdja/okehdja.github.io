@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
     <title>Portfolio</title>
+    <link rel="shortcut icon" href="images/favicon.png">
     <style>
         body,html{width: 100%; height: 100%; background-color: floralwhite;}
         *{margin: 0; padding: 0;}
@@ -17,8 +18,8 @@
         .idcardFrame{width: 100%; height: 100%; margin: 0 auto;}
         .idCard{width: 400px; height: auto; margin: 0 auto; transform-origin: center 0%; animation: ani1 10s ease-in-out infinite;}
         .idCard img{width: 100%; height: 100%; margin-top: -7%;}
-        .menu{position: fixed; top: 0; right: 0; width: 150px; height: 410px; z-index: 9999; top: calc(50% - 205px); right: 3%;}
-        .menu .btn{width: 150px; height: 100px; font-size: 2rem; cursor: pointer; text-shadow: 1px 1px 1px #666;}
+        .menu{position: fixed; top: 0; right: 0; width: 150px; height: 410px; z-index: 9999; top: calc(50% - 205px); right: 2%;}
+        .menu .btn{width: 150px; height: 100px; font-size: 2rem; cursor: pointer; text-shadow: 1px 1px 1px #aaa; color: #777; text-align: right;}
         .menu .btn.on{color: #0061a3;}
         
         
@@ -27,25 +28,27 @@
         .cardFrame{width: 1700px; height: 1000px; margin: 0 auto; position: relative; top: 50px;}
         .businessCard{position: absolute; top: 0; left: 0; width: 1700px; height: 900px; box-shadow: 3px 1px 10px 0px #ccc; margin-left: 0.5%; transition: 3s; transform-origin: center 0%;}
         .front{opacity: 1; display: block; transform: rotateY(0deg); transition: 3s; transform-origin: center 0%; z-index: 1;}
-        .front .img .imgBox{width: 95%; height: 93%; border: 1px solid #fff; margin: 2.5% auto; }
+        .front .img .imgBox{width: 95%; height: 92%; border: 1px solid #fff; margin: 2% auto; }
         .front .name{position: absolute; top: 5%; left: 5%; font-size: 5em; color: #fff;}
         .front .click{position: absolute; left: 4%; bottom: 5%; color: #fff; font-size: 2em;}
-        .front .txt{float: left; width: 30%; height: 100%; background: #fff; position: relative;}
-        .front .txt img{position: absolute; top: 4%; left: 84%; width: 40px; height: 40px;}
+/*        .front .txt{float: left; width: 30%; height: 100%; background: #fff; position: relative;}
+        .front .txt img{position: absolute; top: 4%; left: 84%; width: 40px; height: 40px;}*/
         
         .front .img{
-            position: relative; float: left; clear: both; width: 70%; height: 100%; background: linear-gradient(45deg, #feccb1 0%, #e8b75a 10%, #EDDD07 20%, #C7E006 30%, #7EE25F 40%, #49D1B5 50%, #49a2d1 60%, #C354FF 70%, #E256FF 80%, #FF6090 90%, #FF6063 100%);
+            position: relative; float: left; clear: both; width: 100%; height: 100%; background: linear-gradient(45deg, #feccb1 0%, #e8b75a 10%, #EDDD07 20%, #C7E006 30%, #7EE25F 40%, #49D1B5 50%, #49a2d1 60%, #C354FF 70%, #E256FF 80%, #FF6090 90%, #FF6063 100%);
             background-size: 600%; background-position: 0% 100%; animation: gradient 13s linear infinite;
         }
+        .front .toggle{width: 100px; height: 100px; position: absolute; top: 5%; right: 2%;}
+        .toggle span{display: block; width: 50px; height: 5px; background: #fff; margin-top: 15px;}
         /*45deg, #6fc7b5 0%, #13bdce 20%, #0094d9 40%, #5a3694 60%, #ee4d74 80%, #f58c58 100%);
             background-size: 600%; background-position: 0% 100%; animation: gradient 15s ease-in-out infinite*/
         
         
-        .front .txt .tit{position: absolute; top: 20%; left: calc(50% - 175px); font-size: 3.5em; width: 350px; text-align: center; color: #0061a3; font-weight: bold;}
+/*        .front .txt .tit{position: absolute; top: 20%; left: calc(50% - 175px); font-size: 3.5em; width: 350px; text-align: center; color: #0061a3; font-weight: bold;}
         .front .txt p{position: absolute; font-size: 2.5em; font-weight: bold; color: #666;}
         .front .txt .sub1{top: 40%; left: calc(50% - 65px);}
         .front .txt .sub2{top: 55%; left: calc(50% - 95px);}
-        .front .txt .sub3{top: 70%; left: calc(50% - 40px);}
+        .front .txt .sub3{top: 70%; left: calc(50% - 40px);}*/
         
         
         .back{transform: rotateY(180deg); transition: 3s; transform-origin: center 0%; z-index: 0; box-sizing: border-box; background: #fff;}
@@ -114,7 +117,8 @@
         .workFrame{width: 100%; height: 80%;}
         .workFrame ul{width: 1500px; height: 100%; margin: 0 auto;}
         .workFrame ul li{width: 25%; height: 100%; float: left;}
-        .workFrame .text h3{padding: 6%; text-indent: 5%; color: #444;}
+        .workFrame .text h3{padding: 6%; text-indent: 5%; color: #444; }
+        .workFrame .text p{width: 85%; height: auto; margin: 0 auto; text-align: justify; font-size: 0.9em; color: #000;}
         .workFrame .text .more{position: absolute; bottom: 5%; right: 10%; font-weight: bold; color: #444; width: 85px; height: 20px; z-index: 0;}
         .workFrame .text .more2{position: absolute; bottom: 5%; left: 15%;  font-weight: bold; color: #444; width: 85px; height: 20px; z-index: 0;}
         
@@ -122,32 +126,33 @@
         .workBox1 .img{width: 100%; height: 50%; overflow: hidden;}
         .workBox1 .img img{width: 100%; height: 100%; transition: 1s;}
         .workBox1 .text{width: 100%; height: 50%; background: #fff;}
-        .workBox1:before{display: block; content: ""; width: 25px; height: 45px; background: #8CD790; ;position: absolute; top: -6%; left: -3%; transform: rotate(45deg); opacity: 0.8; z-index: 1;}
-        .workBox1:after{display: block; content: ""; width: 25px; height: 45px; background: #8CD790; ;position: absolute; bottom: -5%; right: -3%; transform: rotate(45deg); opacity: 0.8; z-index: 1;}
+        .workBox1:before{display: block; content: ""; width: 25px; height: 45px; background: #8CD790; ;position: absolute; top: -6%; left: -3%; transform: rotate(45deg); opacity: 0.7; z-index: 1;}
+        .workBox1:after{display: block; content: ""; width: 25px; height: 45px; background: #8CD790; ;position: absolute; bottom: -5%; right: -3%; transform: rotate(45deg); opacity: 0.7; z-index: 1;}
         .workBox1:hover.workBox1 .img img{transform: scale(1.1); transition: 1s;}
-        .workBox1 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #9abdff; z-index: -1; transition: 1s;}
+        .workBox1 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #ffc2c2; z-index: -1; transition: 1s;}
         .workBox1:hover.workBox1 .text .more:before{width: 95px; transition: 1s;}
 
         
         .workBox2{width: 300px; height: 380px; background: #fff; margin-top: 20%; position: relative; box-shadow: 3px 1px 10px 0px #ccc; transform: rotateZ(1deg);}
         .workBox2 .img{width: 100%; height: auto; overflow: hidden;}
         .workBox2 .img img{width: 100%; height: auto; transition: 1s;}
-        .workBox2 .txt{width: 100%; height: 50%; background: #fff;}
-        .workBox2:before{display: block; content: ""; width: 35px; height: 50px; background: #FDD692; ;position: absolute; top: -9%; left: 45%; transform: rotate(-5deg); opacity: 0.8; z-index: 1;}
+        .workBox2 .text{width: 100%; height: 50%; background: #fff;}
+        .workBox2:before{display: block; content: ""; width: 35px; height: 50px; background: #FDD692; ;position: absolute; top: -9%; left: 45%; transform: rotate(-5deg); opacity: 0.7; z-index: 1;}
         .workBox2:hover.workBox2 .img img{transform: scale(1.1); transition: 1s;}
         .workBox2 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #ffd963; z-index: -1; transition: 1s;}
-        .workBox2:hover.workBox2 .text .more:before{width: 95px; transition: 1s;}
-        
+        .workBox2 .text .more2:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #e2b4ff; z-index: -1; transition: 1s;}
+        .workBox2:hover.workBox2 .text .more:before{width: 87px; transition: 1s;}
+        .workBox2:hover.workBox2 .text .more2:before{width: 95px; transition: 1s;}
         
         .workBox3{width: 300px; height: 380px; background: #fff; margin-top: -10%; position: relative; box-shadow: 3px 1px 10px 0px #ccc;transform: rotateZ(-1deg);}
         .workBox3 .img{width: 100%; height: auto; overflow: hidden}
         .workBox3 .img img{width: 100%; height: auto; transition: 1s;}
-        .workBox3 .txt{width: 100%; height: 50%; background: #fff;}
-        .workBox3:before{display: block; content: ""; width: 25px; height: 45px; background: #e85a71; ;position: absolute; top: -6%; left: 5%; transform: rotate(10deg); opacity: 0.8; z-index: 1;}
-        .workBox3:after{display: block; content: ""; width: 25px; height: 45px; background: #e85a71; ;position: absolute; top: -5%; right: 2%; transform: rotate(3deg); opacity: 0.8; z-index: 1;}
+        .workBox3 .text{width: 100%; height: 50%; background: #fff;}
+        .workBox3 .text h3 {padding: 6% 0;}
+        .workBox3:before{display: block; content: ""; width: 25px; height: 45px; background: #e85a71; ;position: absolute; top: -6%; left: 5%; transform: rotate(10deg); opacity: 0.7; z-index: 1;}
+        .workBox3:after{display: block; content: ""; width: 25px; height: 45px; background: #e85a71; ;position: absolute; top: -5%; right: 2%; transform: rotate(3deg); opacity: 0.7; z-index: 1;}
         .workBox3:hover.workBox3 .img img{transform: scale(1.1); transition: 1s;}
         .workBox3 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #9abdff; z-index: -1; transition: 1s;}
-        .workBox3:hover.workBox3 .text .more:before{width: 87px; transition: 1s;}
         .workBox3 .text .more2:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #ffb4b4; z-index: -1; transition: 1s;}
         .workBox3:hover.workBox3 .text .more:before{width: 87px; transition: 1s;}
         .workBox3:hover.workBox3 .text .more2:before{width: 95px; transition: 1s;}
@@ -155,9 +160,9 @@
         .workBox4{width: 300px; height: 380px; background: #fff; margin-top: 10%; position: relative; box-shadow: 3px 1px 10px 0px #ccc;transform: rotateZ(1deg);}
         .workBox4 .img{width: 100%; height: auto; overflow: hidden;}
         .workBox4 .img img{width: 100%; height: auto; transition: 1s;}
-        .workBox4 .txt{width: 100%; height: 50%; background: #fff;}
-        .workBox4:before{display: block; content: ""; width: 25px; height: 45px; background: #8EC0E4; ;position: absolute; top: -6%; right: -3%; transform: rotate(-45deg); opacity: 0.8; z-index: 1;}
-        .workBox4:after{display: block; content: ""; width: 20px; height: 80px; background: #8EC0E4; ;position: absolute; bottom: -7%; left: 0%; transform: rotate(-45deg); opacity: 0.8; z-index: 1;}
+        .workBox4 .text{width: 100%; height: 50%; background: #fff;}
+        .workBox4:before{display: block; content: ""; width: 25px; height: 45px; background: #8EC0E4; ;position: absolute; top: -6%; right: -3%; transform: rotate(-45deg); opacity: 0.7; z-index: 1;}
+        .workBox4:after{display: block; content: ""; width: 20px; height: 80px; background: #8EC0E4; ;position: absolute; bottom: -7%; left: 0%; transform: rotate(-45deg); opacity: 0.7; z-index: 1;}
         .workBox4:hover.workBox4 .img img{transform: scale(1.1); transition: 1s;}
         .workBox4 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #9abdff; z-index: -1; transition: 1s;}
         .workBox4:hover.workBox4 .text .more:before{width: 95px; transition: 1s;}
@@ -165,9 +170,9 @@
         .workBox5{width: 300px; height: 380px; background: #fff; margin-top: 40%; position: relative; box-shadow: 3px 1px 10px 0px #ccc;transform: rotateZ(1deg);}
         .workBox5 .img{width: 100%; height: auto; overflow: hidden;}
         .workBox5 .img img{width: 100%; height: auto; transition: 1s;}
-        .workBox5 .txt{width: 100%; height: 50%; background: #fff;}
-        .workBox5:before{display: block; content: ""; width: 20px; height: 50px; background: #F7AA97; ;position: absolute; top: -6%; left: -2%; transform: rotate(40deg); opacity: 0.8; z-index: 1;}
-        .workBox5:after{display: block; content: ""; width: 15px; height: 40px; background: #F7AA97; ;position: absolute; bottom: -5%; right: -1%; transform: rotate(45deg); opacity: 0.8; z-index: 1;}
+        .workBox5 .text{width: 100%; height: 50%; background: #fff;}
+        .workBox5:before{display: block; content: ""; width: 20px; height: 50px; background: #F7AA97; ;position: absolute; top: -6%; left: -2%; transform: rotate(40deg); opacity: 0.7; z-index: 1;}
+        .workBox5:after{display: block; content: ""; width: 15px; height: 40px; background: #F7AA97; ;position: absolute; bottom: -5%; right: -1%; transform: rotate(45deg); opacity: 0.7; z-index: 1;}
         .workBox5:hover.workBox5 .img img{transform: scale(1.1); transition: 1s;}
         .workBox5 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #bdff9a; z-index: -1; transition: 1s;}
         .workBox5:hover.workBox5 .text .more:before{width: 95px; transition: 1s;}
@@ -231,10 +236,10 @@
         }
         /*45deg, #6fc7b5 0%, #13bdce 20%, #0094d9 40%, #5a3694 60%, #ee4d74 80%, #f58c58 100%);
             background-size: 600%; background-position: 0% 100%; animation: gradient 15s ease-in-out infinite*/
+            .front .toggle{display: none;}
         
-        
-        .front .txt .tit{position: absolute; top: 20%; left: calc(50% - 175px); font-size: 3.5em; width: 350px; text-align: center; color: #0061a3; font-weight: bold;}
-        .front .txt p{position: absolute; font-size: 2.5em; font-weight: bold; color: #666;}
+        .front .txt .tit{display: none;}
+        .front .txt p{display: none;}
         
             
         .back{transform: rotateY(180deg); transition: 3s; transform-origin: center 0%; z-index: 0; box-sizing: border-box; background: #fff;}
@@ -314,29 +319,30 @@
         .workBox1 .img{width: 100%; height: 50%; overflow: hidden;}
         .workBox1 .img img{width: 100%; height: 100%; transition: 1s;}
         .workBox1 .text{width: 100%; height: 50%; background: #fff;}
-        .workBox1:before{display: block; content: ""; width: 25px; height: 45px; background: #8CD790; ;position: absolute; top: -6%; left: -3%; transform: rotate(45deg); opacity: 0.8; z-index: 1;}
-        .workBox1:after{display: block; content: ""; width: 25px; height: 45px; background: #8CD790; ;position: absolute; bottom: -5%; right: -3%; transform: rotate(45deg); opacity: 0.8; z-index: 1;}
+        .workBox1:before{display: block; content: ""; width: 25px; height: 45px; background: #8CD790; ;position: absolute; top: -6%; left: -3%; transform: rotate(45deg); opacity: 0.7; z-index: 1;}
+        .workBox1:after{display: block; content: ""; width: 25px; height: 45px; background: #8CD790; ;position: absolute; bottom: -5%; right: -3%; transform: rotate(45deg); opacity: 0.7; z-index: 1;}
         .workBox1:hover.workBox1 .img img{transform: scale(1.1); transition: 1s;}
-        .workBox1 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #9abdff; z-index: -1; transition: 1s;}
+        .workBox1 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #ffc2c2; z-index: -1; transition: 1s;}
         .workBox1:hover.workBox1 .text .more:before{width: 95px; transition: 1s;}    
          
             
         .workBox2{width: 300px; height: 380px; background: #fff; margin-top: 0%; position: relative; box-shadow: 3px 1px 10px 0px #ccc; transform: rotateZ(1deg); margin: 0 auto;}
         .workBox2 .img{width: 100%; height: auto; overflow: hidden;}
         .workBox2 .img img{width: 100%; height: auto; transition: 1s;}
-        .workBox2 .txt{width: 100%; height: 50%; background: #fff;}
-        .workBox2:before{display: block; content: ""; width: 35px; height: 50px; background: #FDD692; ;position: absolute; top: -9%; left: 45%; transform: rotate(-5deg); opacity: 0.8; z-index: 1;}
+        .workBox2 .text{width: 100%; height: 50%; background: #fff;}
+        .workBox2:before{display: block; content: ""; width: 35px; height: 50px; background: #FDD692; ;position: absolute; top: -9%; left: 45%; transform: rotate(-5deg); opacity: 0.7; z-index: 1;}
         .workBox2:hover.workBox2 .img img{transform: scale(1.1); transition: 1s;}
         .workBox2 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #ffd963; z-index: -1; transition: 1s;}
-        .workBox2:hover.workBox2 .text .more:before{width: 95px; transition: 1s;}
-        
+        .workBox2 .text .more2:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #e2b4ff; z-index: -1; transition: 1s;}
+        .workBox2:hover.workBox2 .text .more:before{width: 87px; transition: 1s;}
+        .workBox2:hover.workBox2 .text .more2:before{width: 95px; transition: 1s;}
         
         .workBox3{width: 300px; height: 380px; background: #fff; margin-top: 0%; position: relative; box-shadow: 3px 1px 10px 0px #ccc;transform: rotateZ(-1deg); margin: 0 auto;}
         .workBox3 .img{width: 100%; height: auto; overflow: hidden}
         .workBox3 .img img{width: 100%; height: auto; transition: 1s;}
-        .workBox3 .txt{width: 100%; height: 50%; background: #fff;}
-        .workBox3:before{display: block; content: ""; width: 25px; height: 45px; background: #e85a71; ;position: absolute; top: -6%; left: 5%; transform: rotate(10deg); opacity: 0.8; z-index: 1;}
-        .workBox3:after{display: block; content: ""; width: 25px; height: 45px; background: #e85a71; ;position: absolute; top: -5%; right: 2%; transform: rotate(3deg); opacity: 0.8; z-index: 1;}
+        .workBox3 .text{width: 100%; height: 50%; background: #fff;}
+        .workBox3:before{display: block; content: ""; width: 25px; height: 45px; background: #e85a71; ;position: absolute; top: -6%; left: 5%; transform: rotate(10deg); opacity: 0.7; z-index: 1;}
+        .workBox3:after{display: block; content: ""; width: 25px; height: 45px; background: #e85a71; ;position: absolute; top: -5%; right: 2%; transform: rotate(3deg); opacity: 0.7; z-index: 1;}
         .workBox3:hover.workBox3 .img img{transform: scale(1.1); transition: 1s;}
         .workBox3 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #9abdff; z-index: -1; transition: 1s;}
         .workBox3:hover.workBox3 .text .more:before{width: 87px; transition: 1s;}
@@ -347,9 +353,9 @@
         .workBox4{width: 300px; height: 380px; background: #fff; margin-top: 0%; position: relative; box-shadow: 3px 1px 10px 0px #ccc;transform: rotateZ(1deg); margin: 0 auto;}
         .workBox4 .img{width: 100%; height: auto; overflow: hidden;}
         .workBox4 .img img{width: 100%; height: auto; transition: 1s;}
-        .workBox4 .txt{width: 100%; height: 50%; background: #fff;}
-        .workBox4:before{display: block; content: ""; width: 25px; height: 45px; background: #8EC0E4; ;position: absolute; top: -6%; right: -3%; transform: rotate(-45deg); opacity: 0.8; z-index: 1;}
-        .workBox4:after{display: block; content: ""; width: 20px; height: 80px; background: #8EC0E4; ;position: absolute; bottom: -7%; left: 0%; transform: rotate(-45deg); opacity: 0.8; z-index: 1;}
+        .workBox4 .text{width: 100%; height: 50%; background: #fff;}
+        .workBox4:before{display: block; content: ""; width: 25px; height: 45px; background: #8EC0E4; ;position: absolute; top: -6%; right: -3%; transform: rotate(-45deg); opacity: 0.7; z-index: 1;}
+        .workBox4:after{display: block; content: ""; width: 20px; height: 80px; background: #8EC0E4; ;position: absolute; bottom: -7%; left: 0%; transform: rotate(-45deg); opacity: 0.7; z-index: 1;}
         .workBox4:hover.workBox4 .img img{transform: scale(1.1); transition: 1s;}
         .workBox4 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #9abdff; z-index: -1; transition: 1s;}
         .workBox4:hover.workBox4 .text .more:before{width: 95px; transition: 1s;}
@@ -357,9 +363,9 @@
         .workBox5{width: 300px; height: 380px; background: #fff; margin-top: 0%; position: relative; box-shadow: 3px 1px 10px 0px #ccc;transform: rotateZ(1deg); margin: 0 auto;}
         .workBox5 .img{width: 100%; height: auto; overflow: hidden;}
         .workBox5 .img img{width: 100%; height: auto; transition: 1s;}
-        .workBox5 .txt{width: 100%; height: 50%; background: #fff;}
-        .workBox5:before{display: block; content: ""; width: 20px; height: 50px; background: #F7AA97; ;position: absolute; top: -6%; left: -2%; transform: rotate(40deg); opacity: 0.8; z-index: 1;}
-        .workBox5:after{display: block; content: ""; width: 15px; height: 40px; background: #F7AA97; ;position: absolute; bottom: -5%; right: -1%; transform: rotate(45deg); opacity: 0.8; z-index: 1;}
+        .workBox5 .text{width: 100%; height: 50%; background: #fff;}
+        .workBox5:before{display: block; content: ""; width: 20px; height: 50px; background: #F7AA97; ;position: absolute; top: -6%; left: -2%; transform: rotate(40deg); opacity: 0.7; z-index: 1;}
+        .workBox5:after{display: block; content: ""; width: 15px; height: 40px; background: #F7AA97; ;position: absolute; bottom: -5%; right: -1%; transform: rotate(45deg); opacity: 0.7; z-index: 1;}
         .workBox5:hover.workBox5 .img img{transform: scale(1.1); transition: 1s;}
         .workBox5 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #bdff9a; z-index: -1; transition: 1s;}
         .workBox5:hover.workBox5 .text .more:before{width: 95px; transition: 1s;}    
@@ -369,7 +375,7 @@
         #page4{width: 100%; height: 100%;}
         #page4 h1{margin: 0 auto; text-align: center; width: 300px; height: 200px; font-size: 3rem; padding-top: 250px; text-shadow: 1px 1px 5px #000; color: #fff;}
         #page4 h1:after{display: block; content: ""; width: 300px; height: 3px; background: #fff; margin: 0 auto; box-shadow: 1px 1px 3px #000;}
-        #page4 h2{font-size: 1.2rem; width: 280px; margin: 0 auto; text-align: justify; text-shadow: 1px 1px 2px #000; color: #fff;}    
+        #page4 h2{font-size: 1.2rem; width: 280px; margin: 0 auto; text-align: justify; text-shadow: 1px 1px 2px #000; color: #fff; background-color: #fffaf0}    
             
             
         } 
@@ -404,19 +410,19 @@
             background-size: 600%; background-position: 0% 100%; animation: gradient 15s ease-in-out infinite*/
         
         
-        .front .txt .tit{position: absolute; top: 20%; left: calc(50% - 175px); font-size: 3.5em; width: 350px; text-align: center; color: #0061a3; font-weight: bold;}
-        .front .txt p{position: absolute; font-size: 2.5em; font-weight: bold; color: #666;}
+        .front .txt .tit{display: none;}
+        .front .txt p{display: none;}
         
             
         .back{transform: rotateY(180deg); transition: 3s; transform-origin: center 0%; z-index: 0; box-sizing: border-box; background: #fff;}
         .back .backLine{width: 95%; height: 96%; border: 1px solid #ccc; margin: 2% auto;}
         .back .left{width: 100%; height: 50%; float: left;}
-        .left .ltBox{width: 100%; height: 50%; background: #fff; position: relative;}
+        .left .ltBox{width: 100%; height: 45%; background: #fff; position: relative;}
         .ltBox img{position: absolute; top: calc(50% - 75px);  left: calc(50% - 75px); width: 150px; height: 150px; border-radius: 50%;}
 /*
         .ltBox .pro2:hover {display: none;}
 */
-        .left .lbBox{width: 100%; height: 50%; background: #fff;}
+        .left .lbBox{width: 100%; height: 55%; background: #fff;}
         .left .lbBox h2{padding: 2%; color: #0061a3; font-size: 1.5em; text-indent: 0%; text-align: center; line-height: 2em;}
         .left .lbBox table{width: 50%; height: 70%; text-align: justify; margin: 0 auto;}
         .lbBox .tTit{width: 50%; color: #0061a3; font-weight: bold; font-size: 1em;}
@@ -485,42 +491,44 @@
         .workBox1 .img{width: 100%; height: 50%; overflow: hidden;}
         .workBox1 .img img{width: 100%; height: 100%; transition: 1s;}
         .workBox1 .text{width: 100%; height: 50%; background: #fff;}
-        .workBox1:before{display: block; content: ""; width: 25px; height: 45px; background: #8CD790; ;position: absolute; top: -6%; left: -3%; transform: rotate(45deg); opacity: 0.8; z-index: 1;}
-        .workBox1:after{display: block; content: ""; width: 25px; height: 45px; background: #8CD790; ;position: absolute; bottom: -5%; right: -3%; transform: rotate(45deg); opacity: 0.8; z-index: 1;}
+        .workBox1:before{display: block; content: ""; width: 25px; height: 45px; background: #8CD790; ;position: absolute; top: -6%; left: -3%; transform: rotate(45deg); opacity: 0.7; z-index: 1;}
+        .workBox1:after{display: block; content: ""; width: 25px; height: 45px; background: #8CD790; ;position: absolute; bottom: -5%; right: -3%; transform: rotate(45deg); opacity: 0.7; z-index: 1;}
         .workBox1:hover.workBox1 .img img{transform: scale(1.1); transition: 1s;}
-        .workBox1 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #9abdff; z-index: -1; transition: 1s;}
+        .workBox1 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #ffc2c2; z-index: -1; transition: 1s;}
         .workBox1:hover.workBox1 .text .more:before{width: 95px; transition: 1s;}    
          
             
         .workBox2{width: 300px; height: 380px; background: #fff; margin-top: 0%; position: relative; box-shadow: 3px 1px 10px 0px #ccc; transform: rotateZ(1deg); margin: 0 auto;}
         .workBox2 .img{width: 100%; height: auto; overflow: hidden;}
         .workBox2 .img img{width: 100%; height: auto; transition: 1s;}
-        .workBox2 .txt{width: 100%; height: 50%; background: #fff;}
-        .workBox2:before{display: block; content: ""; width: 35px; height: 50px; background: #FDD692; ;position: absolute; top: -9%; left: 45%; transform: rotate(-5deg); opacity: 0.8; z-index: 1;}
+        .workBox2 .text{width: 100%; height: 50%; background: #fff;}
+        .workBox2:before{display: block; content: ""; width: 35px; height: 50px; background: #FDD692; ;position: absolute; top: -9%; left: 45%; transform: rotate(-5deg); opacity: 0.7; z-index: 1;}
         .workBox2:hover.workBox2 .img img{transform: scale(1.1); transition: 1s;}
         .workBox2 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #ffd963; z-index: -1; transition: 1s;}
-        .workBox2:hover.workBox2 .text .more:before{width: 95px; transition: 1s;}
+        .workBox2 .text .more2:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #e2b4ff; z-index: -1; transition: 1s;}
+        .workBox2:hover.workBox2 .text .more:before{width: 87px; transition: 1s;}
+        .workBox2:hover.workBox2 .text .more2:before{width: 95px; transition: 1s;}
         
         
         .workBox3{width: 300px; height: 380px; background: #fff; margin-top: 0%; position: relative; box-shadow: 3px 1px 10px 0px #ccc;transform: rotateZ(-1deg); margin: 0 auto;}
         .workBox3 .img{width: 100%; height: auto; overflow: hidden}
         .workBox3 .img img{width: 100%; height: auto; transition: 1s;}
-        .workBox3 .txt{width: 100%; height: 50%; background: #fff;}
-        .workBox3:before{display: block; content: ""; width: 25px; height: 45px; background: #e85a71; ;position: absolute; top: -6%; left: 5%; transform: rotate(10deg); opacity: 0.8; z-index: 1;}
-        .workBox3:after{display: block; content: ""; width: 25px; height: 45px; background: #e85a71; ;position: absolute; top: -5%; right: 2%; transform: rotate(3deg); opacity: 0.8; z-index: 1;}
+        .workBox3 .text{width: 100%; height: 50%; background: #fff;}
+        .workBox3 .text h3{text-indent: 0;}
+        .workBox3:before{display: block; content: ""; width: 25px; height: 45px; background: #e85a71; ;position: absolute; top: -6%; left: 5%; transform: rotate(10deg); opacity: 0.7; z-index: 1;}
+        .workBox3:after{display: block; content: ""; width: 25px; height: 45px; background: #e85a71; ;position: absolute; top: -5%; right: 2%; transform: rotate(3deg); opacity: 0.7; z-index: 1;}
         .workBox3:hover.workBox3 .img img{transform: scale(1.1); transition: 1s;}
-        .workBox3 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #9abdff; z-index: -1; transition: 1s;}
+        .workBox3 .text .more:before{position: absolute; bottom: 0%; right: 10%; display: block; content: ""; width: 0px; height: 10px; background: #9abdff; z-index: -1; transition: 1s;}
         .workBox3:hover.workBox3 .text .more:before{width: 87px; transition: 1s;}
         .workBox3 .text .more2:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #ffb4b4; z-index: -1; transition: 1s;}
-        .workBox3:hover.workBox3 .text .more:before{width: 87px; transition: 1s;}
         .workBox3:hover.workBox3 .text .more2:before{width: 95px; transition: 1s;}
         
         .workBox4{width: 300px; height: 380px; background: #fff; margin-top: 0%; position: relative; box-shadow: 3px 1px 10px 0px #ccc;transform: rotateZ(1deg); margin: 0 auto;}
         .workBox4 .img{width: 100%; height: auto; overflow: hidden;}
         .workBox4 .img img{width: 100%; height: auto; transition: 1s;}
-        .workBox4 .txt{width: 100%; height: 50%; background: #fff;}
-        .workBox4:before{display: block; content: ""; width: 25px; height: 45px; background: #8EC0E4; ;position: absolute; top: -6%; right: -3%; transform: rotate(-45deg); opacity: 0.8; z-index: 1;}
-        .workBox4:after{display: block; content: ""; width: 20px; height: 80px; background: #8EC0E4; ;position: absolute; bottom: -7%; left: 0%; transform: rotate(-45deg); opacity: 0.8; z-index: 1;}
+        .workBox4 .text{width: 100%; height: 50%; background: #fff;}
+        .workBox4:before{display: block; content: ""; width: 25px; height: 45px; background: #8EC0E4; position: absolute; top: -6%; right: -3%; transform: rotate(-45deg); opacity: 0.7; z-index: 1;}
+        .workBox4:after{display: block; content: ""; width: 20px; height: 80px; background: #8EC0E4; position: absolute; bottom: -7%; left: 0%; transform: rotate(-45deg); opacity: 0.7; z-index: 1;}
         .workBox4:hover.workBox4 .img img{transform: scale(1.1); transition: 1s;}
         .workBox4 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #9abdff; z-index: -1; transition: 1s;}
         .workBox4:hover.workBox4 .text .more:before{width: 95px; transition: 1s;}
@@ -528,9 +536,9 @@
         .workBox5{width: 300px; height: 380px; background: #fff; margin-top: 0%; position: relative; box-shadow: 3px 1px 10px 0px #ccc;transform: rotateZ(1deg); margin: 0 auto;}
         .workBox5 .img{width: 100%; height: auto; overflow: hidden;}
         .workBox5 .img img{width: 100%; height: auto; transition: 1s;}
-        .workBox5 .txt{width: 100%; height: 50%; background: #fff;}
-        .workBox5:before{display: block; content: ""; width: 20px; height: 50px; background: #F7AA97; ;position: absolute; top: -6%; left: -2%; transform: rotate(40deg); opacity: 0.8; z-index: 1;}
-        .workBox5:after{display: block; content: ""; width: 15px; height: 40px; background: #F7AA97; ;position: absolute; bottom: -5%; right: -1%; transform: rotate(45deg); opacity: 0.8; z-index: 1;}
+        .workBox5 .text{width: 100%; height: 50%; background: #fff;}
+        .workBox5:before{display: block; content: ""; width: 20px; height: 50px; background: #F7AA97; ;position: absolute; top: -6%; left: -2%; transform: rotate(40deg); opacity: 0.7; z-index: 1;}
+        .workBox5:after{display: block; content: ""; width: 15px; height: 40px; background: #F7AA97; ;position: absolute; bottom: -5%; right: -1%; transform: rotate(45deg); opacity: 0.7; z-index: 1;}
         .workBox5:hover.workBox5 .img img{transform: scale(1.1); transition: 1s;}
         .workBox5 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #bdff9a; z-index: -1; transition: 1s;}
         .workBox5:hover.workBox5 .text .more:before{width: 95px; transition: 1s;}    
@@ -554,6 +562,7 @@
         
     </style>
     <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="js/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
            $(".businessCard").click(function(){
@@ -681,13 +690,18 @@
                 <p class="click">Click</p>
                 </div>
             </div>
-            <div class="txt">
+            <div class="toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <!--<div class="txt">
                 <img src="images/close_blue.png" alt="">
                 <h2 class="tit">About me</h2>
                 <p class="sub1">Profile</p>
                 <p class="sub2">Education</p>
                 <p class="sub3">Skill</p>
-            </div>
+            </div>-->
         </div>
         <div class="businessCard back">
            <div class="backLine">
@@ -717,7 +731,7 @@
                         </tr>
                         <tr>
                             <td class="tTit">HOBBY</td>
-                            <td class="tTxt">영화감상,음악감상,<br>운동,PC게임</td>
+                            <td class="tTxt">영화감상, 음악감상,<br>운동, PC게임</td>
                         </tr>
                     </table>
                 </div>
@@ -836,8 +850,8 @@
                        </div>
                        <div class="text">
                            <h3>수자원공사</h3>
-                           <p></p>
-                           <a href="" class="more">Main Page</a>
+                           <p>사용자들이 쉽고 편리하게 이용 할 수 있도록 구현해 보았습니다.</p>
+                           <a href="https://okehdja.github.io/k-water/index.html" class="more">Main Page</a>
                        </div>
                    </div>
                </li>
@@ -847,8 +861,9 @@
                        </div>
                        <div class="text">
                            <h3>POLO</h3>
-                           <p></p>
-                           <a href="" class="more">Main Page</a>
+                           <p>의류 화보 사진들이 돋보이도록 풀 스크린 페이지로 구성하였습니다.</p>
+                           <a href="https://okehdja.github.io/polo/sub.html" class="more">Sub Page</a>
+                           <a href="https://okehdja.github.io/polo/index.html" class="more2">Main Page</a>
                        </div>
                    </div></li>
                <li><div class="workBox3">
@@ -856,10 +871,10 @@
                            <img src="images/KF_mockup.png" alt="">
                        </div>
                        <div class="text">
-                           <h3>KF패션디자인학교</h3>
-                           <p></p>
-                           <a href="" class="more">Sub Page</a>
-                           <a href="" class="more2">Main Page</a>
+                           <h3>KF국제패션디자인직업전문학교</h3>
+                           <p>재학생들과 학교에 관심이 있는 예비 학생들이 주로 찾아볼 만한 주제를 박스 형식으로 구성하였습니다.</p>
+                           <a href="https://okehdja.github.io/KF-fashion/sub.html" class="more">Sub Page</a>
+                           <a href="https://okehdja.github.io/KF-fashion/index.html" class="more2">Main Page</a>
                        </div>
                    </div>
                    <div class="workBox4">
@@ -868,19 +883,19 @@
                        </div>
                        <div class="text">
                            <h3>포스코 건설</h3>
-                           <p></p>
-                           <a href="" class="more">Main Page</a>
+                           <p>기업의 정보들을 쉽고 간편하게 파악할 수 있도록 구현해 보았습니다.</p>
+                           <a href="https://okehdja.github.io/Posco/index.html" class="more">Main Page</a>
                        </div>
                    </div></li>
                <li>
                    <div class="workBox5">
                        <div class="img">
-                           <img src="images/cb-hospital-mockup.png" alt="">
+                           <img src="images/cb-hospital_mockup.png" alt="">
                        </div>
                        <div class="text">
                            <h3>충북대학교병원</h3>
-                           <p></p>
-                           <a href="" class="more">Main Page</a>
+                           <p>연세가 많으신 분들도 편하게 보고 이용하실 수 있도록 박스형태와 큰 아이콘, 텍스트로 구성하였습니다.</p>
+                           <a href="https://okehdja.github.io/CB-hospital/index.html" class="more">Main Page</a>
                        </div>
                    </div>
                </li>
