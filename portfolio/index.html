@@ -29,7 +29,7 @@
         .businessCard{position: absolute; top: 0; left: 0; width: 1700px; height: 900px; box-shadow: 3px 1px 10px 0px #ccc; margin-left: 0.5%; transition: 3s; transform-origin: center 0%;}
         .front{opacity: 1; display: block; transform: rotateY(0deg); transition: 3s; transform-origin: center 0%; z-index: 1;}
         .front .img .imgBox{width: 95%; height: 92%; border: 1px solid #fff; margin: 2% auto; }
-        .front .name{position: absolute; top: 5%; left: 5%; font-size: 5em; color: #fff;}
+        .front .name{position: absolute; top: 5%; left: 5%; font-size: 7em; color: #fff;}
         .front .click{position: absolute; left: 4%; bottom: 5%; color: #fff; font-size: 2em;}
 /*        .front .txt{float: left; width: 30%; height: 100%; background: #fff; position: relative;}
         .front .txt img{position: absolute; top: 4%; left: 84%; width: 40px; height: 40px;}*/
@@ -38,8 +38,8 @@
             position: relative; float: left; clear: both; width: 100%; height: 100%; background: linear-gradient(45deg, #feccb1 0%, #e8b75a 10%, #EDDD07 20%, #C7E006 30%, #7EE25F 40%, #49D1B5 50%, #49a2d1 60%, #C354FF 70%, #E256FF 80%, #FF6090 90%, #FF6063 100%);
             background-size: 600%; background-position: 0% 100%; animation: gradient 13s linear infinite;
         }
-        .front .toggle{width: 100px; height: 100px; position: absolute; top: 5%; right: 2%;}
-        .toggle span{display: block; width: 50px; height: 5px; background: #fff; margin-top: 15px;}
+        .front .toggle{width: 100px; height: 100px; position: absolute; top: 5%; right: 3%;}
+        .toggle span{display: block; width: 80px; height: 10px; background: #fff; margin-top: 20px;}
         /*45deg, #6fc7b5 0%, #13bdce 20%, #0094d9 40%, #5a3694 60%, #ee4d74 80%, #f58c58 100%);
             background-size: 600%; background-position: 0% 100%; animation: gradient 15s ease-in-out infinite*/
         
@@ -117,7 +117,7 @@
         .workFrame{width: 100%; height: 80%;}
         .workFrame ul{width: 1500px; height: 100%; margin: 0 auto;}
         .workFrame ul li{width: 25%; height: 100%; float: left;}
-        .workFrame .text h3{padding: 6%; text-indent: 5%; color: #444; }
+        .workFrame .text h3{padding: 6%; text-indent: 5%; color: #444; font-size: 18px;}
         .workFrame .text p{width: 85%; height: auto; margin: 0 auto; text-align: justify; font-size: 0.9em; color: #000;}
         .workFrame .text .more{position: absolute; bottom: 5%; right: 10%; font-weight: bold; color: #444; width: 85px; height: 20px; z-index: 0;}
         .workFrame .text .more2{position: absolute; bottom: 5%; left: 15%;  font-weight: bold; color: #444; width: 85px; height: 20px; z-index: 0;}
@@ -133,10 +133,10 @@
         .workBox1:hover.workBox1 .text .more:before{width: 95px; transition: 1s;}
 
         
-        .workBox2{width: 300px; height: 380px; background: #fff; margin-top: 20%; position: relative; box-shadow: 3px 1px 10px 0px #ccc; transform: rotateZ(1deg);}
+        .workBox2{width: 300px; height: 400px; background: #fff; margin-top: 20%; position: relative; box-shadow: 3px 1px 10px 0px #ccc; transform: rotateZ(1deg);}
         .workBox2 .img{width: 100%; height: auto; overflow: hidden;}
-        .workBox2 .img img{width: 100%; height: auto; transition: 1s;}
-        .workBox2 .text{width: 100%; height: 50%; background: #fff;}
+        .workBox2 .img img{width: 100%; height: 100%; transition: 1s;}
+        .workBox2 .text{width: 100%; height: 40%; background: #fff;}
         .workBox2:before{display: block; content: ""; width: 35px; height: 50px; background: #FDD692; ;position: absolute; top: -9%; left: 45%; transform: rotate(-5deg); opacity: 0.7; z-index: 1;}
         .workBox2:hover.workBox2 .img img{transform: scale(1.1); transition: 1s;}
         .workBox2 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #ffd963; z-index: -1; transition: 1s;}
@@ -144,10 +144,10 @@
         .workBox2:hover.workBox2 .text .more:before{width: 87px; transition: 1s;}
         .workBox2:hover.workBox2 .text .more2:before{width: 95px; transition: 1s;}
         
-        .workBox3{width: 300px; height: 380px; background: #fff; margin-top: -10%; position: relative; box-shadow: 3px 1px 10px 0px #ccc;transform: rotateZ(-1deg);}
+        .workBox3{width: 300px; height: 400px; background: #fff; margin-top: -10%; position: relative; box-shadow: 3px 1px 10px 0px #ccc;transform: rotateZ(-1deg);}
         .workBox3 .img{width: 100%; height: auto; overflow: hidden}
         .workBox3 .img img{width: 100%; height: auto; transition: 1s;}
-        .workBox3 .text{width: 100%; height: 50%; background: #fff;}
+        .workBox3 .text{width: 100%; height: 40%; background: #fff;}
         .workBox3 .text h3 {padding: 6% 0;}
         .workBox3:before{display: block; content: ""; width: 25px; height: 45px; background: #e85a71; ;position: absolute; top: -6%; left: 5%; transform: rotate(10deg); opacity: 0.7; z-index: 1;}
         .workBox3:after{display: block; content: ""; width: 25px; height: 45px; background: #e85a71; ;position: absolute; top: -5%; right: 2%; transform: rotate(3deg); opacity: 0.7; z-index: 1;}
@@ -179,7 +179,7 @@
         
         /***** Page4 *****/
         #page4{width: 100%; height: 100%;}
-        #page4 h1{margin: 0 auto; text-align: center; width: 700px; height: 200px; font-size: 6rem; padding-top: 250px; text-shadow: 1px 1px 5px #000; color: #fff;}
+        #page4 h1{margin: 0 auto; text-align: center; width: 700px; height: 200px; font-size: 6rem; padding-top: calc(25% - 100px); text-shadow: 1px 1px 5px #000; color: #fff;}
         #page4 h1:after{display: block; content: ""; width: 450px; height: 3px; background: #fff; margin: 0 auto; box-shadow: 1px 1px 3px #000;}
         #page4 h2{font-size: 2rem; width: 460px; margin: 0 auto; text-align: justify; text-shadow: 1px 1px 2px #000; color: #fff;}
         
@@ -290,9 +290,7 @@
         #html .circle-body{background: #0061a3;}
         #js .circle-body{background: #0061a3;}
         
-        .chart-content{width: 60px; height: 45px; background: #fff; border-radius: 50%; position: absolute; left: calc(50% - 30px) ; top: 10px;; padding-top: 15px; text-align: center;}
-        
-        {padding-top: 0;}
+        .chart-content{width: 70px; height: 55px; background: #fff; border-radius: 50%; position: absolute; left: calc(50% - 35px) ; top: 5px; padding-top: 15px; text-align: center;}
         
         .chart-content p{color: #0061a3; font-size: 1vw; font-weight: bold;}
         .chart-content .text{position: relative; left: 5%; line-height: 1; color: #0061a3;}
@@ -311,7 +309,7 @@
         .workFrame ul{width: 100%; height: 100%; margin: 0 auto;}
         .workFrame ul li{width: 100%; height: 400px; float: left; margin-top: 15%;}
         .workFrame ul li:nth-of-type(3){height: 800px;}
-        .workFrame .text h3{padding: 6%; text-indent: 5%; color: #444;}
+        .workFrame .text h3{padding: 6%; text-indent: 5%; color: #444; font-size: 17px;}
         .workFrame .text .more{position: absolute; bottom: 5%; right: 10%; font-weight: bold; color: #444; width: 85px; height: 20px; z-index: 0;}
         .workFrame .text .more2{position: absolute; bottom: 5%; left: 15%;  font-weight: bold; color: #444; width: 85px; height: 20px; z-index: 0;}
         
@@ -329,7 +327,7 @@
         .workBox2{width: 300px; height: 380px; background: #fff; margin-top: 0%; position: relative; box-shadow: 3px 1px 10px 0px #ccc; transform: rotateZ(1deg); margin: 0 auto;}
         .workBox2 .img{width: 100%; height: auto; overflow: hidden;}
         .workBox2 .img img{width: 100%; height: auto; transition: 1s;}
-        .workBox2 .text{width: 100%; height: 50%; background: #fff;}
+        .workBox2 .text{width: 100%; height: 40%; background: #fff;}
         .workBox2:before{display: block; content: ""; width: 35px; height: 50px; background: #FDD692; ;position: absolute; top: -9%; left: 45%; transform: rotate(-5deg); opacity: 0.7; z-index: 1;}
         .workBox2:hover.workBox2 .img img{transform: scale(1.1); transition: 1s;}
         .workBox2 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #ffd963; z-index: -1; transition: 1s;}
@@ -337,10 +335,10 @@
         .workBox2:hover.workBox2 .text .more:before{width: 87px; transition: 1s;}
         .workBox2:hover.workBox2 .text .more2:before{width: 95px; transition: 1s;}
         
-        .workBox3{width: 300px; height: 380px; background: #fff; margin-top: 0%; position: relative; box-shadow: 3px 1px 10px 0px #ccc;transform: rotateZ(-1deg); margin: 0 auto;}
+        .workBox3{width: 300px; height: 400px; background: #fff; margin-top: 0%; position: relative; box-shadow: 3px 1px 10px 0px #ccc;transform: rotateZ(-1deg); margin: 0 auto;}
         .workBox3 .img{width: 100%; height: auto; overflow: hidden}
         .workBox3 .img img{width: 100%; height: auto; transition: 1s;}
-        .workBox3 .text{width: 100%; height: 50%; background: #fff;}
+        .workBox3 .text{width: 100%; height: 40%; background: #fff;}
         .workBox3:before{display: block; content: ""; width: 25px; height: 45px; background: #e85a71; ;position: absolute; top: -6%; left: 5%; transform: rotate(10deg); opacity: 0.7; z-index: 1;}
         .workBox3:after{display: block; content: ""; width: 25px; height: 45px; background: #e85a71; ;position: absolute; top: -5%; right: 2%; transform: rotate(3deg); opacity: 0.7; z-index: 1;}
         .workBox3:hover.workBox3 .img img{transform: scale(1.1); transition: 1s;}
@@ -388,7 +386,7 @@
             /****** Page1 ******/
         #page1{width: 100%; height: 100%;}
         .idcardFrame{width: 100%; height: 100%; margin: 0 auto;}
-        .idCard{width: 270px; height: auto; margin: 0 auto; transform-origin: center 0%; animation: ani1 10s ease-in-out infinite;}
+        .idCard{width: 350px; height: auto; margin: 0 auto; transform-origin: center 0%; animation: ani1 10s ease-in-out infinite;}
         .idCard img{width: 100%; height: 100%; margin-top: -7%;}
         .menu{display: none;}
         
@@ -398,8 +396,10 @@
         .businessCard{position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-shadow: 3px 1px 10px 0px #ccc; margin-left: 0%; transition: 3s; transform-origin: center 0%;}
         .front{opacity: 1; display: block; transform: rotateY(0deg); transition: 3s; transform-origin: center 0%; z-index: 1;}
         .front .img .imgBox{width: 95%; height: 97%; border: 1px solid #fff; margin: 2% auto; }
-        .front .name{position: absolute; top: 5%; left: 5%; font-size: 3.5em; color: #fff;}
-        .front .click{position: absolute; left: 4%; bottom: 2%; color: #fff; font-size: 1.5em;}
+        .front .name{position: absolute; top: 3%; left: 6%; font-size: 5em; color: #fff;}
+        .front .click{position: absolute; left: 6%; bottom: 2%; color: #fff; font-size: 3em;}
+        .front .toggle{right: 2%; top: 3%;}
+        .toggle span{display: block; width: 60px; height: 5px; background: #fff; margin-top: 15px;}
         .front .txt{display: none;}
         .front .txt img{display: none;}
         .front .img{
@@ -462,9 +462,7 @@
         #html .circle-body{background: #0061a3;}
         #js .circle-body{background: #0061a3;}
         
-        .chart-content{width: 60px; height: 45px; background: #fff; border-radius: 50%; position: absolute; left: calc(50% - 30px) ; top: 10px;; padding-top: 15px; text-align: center;}
-        
-        {padding-top: 0;}
+        .chart-content{width: 70px; height: 55px; background: #fff; border-radius: 50%; position: absolute; left: calc(50% - 35px) ; top: 5px; padding-top: 15px; text-align: center;}
         
         .chart-content p{color: #0061a3; font-size: 0.6em; font-weight: bold;}
         .chart-content .text{position: relative; left: 5%; line-height: 1; color: #0061a3;}
@@ -501,7 +499,7 @@
         .workBox2{width: 300px; height: 380px; background: #fff; margin-top: 0%; position: relative; box-shadow: 3px 1px 10px 0px #ccc; transform: rotateZ(1deg); margin: 0 auto;}
         .workBox2 .img{width: 100%; height: auto; overflow: hidden;}
         .workBox2 .img img{width: 100%; height: auto; transition: 1s;}
-        .workBox2 .text{width: 100%; height: 50%; background: #fff;}
+        .workBox2 .text{width: 100%; height: 40%; background: #fff;}
         .workBox2:before{display: block; content: ""; width: 35px; height: 50px; background: #FDD692; ;position: absolute; top: -9%; left: 45%; transform: rotate(-5deg); opacity: 0.7; z-index: 1;}
         .workBox2:hover.workBox2 .img img{transform: scale(1.1); transition: 1s;}
         .workBox2 .text .more:before{position: absolute; bottom: 0%; left: -10%; display: block; content: ""; width: 0px; height: 10px; background: #ffd963; z-index: -1; transition: 1s;}
@@ -510,11 +508,11 @@
         .workBox2:hover.workBox2 .text .more2:before{width: 95px; transition: 1s;}
         
         
-        .workBox3{width: 300px; height: 380px; background: #fff; margin-top: 0%; position: relative; box-shadow: 3px 1px 10px 0px #ccc;transform: rotateZ(-1deg); margin: 0 auto;}
+        .workBox3{width: 300px; height: 400px; background: #fff; margin-top: 0%; position: relative; box-shadow: 3px 1px 10px 0px #ccc;transform: rotateZ(-1deg); margin: 0 auto;}
         .workBox3 .img{width: 100%; height: auto; overflow: hidden}
         .workBox3 .img img{width: 100%; height: auto; transition: 1s;}
-        .workBox3 .text{width: 100%; height: 50%; background: #fff;}
-        .workBox3 .text h3{text-indent: 0;}
+        .workBox3 .text{width: 100%; height: 40%; background: #fff;}
+        .workBox3 .text h3{text-indent: 0; font-size: 17px;}
         .workBox3:before{display: block; content: ""; width: 25px; height: 45px; background: #e85a71; ;position: absolute; top: -6%; left: 5%; transform: rotate(10deg); opacity: 0.7; z-index: 1;}
         .workBox3:after{display: block; content: ""; width: 25px; height: 45px; background: #e85a71; ;position: absolute; top: -5%; right: 2%; transform: rotate(3deg); opacity: 0.7; z-index: 1;}
         .workBox3:hover.workBox3 .img img{transform: scale(1.1); transition: 1s;}
@@ -546,9 +544,9 @@
             
         /***** Page4 *****/
         #page4{width: 100%; height: 100%;}
-        #page4 h1{margin: 0 auto; text-align: center; width: 300px; height: 200px; font-size: 3rem; padding-top: 250px; text-shadow: 1px 1px 5px #000; color: #fff;}
-        #page4 h1:after{display: block; content: ""; width: 300px; height: 3px; background: #fff; margin: 0 auto; box-shadow: 1px 1px 3px #000;}
-        #page4 h2{font-size: 1.2rem; width: 280px; margin: 0 auto; text-align: justify; text-shadow: 1px 1px 2px #000; color: #fff;} 
+        #page4 h1{margin: 0 auto; text-align: center; width: 400px; height: 200px; font-size: 5rem; padding-top: 250px; text-shadow: 1px 1px 5px #000; color: #fff;}
+        #page4 h1:after{display: block; content: ""; width: 400px; height: 3px; background: #fff; margin: 0 auto; box-shadow: 1px 1px 3px #000;}
+        #page4 h2{font-size: 2rem; width: 450px; margin: 0 auto; text-align: justify; text-shadow: 1px 1px 2px #000; color: #fff;} 
             
             
             
