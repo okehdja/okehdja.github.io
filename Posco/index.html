@@ -8,7 +8,7 @@
 </head>
     <style>
         *{margin: 0; padding: 0;}
-        body,html{width: 100%; height: 100%; overflow-x: hidden;}
+        body,html{width: 100%; height: 100%; overflow-x: hidden; font-family: 'Noto Sans KR', sans-serif;}
         ul,li{list-style: none;}
         a{text-decoration: none;}
         button,label{outline: 0; background-color: none;}
@@ -48,14 +48,14 @@
         .slideMenu{width: 100%; height: auto; margin-top: 25%;}
         .slideMenu li{width: 100%; height: 60px; position: relative;}
         .slideMenu li > .dep1_m{display: block; color: #fff; font-size: 18px; line-height: 50px; text-indent: 15%; font-weight: 500; transition: 0.5s; }
-        .slideMenu li > .dep1_m:after{content: "▼"; position: absolute; right: 10%; transition: 0.5s;}
+        .slideMenu li > .dep1_m:after{content: "▼"; position: absolute; right: 10%; transition: 0.5s; width: 25px; height: auto;}
         .slideMenu li .sub_m{display: block; width: 100%; height: 0; margin: 0 auto; overflow: hidden; margin-top: 15px; padding-top: 20px;}
         .slideMenu li .sub_m a{display: block; color: #fff; font-weight: 500; padding-left: 15%; line-height: 40px;}
         .slideMenu li .sub_m li{width: 100%; height: 50px;}
         .slideMenu li .sub_m a:before{content: "－ "}
          
         .slideMenu li.on{height: auto; transition: 0.5s;}
-        .slideMenu li.on .dep1_m:after{transform: rotate(180deg); transform-origin: 65% 52%;}
+        .slideMenu li.on .dep1_m:after{transform: rotate(180deg); transform-origin: center center;}
         .slideMenu .item1.on .sub_m{height: 410px; background: #004167; transition: 0.5s; transition: 0.5s;}
         .slideMenu .item2.on .sub_m{height: 210px; background: #004167; transition: 0.5s;}
         .slideMenu .item3.on .sub_m{height: 310px; background: #004167; transition: 0.5s;}
@@ -229,7 +229,7 @@
         .con2 h2{display: none;}
         .con2 span{display: none;}
         .con2 .bsn{width: 100%; height: 300px; float: left; margin-top: 0%;}
-        .con2 .bsn ul{width: 100%; height: 100%; display: grid; grid-template-areas: none; overflow: hidden;}
+        .con2 .bsn ul{width: 100%; height: 100%; display: grid; grid-template-areas: 'box1 box2 box3' 'box4 box5 box6'; overflow: hidden;}
         .con2 .bsn ul li{position: relative; width: 33.3333%; height: 50%; box-sizing: border-box; overflow: hidden; transition: 1s;}
         .con2 .bsn ul li:hover img{transform: scale(none);}
         .con2 .bsn ul li:hover span{opacity: 0;}
