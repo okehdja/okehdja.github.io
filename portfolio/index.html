@@ -6,7 +6,7 @@
     <title>Portfolio</title>
     <link rel="shortcut icon" href="images/favicon.png">
     <style>
-        body,html{width: 100%; height: 100%; background-color: floralwhite;}
+        body,html{width: 100%; height: 100%; background-color: floralwhite; font-family: 'Noto Sans KR', sans-serif;}
         *{margin: 0; padding: 0;}
         ul{list-style: none;}
         a{text-decoration: none;}
@@ -29,8 +29,8 @@
         .businessCard{position: absolute; top: 0; left: 0; width: 1700px; height: 900px; box-shadow: 3px 1px 10px 0px #ccc; margin-left: 0.5%; transition: 3s; transform-origin: center 0%;}
         .front{opacity: 1; display: block; transform: rotateY(0deg); transition: 3s; transform-origin: center 0%; z-index: 1;}
         .front .img .imgBox{width: 95%; height: 92%; border: 1px solid #fff; margin: 2% auto; }
-        .front .name{position: absolute; top: 5%; left: 5%; font-size: 7em; color: #fff;}
-        .front .click{position: absolute; left: 4%; bottom: 5%; color: #fff; font-size: 2em;}
+        .front .name{position: absolute; top: 20%; left: calc(50% - 300px); font-size: 7em; color: #fff; width: 600px; text-align: center;}
+        .front .click{position: absolute; left: calc(50% - 35px); bottom: 7%; color: #fff; font-size: 2em; width: 70px;}
 /*        .front .txt{float: left; width: 30%; height: 100%; background: #fff; position: relative;}
         .front .txt img{position: absolute; top: 4%; left: 84%; width: 40px; height: 40px;}*/
         
@@ -38,8 +38,8 @@
             position: relative; float: left; clear: both; width: 100%; height: 100%; background: linear-gradient(45deg, #feccb1 0%, #e8b75a 10%, #EDDD07 20%, #C7E006 30%, #7EE25F 40%, #49D1B5 50%, #49a2d1 60%, #C354FF 70%, #E256FF 80%, #FF6090 90%, #FF6063 100%);
             background-size: 600%; background-position: 0% 100%; animation: gradient 13s linear infinite;
         }
-        .front .toggle{width: 100px; height: 100px; position: absolute; top: 5%; right: 3%;}
-        .toggle span{display: block; width: 80px; height: 10px; background: #fff; margin-top: 20px;}
+        .front .toggle{width: 70px; height: 70px; position: absolute; top: 6%; right: 5%;}
+        .toggle span{display: block; width: 60px; height: 7px; background: #fff; margin-top: 15px;}
         /*45deg, #6fc7b5 0%, #13bdce 20%, #0094d9 40%, #5a3694 60%, #ee4d74 80%, #f58c58 100%);
             background-size: 600%; background-position: 0% 100%; animation: gradient 15s ease-in-out infinite*/
         
@@ -55,10 +55,11 @@
         .back .backLine{width: 96%; height: 92%; border: 1px solid #ccc; margin: 2% auto;}
         .back .left{width: 40%; height: 100%; float: left;}
         .left .ltBox{width: 100%; height: 50%; background: #fff; position: relative;}
-        .ltBox img{position: absolute; top: calc(50% - 150px);  left: calc(50% - 150px); width: 300px; height: 300px; border-radius: 50%;}
-/*
-        .ltBox .pro2:hover {display: none;}
-*/
+        .ltCircle{position: relative; top: calc(50% - 150px);  left: calc(50% - 150px); width: 300px; height: 300px; border-radius: 50%; overflow: hidden;}
+        .ltBox .pro1{position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: none;}
+        .ltBox .pro2{position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
+        .ltCircle:hover .pro2{display: none;}
+        .ltCircle:hover .pro1{display: block;}
         .left .lbBox{width: 100%; height: 50%; background: #fff;}
         .left .lbBox h2{padding: 5%; color: #0061a3; font-size: 2.5em; text-indent: 10%;}
         .left .lbBox table{width: 70%; height: 250px;  margin: 0 auto;}
@@ -179,7 +180,7 @@
         
         /***** Page4 *****/
         #page4{width: 100%; height: 100%;}
-        #page4 h1{margin: 0 auto; text-align: center; width: 700px; height: 200px; font-size: 6rem; padding-top: calc(25% - 100px); text-shadow: 1px 1px 5px #000; color: #fff;}
+        #page4 h1{margin: 0 auto; text-align: center; width: 700px; height: 200px; font-size: 6rem; padding-top: calc(20% - 100px); text-shadow: 1px 1px 5px #000; color: #fff;}
         #page4 h1:after{display: block; content: ""; width: 450px; height: 3px; background: #fff; margin: 0 auto; box-shadow: 1px 1px 3px #000;}
         #page4 h2{font-size: 2rem; width: 460px; margin: 0 auto; text-align: justify; text-shadow: 1px 1px 2px #000; color: #fff;}
         
@@ -226,8 +227,8 @@
         .businessCard{position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-shadow: 3px 1px 10px 0px #ccc; margin-left: 0%; transition: 3s; transform-origin: center 0%;}
         .front{opacity: 1; display: block; transform: rotateY(0deg); transition: 3s; transform-origin: center 0%; z-index: 1;}
         .front .img .imgBox{width: 95%; height: 97%; border: 1px solid #fff; margin: 2.5% auto; }
-        .front .name{position: absolute; top: 5%; left: 5%; font-size: 3.5em; color: #fff;}
-        .front .click{position: absolute; left: 4%; bottom: 2%; color: #fff; font-size: 1.5em;}
+        .front .name{position: absolute; top: calc(50% - 110px); left: calc(50% - 150px); font-size: 3.5em; color: #fff;  width: 300px; height: 220px;}
+        .front .click{position: absolute; left: calc(50% - 25px); bottom: 5%; color: #fff; font-size: 1.5em; width: 50px;}
         .front .txt{display: none;}
         .front .txt img{display: none;}
         .front .img{
@@ -246,10 +247,12 @@
         .back .backLine{width: 95%; height: 98%; border: 1px solid #ccc; margin: 2% auto;}
         .back .left{width: 100%; height: 50%; float: left;}
         .left .ltBox{width: 100%; height: 50%; background: #fff; position: relative;}
-        .ltBox img{position: absolute; top: calc(50% - 75px);  left: calc(50% - 75px); width: 150px; height: 150px; border-radius: 50%;}
-/*
-        .ltBox .pro2:hover {display: none;}
-*/
+        .ltCircle{position: relative; top: calc(50% - 75px);  left: calc(50% - 75px); width: 150px; height: 150px; border-radius: 50%; overflow: hidden;}
+        .ltBox .pro1{position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: none;}
+        .ltBox .pro2{position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
+        .ltCircle:hover .pro2{display: none;}
+        .ltCircle:hover .pro1{display: block;}
+
         .left .lbBox{width: 100%; height: 50%; background: #fff;}
         .left .lbBox h2{padding: 2%; color: #0061a3; font-size: 1.2em; text-indent: 0%; text-align: center; line-height: 2em;}
         .left .lbBox table{width: 50%; height: 70%; text-align: justify; margin: 0 auto;}
@@ -396,10 +399,10 @@
         .businessCard{position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-shadow: 3px 1px 10px 0px #ccc; margin-left: 0%; transition: 3s; transform-origin: center 0%;}
         .front{opacity: 1; display: block; transform: rotateY(0deg); transition: 3s; transform-origin: center 0%; z-index: 1;}
         .front .img .imgBox{width: 95%; height: 97%; border: 1px solid #fff; margin: 2% auto; }
-        .front .name{position: absolute; top: 3%; left: 6%; font-size: 5em; color: #fff;}
-        .front .click{position: absolute; left: 6%; bottom: 2%; color: #fff; font-size: 3em;}
-        .front .toggle{right: 2%; top: 3%;}
-        .toggle span{display: block; width: 60px; height: 5px; background: #fff; margin-top: 15px;}
+        .front .name{position: absolute; top: calc(50% - 160px); left: calc(50% - 215px); font-size: 5em; color: #fff;  width: 430px; height: 320px;}
+        .front .click{position: absolute; left: calc(50% - 45px); bottom: 5%; color: #fff; font-size: 2.5em; width: 90px;}
+        .front .toggle{right: 4%; top: 3%;}
+        .toggle span{display: block; width: 50px; height: 5px; background: #fff; margin-top: 15px;}
         .front .txt{display: none;}
         .front .txt img{display: none;}
         .front .img{
@@ -418,9 +421,11 @@
         .back .backLine{width: 95%; height: 96%; border: 1px solid #ccc; margin: 2% auto;}
         .back .left{width: 100%; height: 50%; float: left;}
         .left .ltBox{width: 100%; height: 45%; background: #fff; position: relative;}
-        .ltBox img{position: absolute; top: calc(50% - 75px);  left: calc(50% - 75px); width: 150px; height: 150px; border-radius: 50%;}
-/*
-        .ltBox .pro2:hover {display: none;}
+        .ltCircle{position: relative; top: calc(50% - 75px);  left: calc(50% - 75px); width: 150px; height: 150px; border-radius: 50%; overflow: hidden;}
+        .ltBox .pro1{position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: none;}
+        .ltBox .pro2{position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
+        .ltCircle:hover .pro2{display: none;}
+        .ltCircle:hover .pro1{display: block;}
 */
         .left .lbBox{width: 100%; height: 55%; background: #fff;}
         .left .lbBox h2{padding: 2%; color: #0061a3; font-size: 1.5em; text-indent: 0%; text-align: center; line-height: 2em;}
@@ -546,7 +551,7 @@
         #page4{width: 100%; height: 100%;}
         #page4 h1{margin: 0 auto; text-align: center; width: 400px; height: 200px; font-size: 5rem; padding-top: 250px; text-shadow: 1px 1px 5px #000; color: #fff;}
         #page4 h1:after{display: block; content: ""; width: 400px; height: 3px; background: #fff; margin: 0 auto; box-shadow: 1px 1px 3px #000;}
-        #page4 h2{font-size: 2rem; width: 450px; margin: 0 auto; text-align: justify; text-shadow: 1px 1px 2px #000; color: #fff;} 
+        #page4 h2{font-size: 2rem; width: 460px; margin: 0 auto; text-align: justify; text-shadow: 1px 1px 2px #000; color: #fff;} 
             
             
             
@@ -591,11 +596,11 @@
                    $percentNumber.text(0);
                 
                 //각도 애니메이션
-                 $({percent:0}).delay(1000).animate({percent:percentdata},{//시간정의,프로그래스 정의
+                 $({percent:0}).delay(1000).animate({percent:percentdata},{
                      duration:4000,
                      progress:function(){
-                      var now =this.percent,//내 %가지고 와서 now에저장
-                        deg = now*360/100,//90*360/100
+                      var now =this.percent,
+                        deg = now*360/100,
                         degRight=Math.min(Math.max(deg,0),180),
                          degLeft=Math.min(Math.max(deg - 180,0),180);
                          $circleRight.css({transform:'rotate(' + degRight + 'deg)'});
@@ -625,24 +630,6 @@
 				return false;
 			});
      });
-    </script>
-    
-    
-    <script>
-      /*$(document).ready(function(){
-         $(window).scroll(function(){
-           var sct=$(window).scrollTop(); 
-        if(sct>=700){//500px이상 스크롤 실행시
-            $(".menu").css("position", "fixed");
-            $(".menu").not(":animated").slideDown(800);
-           }else if(sct>=100){//100px 미만 스크롤시 
-             $(".menu").css("display", "none");
-        }else{//초기페이지
-            $(".menu").css("position", "absolute");
-            $(".menu").not(":animated").slideDown(800);
-        }     
-         }); 
-      });   */
     </script>
     
     <script>
@@ -705,8 +692,10 @@
            <div class="backLine">
             <div class="left">
                 <div class="ltBox">
-                    <img src="" alt="" class="pro1">
-                    <img src="images/profileimg_il.png" alt="" class="pro2">
+                    <div class="ltCircle">
+                        <img src="images/profileimg.png" alt="" class="pro1">
+                        <img src="images/profileimg_il.png" alt="" class="pro2">
+                    </div>
                 </div>
                 <div class="lbBox">
                     <h2>Profile</h2>
@@ -739,16 +728,16 @@
                     <h2>Education</h2>
                     <table>
                         <tr>
-                            <td class="tTit">2011. 03 ~ 2015. 02</td>
-                            <td class="tTxt">대전과학기술대학교 도시환경조경학과 전공</td>
+                            <td class="tTit">2019. 07 ~ 2020. 01</td>
+                            <td class="tTxt">스마트기기 서비스를위한 디지털 UX/UI디자인 (반응형 웹 구현) 전문가 과정 수료</td>
                         </tr>
                         <tr>
                             <td class="tTit">2015. 02 ~ 2017. 09</td>
                             <td class="tTxt">청주대학교 도시환경조경학과 중퇴</td>
                         </tr>
                         <tr>
-                            <td class="tTit">2019. 07 ~ 2020. 01</td>
-                            <td class="tTxt">스마트기기 서비스를위한 디지털 UX/UI디자인 (반응형 웹 구현) 전문가 과정 수료</td>
+                            <td class="tTit">2011. 03 ~ 2015. 02</td>
+                            <td class="tTxt">대전과학기술대학교 도시환경조경학과 전공</td>
                         </tr>
                     </table>
                 </div>
@@ -849,7 +838,7 @@
                        <div class="text">
                            <h3>수자원공사</h3>
                            <p>사용자들이 쉽고 편리하게 이용 할 수 있도록 구현해 보았습니다.</p>
-                           <a href="https://okehdja.github.io/k-water/index.html" class="more">Main Page</a>
+                           <a href="https://okehdja.github.io/k-water" class="more">Main Page</a>
                        </div>
                    </div>
                </li>
