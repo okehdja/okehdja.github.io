@@ -544,23 +544,33 @@
 
     </style>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="js/jquery.bxslider.min.js"></script>
     <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+    
     <script>
      $(document).ready(function(){
-        $('.vsBox ul').bxSlider({
-            mode:'horizontal',
-            controls:false,
-            paper:true,
-            auto:'true',
-            speed:800,
-            infiniteLoop:'true',
-            slideMargin:100
-        });
+      $('.vsBox').each(function(){
+          var $slides=$(this).find('li');  
+          var $slideCount=$slides.length;  
+          var currentIndex=0;             
+
+          $slides.eq(currentIndex).fadeIn();  
+
+          setInterval(showNextSlide,7000);
+
+          function showNextSlide(){
+              var nextIndex=(currentIndex+1)%$slideCount
+              $slides.eq(currentIndex).fadeOut();
+              $slides.eq(nextIndex).fadeIn(); 
+              currentIndex=nextIndex;
+          };
+          
+      })
      });
-        
+
     </script>
-       <script>
+    
+      
+    <script>
     $(document).ready(function(){
     
          var index=0;
@@ -581,7 +591,7 @@
              return false;  
          });    
          setInterval(function(){
-             imgs.fadeOut(2000);
+             imgs.fadeOut();
              btns.removeClass('select');
              
            
@@ -590,7 +600,7 @@
                 }else{      
                 index=index+1
                 }
-             $(imgs[index]).fadeIn(2000);
+             $(imgs[index]).fadeIn();
              $(btns[index]).addClass('select')
          },5000)
          
