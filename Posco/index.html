@@ -8,7 +8,7 @@
 </head>
     <style>
         *{margin: 0; padding: 0;}
-        body,html{width: 100%; height: 100%; overflow-x: hidden;}
+        body,html{width: 100%; height: 100%; overflow-x: hidden; font-family: 'Noto Sans KR', sans-serif;}
         ul,li{list-style: none;}
         a{text-decoration: none;}
         button,label{outline: 0; background-color: none;}
@@ -48,14 +48,14 @@
         .slideMenu{width: 100%; height: auto; margin-top: 25%;}
         .slideMenu li{width: 100%; height: 60px; position: relative;}
         .slideMenu li > .dep1_m{display: block; color: #fff; font-size: 18px; line-height: 50px; text-indent: 15%; font-weight: 500; transition: 0.5s; }
-        .slideMenu li > .dep1_m:after{content: "▼"; position: absolute; right: 10%; transition: 0.5s;}
+        .slideMenu li > .dep1_m:after{content: "▼"; position: absolute; right: 10%; transition: 0.5s; }
         .slideMenu li .sub_m{display: block; width: 100%; height: 0; margin: 0 auto; overflow: hidden; margin-top: 15px; padding-top: 20px;}
         .slideMenu li .sub_m a{display: block; color: #fff; font-weight: 500; padding-left: 15%; line-height: 40px;}
         .slideMenu li .sub_m li{width: 100%; height: 50px;}
         .slideMenu li .sub_m a:before{content: "－ "}
          
         .slideMenu li.on{height: auto; transition: 0.5s;}
-        .slideMenu li.on .dep1_m:after{transform: rotate(180deg); transform-origin: 65% 52%;}
+        .slideMenu li.on .dep1_m:after{transform: rotateX(180deg); transform-origin: 65% 52%;}
         .slideMenu .item1.on .sub_m{height: 410px; background: #004167; transition: 0.5s; transition: 0.5s;}
         .slideMenu .item2.on .sub_m{height: 210px; background: #004167; transition: 0.5s;}
         .slideMenu .item3.on .sub_m{height: 310px; background: #004167; transition: 0.5s;}
@@ -229,16 +229,16 @@
         .con2 h2{display: none;}
         .con2 span{display: none;}
         .con2 .bsn{width: 100%; height: 300px; float: left; margin-top: 0%;}
-        .con2 .bsn ul{width: 100%; height: 100%; display: grid; grid-template-areas: none; overflow: hidden;}
+        .con2 .bsn ul{width: 100%; height: 100%; display: grid; grid-template-areas: 'box1 box2 box3' 'box4 box5 box6'; overflow: hidden;}
         .con2 .bsn ul li{position: relative; width: 33.3333%; height: 50%; box-sizing: border-box; overflow: hidden; transition: 1s;}
-        .con2 .bsn ul li:hover img{transform: scale(none);}
+        .con2 .bsn ul li:hover img{transform: scale(none); transition: 1s;}
         .con2 .bsn ul li:hover span{opacity: 0;}
-        .con2 .bsn ul .box1{grid-area: box1; width: 100%; height: auto;}
-        .con2 .bsn ul .box2{grid-area: box2; width: 100%; height: auto; /*margin-top: -10px;*/ margin-left: 0;}
-        .con2 .bsn ul .box3{grid-area: box3; width: 100%; height: auto; /*margin-top: -60px;*/ margin-left: 0;}
-        .con2 .bsn ul .box4{grid-area: box4; width: 100%; height: auto; margin-top: 0%;}
-        .con2 .bsn ul .box5{grid-area: box5; width: 100%; height: auto; margin-left: 0; overflow: hidden; margin-top: 0%}
-        .con2 .bsn ul .box6{grid-area: box6; width: 100%; height: auto; margin-top: 0%; margin-left: 0%;}
+        .con2 .bsn ul .box1{grid-area: box1; width: 100%; height: 100%;}
+        .con2 .bsn ul .box2{grid-area: box2; width: 100%; height: 100%; /*margin-top: -10px;*/ margin-left: 0;}
+        .con2 .bsn ul .box3{grid-area: box3; width: 100%; height: 100%; /*margin-top: -60px;*/ margin-left: 0;}
+        .con2 .bsn ul .box4{grid-area: box4; width: 100%; height: 100%; margin-top: 0%;}
+        .con2 .bsn ul .box5{grid-area: box5; width: 100%; height: 100%; margin-left: 0; overflow: hidden; margin-top: 0%}
+        .con2 .bsn ul .box6{grid-area: box6; width: 100%; height: 100%; margin-top: 0%; margin-left: 0%;}
         .con2 .bsn p{color: #fff; font-size: 14px; position: absolute; top: 0; left: 0; padding: 20% 10%; text-shadow: 2px 2px 3px #000; font-weight: bold;}
         .con2 .bsn span{display: none;}
         .con2 .bsn ul li img{ margin-top: -80%; filter: brightness(0.8);}
@@ -258,7 +258,7 @@
         .miniBox ul{width: 100%; height: 100%;}
         .miniBox ul li{width: 50%; height: 100%; float: left; margin-left: 0px; border: 0; box-sizing: border-box; position: relative;}
         .miniBox a h3{position: absolute; top: 0; left: 0; padding: 15% 10%; color: #fff; font-size: 18px; text-shadow: 2px 2px 3px #000; z-index: 1;}
-        .miniBox a p{display: none;}
+        .miniBox a p{width: 140px; font-size: 14px; left: calc(50% - 70px); bottom: 10%;}
         .miniBox a p:before{display: none;}
         .miniBox a img{position: absolute; left: 0; top: 0; z-index: 0; width: 100%; height: 100%; filter: brightness(0.8)}    
          
@@ -365,7 +365,7 @@
         .miniBox ul{width: 100%; height: 100%;}
         .miniBox ul li{width: 50%; height: 100%; float: left; margin-left: 0px; border: 0; box-sizing: border-box; position: relative;}
         .miniBox a h3{position: absolute; top: 0; left: 0; padding: 15% 10%; color: #fff; font-size: 18px; text-shadow: 2px 2px 3px #000; z-index: 1;}
-        .miniBox a p{display: none;}
+        .miniBox a p{width: 140px; font-size: 14px; left: calc(50% - 70px); bottom: 10%;}
         .miniBox a p:before{display: none;}
         .miniBox a img{position: absolute; left: 0; top: 0; z-index: 0; width: 100%; height: 100%; filter: brightness(0.8)}    
             
